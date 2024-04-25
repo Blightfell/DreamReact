@@ -1,0 +1,59 @@
+.header-mob h5 {
+    
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 22.95px;
+    text-align: center;
+    color: white;
+}
+
+.header-mob p {
+    
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16.2px;
+    color: #AEAEAE;
+}
+
+.desh-box h4 {
+    
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 27px;
+    color: white;
+}
+
+.desh-box p {
+    
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16.2px;
+    color: #AEAEAE;
+
+}
+
+.text-18-sm {
+    
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24.3px;
+    color: white;
+}
+
+.detail-box h5 {
+    
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18.9px;
+    color: white;
+    margin-bottom: 4px;
+
+}
+
+.detail-box p {
+    
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18.9px;
+    color: #AEAEAE;
+}

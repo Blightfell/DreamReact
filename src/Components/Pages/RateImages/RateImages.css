@@ -1,0 +1,109 @@
+.rateimages .image-container {
+    position: relative;
+    /* Allows positioning of the overlay */
+    display: inline-block;
+    /* Ensures proper hover area */
+}
+
+.rateimages .image-container img {
+    display: block;
+    /* Remove extra spacing from inline-block */
+    transition: all 0.3s ease;
+    /* Smooth transition for hover effect */
+}
+
+.rateimages .hover-overlay {
+    position: absolute;
+    /* Positioned relative to the container */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0);
+    /* Initially transparent */
+    display: flex;
+    /* Centers the icon */
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    /* Invisible initially */
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    /* Smooth transition */
+}
+
+.rateimages .image-container:hover img {
+    filter: blur(5px);
+    /* Blur the image on hover */
+    background: rgba(0, 0, 0, 0.5);
+    /* Add some transparency */
+}
+
+.rateimages .image-container:hover .hover-overlay {
+    background: rgba(0, 0, 0, 0.5);
+    /* Make the overlay black and semi-transparent */
+    opacity: 1;
+    /* Make the overlay visible */
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-100%);
+        /* Start above the visible area */
+    }
+
+    to {
+        transform: translateY(2%);
+        /* Move to its original position */
+    }
+}
+
+
+.popupbagde.show {
+    /* Slide down when shown */
+    animation: slideInDown 0.9s ease-in-out;
+    transform: translateY(0);
+    /* Ensure it stays in position after the animation */
+}
+
+.popupbagde {
+    position: absolute;
+    top: 80px;
+    right: 15.5%;
+    transform: translateY(-100%);
+    transition: transform 0.5s ease-in-out;
+    background-color: #107700;
+    width: 249px;
+    z-index: -99;
+    border-radius: 0px 0px 16px 16px;
+}
+
+.popupbagde h3 {
+    
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 24.3px;
+    color: white;
+    padding-bottom: 4px;
+}
+
+.popupbagde p {
+    
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18.9px;
+    color: white;
+
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Transparent black background */
+    z-index: 10;
+    /* Ensure it appears above other content */
+}

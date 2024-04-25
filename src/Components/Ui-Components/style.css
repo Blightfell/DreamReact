@@ -1,0 +1,103 @@
+/* animation bg  */
+
+/* Keyframes for drop animation (downward) */
+@keyframes drop-down {
+    0% {
+        transform: translateY(-100%);
+        opacity: 1;
+        /* Start from zero opacity */
+    }
+
+    50% {
+        transform: translateY(0);
+        /* Reaches original position */
+        opacity: 1;
+        /* Full opacity */
+    }
+
+    100% {
+        transform: translateY(-100%);
+        /* Continues downward */
+        opacity: 1;
+        /* Ends with zero opacity */
+    }
+}
+
+/* Keyframes for drop animation (upward) */
+@keyframes drop-up {
+    0% {
+        transform: translateY(-10%);
+        /* Start from below */
+        opacity: 1;
+        /* Start with zero opacity */
+    }
+
+    50% {
+        transform: translateY(0);
+        /* Reaches original position */
+        opacity: 1;
+        /* Full opacity */
+    }
+
+    100% {
+        transform: translateY(-100%);
+        /* Ends above */
+        opacity: 1;
+        /* Ends with zero opacity */
+    }
+}
+
+/* Base class for animations with infinite loop */
+.drop-animation {
+    /* animation-timing-function: linear; */
+    /* Smooth and continuous speed */
+    /* animation-iteration-count: infinite; */
+    /* Infinite loop */
+    animation: mymove 9s linear infinite;
+    transition: all 0.1s;
+    /* Transition speed on other property changes */
+}
+
+.drop-animation img {
+    margin-bottom: 16px;
+}
+
+/* Animation for the first and third elements (downward) */
+.drop-1,
+.drop-3 {
+    animation-name: drop-down;
+    /* Animation direction */
+    animation-duration: 70s;
+    /* Animation duration */
+}
+
+/* Animation for the second element (upward) */
+.drop-2 {
+    animation-name: drop-up;
+    /* Animation direction */
+    animation-duration: 30s;
+}
+
+/* No delays to ensure continuous loop */
+
+.drop-1 {
+    animation-delay: 4s;
+}
+
+.drop-2 {
+    animation-delay: 0.8s;
+}
+
+.drop-3 {
+    animation-delay: 0s;
+}
+
+.animation-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    height: 100vh;
+    background: #414545;
+}
+
+
