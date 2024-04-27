@@ -1,47 +1,37 @@
 .header-mob h5 {
-    
-    font-size: 17px;
-    font-weight: 700;
-    line-height: 22.95px;
-    text-align: center;
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 43.2px;
     color: white;
-}
-
-.header-mob p {
-    
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 16.2px;
-    color: #AEAEAE;
 }
 
 .desh-box h4 {
-    
-    font-size: 20px;
+    font-size: 32px;
     font-weight: 700;
-    line-height: 27px;
+    line-height: 43.2px;
     color: white;
 }
+
+
 
 .desh-box p {
-    
-    font-size: 12px;
+    font-size: 24px;
     font-weight: 400;
-    line-height: 16.2px;
+    line-height: 32.4px;
     color: #AEAEAE;
-
 }
 
+
 .text-18-sm {
-    
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 700;
-    line-height: 24.3px;
+    line-height: 32.4px;    
     color: white;
 }
 
+
 .detail-box h5 {
-    
+
     font-size: 14px;
     font-weight: 700;
     line-height: 18.9px;
@@ -51,9 +41,44 @@
 }
 
 .detail-box p {
-    
+
     font-size: 14px;
     font-weight: 400;
     line-height: 18.9px;
     color: #AEAEAE;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .header-mob h5 {
+        font-size: 17px;
+        font-weight: 700;
+        line-height: 22.95px;
+        text-align: center;
+    }
+
+    .header-mob p {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16.2px;
+        color: #AEAEAE;
+    }
+
+    .desh-box p {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16.2px;
+    }
+
+    .desh-box h4 {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 27px;
+    }
+    .text-18-sm {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 24.3px;
+    }
+
 }

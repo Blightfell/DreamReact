@@ -2,6 +2,7 @@ import { useState } from 'react';
 import "./LoginForm.css";
 import { Button } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
+import LogoIcon from '../Ui-Components/LogoIcon';
 
 const SignUp = () => {
     const [username, setUsername] = useState('');
@@ -34,8 +35,8 @@ const SignUp = () => {
                 <div className="grid grid-cols-1 md:grid-cols-12">
                     <div className="md:col-span-12 lg:col-span-6 xl:col-span-8">
                         <div className="flex flex-col justify-between h-full">
-                            <div className='sm-hidden md:block lg:block'>
-                                <img className="logo pt-2" src="Assets/Images/Logo/AEON PROTOCOL.svg" alt="" />
+                            <div className='sm-hidden md:block lg:block pt-2'>
+                                <LogoIcon />
                             </div>
                             <div className="title-form sm-hidden md:block lg:block">
                                 <h3 className="font-black-48">Imagination Unbound</h3>

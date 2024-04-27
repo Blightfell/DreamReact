@@ -39,30 +39,33 @@ const Deshboard = () => {
     ];
     return (
         <>
-            <div className='mb-28'>
-                <header className="header-mob bg-[#2C2E2E] h-14 py-4 px-6">
+            <div className='mb-28 lg:container lg:mx-auto'>
+                <header className="header-mob lg:px-16 2xl:px-[100px] lg:bg-transparent bg-[#2C2E2E] h-14 py-4  px-6">
                     <h5>Dashboard</h5>
-                    <div className="float-right mt-[-23px]">
-                        {/* <img src="Assets/Images/All Icons/Group 85.svg" alt="" /> */}
+                    <div className="float-right mt-[-23px] lg:mt-[-34px]">
+                        <img src="Assets/Images/All Icons/Group 85.svg" alt="" />
                     </div>
                 </header>
                 <div className="container mx-auto">
-                    <div className="deshboard-content p-6">
-                        <div className="grid grid-cols-2 gap-4 desh-box">
+                    <div className="deshboard-content p-6 lg:px-16 2xl:px-[100px]">
+                        <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box">
                             {boxes.map((box, index) => (
-                                <div key={index} className="p-2 bg-[#2C2E2E] rounded-lg w-full">
-                                    <div className="flex items-center gap-2 mb-1">
-                                        <div className="rounded-md p-2 bg-[#222222]">
-                                            <img className='h-4' src={box.iconSrc} alt="" />
+                                <div key={index} className="p-2 lg:p-3 2xl:p-4 bg-[#2C2E2E] rounded-lg w-full">
+                                    <div className="flex items-center gap-2 lg:gap-3 2xl:gap-4 mb-1">
+                                        <div className="rounded-md p-2 lg:p-3 2xl:p-4 bg-[#222222]">
+                                            <img className='h-4 lg:h-8 2xl:h-10' src={box.iconSrc} alt="" />
                                         </div>
-                                        <h4>{box.value}</h4>
+                                        <div>
+                                            <p className="sm-hidden md:block">{box.text}</p>
+                                            <h4>{box.value}</h4>
+                                        </div>
                                     </div>
-                                    <p>{box.text}</p>
+                                    <p className="sm:block md:hidden">{box.text}</p>
                                 </div>
                             ))}
                         </div>
-                        <div className="chart-box rounded-lg bg-[#2C2E2E] mt-4 mb-8">
-                            <div className="border-[#414545] border-b p-4">
+                        <div className="chart-box rounded-lg bg-[#2C2E2E] mt-4 lg:mt-6 mb-8">
+                            <div className="border-[#414545] border-b p-4 lg:px-5">
                                 <h4 className="text-18-sm">
                                     Daily Points
                                 </h4>
@@ -71,20 +74,23 @@ const Deshboard = () => {
                                 <Chart />
                             </div>
                         </div>
-                        <h4 className="text-18-sm">
-                            Request History
-                        </h4>
-                        <div className="detail-box-container">
-                            {detailBoxes.map((details, index) => (
-                                <div key={index} className="detail-box p-4 bg-[#2C2E2E] rounded-lg grid grid-cols-2 gap-4 my-4">
-                                    {details.map((detail, detailIndex) => (
-                                        <div key={detailIndex} className="detail-item">
-                                            <h5>{detail.label}</h5>
-                                            <p>{detail.value}</p>
-                                        </div>
-                                    ))}
-                                </div>
-                            ))}
+
+                        <div className="sm:block md:hidden">
+                            <h4 className="text-18-sm">
+                                Request History
+                            </h4>
+                            <div className="detail-box-container">
+                                {detailBoxes.map((details, index) => (
+                                    <div key={index} className="detail-box p-4 bg-[#2C2E2E] rounded-lg grid grid-cols-2 gap-4 my-4">
+                                        {details.map((detail, detailIndex) => (
+                                            <div key={detailIndex} className="detail-item">
+                                                <h5>{detail.label}</h5>
+                                                <p>{detail.value}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>

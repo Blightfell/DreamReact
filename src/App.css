@@ -27,7 +27,7 @@
 }
 
 .para-18-500 {
-    
+
     font-size: 18px;
     color: #FFFFFF;
     font-weight: 500;
@@ -40,6 +40,11 @@
 
     .sm-hidden {
         display: none;
+    }
+
+    .chart-view p {
+        font-size: 12px;
+
     }
 }
 
@@ -60,8 +65,8 @@
 }
 
 .chart-view p {
-    
-    font-size: 12px;
+
+    font-size: 14px;
     font-weight: 400;
     line-height: 16.2px;
     color: #AEAEAE;

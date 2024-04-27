@@ -28,13 +28,13 @@ export default function BasicBars() {
                 width={350}
                     height={300}
                 />
-                <div className='flex items-center justify-center gap-6 '>
+                <div className='flex items-center justify-center gap-6 md:gap-10'>
                     <div className='flex items-center gap-2'>
-                        <img className='h-3' src="Assets/Images/All Icons/Rectangle 59.svg" alt="" />
+                        <img className='h-3 md:h-5' src="Assets/Images/All Icons/Rectangle 59.svg" alt="" />
                         <p>Waifu Points</p>
                     </div>
                     <div className='flex items-center gap-2'>
-                        <img className='h-3' src="Assets/Images/All Icons/Rectangle 58.svg" alt="" />
+                        <img className='h-3 md:h-5' src="Assets/Images/All Icons/Rectangle 58.svg" alt="" />
                         <p>Llama Points</p>
                     </div>
                 </div>
