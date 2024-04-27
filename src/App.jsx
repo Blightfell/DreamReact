@@ -23,7 +23,7 @@ function App() {
           </div>
           <div className="sm:w-full lg:w-[78%] bg-[#3B3F3F]">
             <Routes>
-              <Route exact path="/" element={< SplashScreen />} />
+              <Route exact path="/" element={<SplashScreen />} />
               <Route path="/signIn" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/ForgetPassword" element={<ForgetPassword />} />

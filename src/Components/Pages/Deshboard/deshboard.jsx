@@ -50,7 +50,7 @@ const Deshboard = () => {
                     <div className="deshboard-content p-6 lg:px-16 2xl:px-[100px]">
                         <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box">
                             {boxes.map((box, index) => (
-                                <div key={index} className="p-2 lg:p-3 2xl:p-4 bg-[#2C2E2E] rounded-lg w-full">
+                                <div key={index} className="p-2 lg:p-3 2xl:p-4 bg-[#2C2E2E] rounded-lg lg:rounded-xl 2xl:rounded-2xl w-full">
                                     <div className="flex items-center gap-2 lg:gap-3 2xl:gap-4 mb-1">
                                         <div className="rounded-md p-2 lg:p-3 2xl:p-4 bg-[#222222]">
                                             <img className='h-4 lg:h-8 2xl:h-10' src={box.iconSrc} alt="" />
@@ -64,7 +64,7 @@ const Deshboard = () => {
                                 </div>
                             ))}
                         </div>
-                        <div className="chart-box rounded-lg bg-[#2C2E2E] mt-4 lg:mt-6 mb-8">
+                        <div className="chart-box rounded-md lg:rounded-xl 2xl:rounded-2xl bg-[#2C2E2E] mt-4 lg:mt-6 mb-8">
                             <div className="border-[#414545] border-b p-4 lg:px-5">
                                 <h4 className="text-18-sm">
                                     Daily Points
@@ -74,14 +74,39 @@ const Deshboard = () => {
                                 <Chart />
                             </div>
                         </div>
-
+                        <div className="desktopTable rounded-md lg:rounded-xl 2xl:rounded-2xl  bg-[#2C2E2E]">
+                        <div className="border-[#414545] border-b p-4 lg:px-5">
+                                <h4 className="text-18-sm">
+                                Request History
+                                </h4>
+                            </div>
+                            <table className="table-fixed">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Model ID</th>
+                                        <th>Total Latency</th>
+                                        <th>Inference Latency</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>The Sliding</td>
+                                        <td>Malcolm Lockyer</td>
+                                        <td>1961</td>
+                                        <td>Malcolm Lockyer</td>
+                                        <td>1961</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                         <div className="sm:block md:hidden">
                             <h4 className="text-18-sm">
                                 Request History
                             </h4>
                             <div className="detail-box-container">
                                 {detailBoxes.map((details, index) => (
-                                    <div key={index} className="detail-box p-4 bg-[#2C2E2E] rounded-lg grid grid-cols-2 gap-4 my-4">
+                                    <div key={index} className="detail-box p-4 bg-[#2C2E2E]  lg:rounded-xl 2xl:rounded-2xl grid grid-cols-2 gap-4 my-4">
                                         {details.map((detail, detailIndex) => (
                                             <div key={detailIndex} className="detail-item">
                                                 <h5>{detail.label}</h5>

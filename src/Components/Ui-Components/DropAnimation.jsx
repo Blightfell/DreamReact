@@ -1,7 +1,6 @@
 import Splash from "../Pages/SplashScreen/splash";
 import "./style.css";
 const DropAnimationExample = () => {
-    // Array of image source objects
     const imageSources = [
         {
             alt: "Image 2",
