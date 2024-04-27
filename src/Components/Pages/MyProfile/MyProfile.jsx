@@ -29,7 +29,7 @@ const MyProfile = () => {
                     <h5>@TonyStark</h5>
                     <div className="float-right mt-[-23px] flex gap-4">
                         <div>
-                            {/* <img src="Assets/Images/All Icons/Group 85.svg" alt="" /> */}
+                            {/* <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" /> */}
                         </div>
                         <Link to="/">
                             <img src="Assets/Images/All Icons/Group 177.svg" alt="" />

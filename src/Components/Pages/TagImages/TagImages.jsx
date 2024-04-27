@@ -31,7 +31,7 @@ const TagImages = () => {
                 <header className="header-mob bg-[#2C2E2E] h-14 py-4 px-6">
                     <h5>Images Tagged: 15</h5>
                     <div className="float-right mt-[-23px]">
-                        {/* <img src="Assets/Images/All Icons/Group 85.svg" alt="" /> */}
+                        {/* <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" /> */}
                     </div>
                 </header>
                 <div className="container mx-auto p-6">

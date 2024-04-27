@@ -29,7 +29,7 @@ const RateImages = () => {
                                 <p className='text-center pt-2'>More Ratings Unlock in 18h 37m</p>
                             </div>
                             <div className="float-right mt-[-47px]">
-                                {/* <img src="Assets/Images/All Icons/Group 85.svg" alt="" /> */}
+                                {/* <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" /> */}
                             </div>
                         </div>
                     </header>

@@ -25,7 +25,7 @@
 .text-18-sm {
     font-size: 24px;
     font-weight: 700;
-    line-height: 32.4px;    
+    line-height: 32.4px;
     color: white;
 }
 
@@ -48,6 +48,20 @@
     color: #AEAEAE;
 }
 
+.desktopTable th {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24.3px;
+    color: white;
+
+}
+
+.desktopTable td {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24.3px;
+    color: #AEAEAE;
+}
 
 @media only screen and (max-width: 600px) {
     .header-mob h5 {
@@ -75,6 +89,7 @@
         font-weight: 700;
         line-height: 27px;
     }
+
     .text-18-sm {
         font-size: 18px;
         font-weight: 700;
