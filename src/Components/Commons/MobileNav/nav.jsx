@@ -10,7 +10,7 @@ const Footer = () => {
     ];
 
     return (
-        <div className='fixed bottom-0 z-50 h-[84px] w-full bg-[#2C2E2E] sm:block lg:hidden'>
+        <div className='sm:block lg:hidden'>
             <nav>
                 <ul className='grid grid-cols-4 gap-4 justify-center mobile-nav'>
                     {footerItems.map((item, index) => (

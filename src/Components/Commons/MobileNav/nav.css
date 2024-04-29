@@ -5,10 +5,16 @@
         display: flex;
         align-items: center;
         padding: 14px 0;
+        bottom: 0;
+        z-index: 999;
+        height: 84px;
+        width: 100%;
+        position: fixed;
+        background: #2C2E2E;
     }
 
     .mobile-nav .nav-link {
-        
+
         font-size: 12px;
         font-weight: 500;
         line-height: 16.2px;
