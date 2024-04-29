@@ -23,12 +23,12 @@ const RateImages = () => {
         <>
             <div className='mb-10 relative'>
                 <nav className='h-[80px] lg:h-auto'>
-                    <header className="header-mob lg:relative  absolute top-0 w-full z-[999] lg:px-16 2xl:px-[100px] lg:bg-transparent bg-[#2C2E2E] h-14 py-4  px-6">
+                    <header className="header-mob lg:relative  absolute top-0 w-full z-[999] lg:px-16 2xl:px-[100px] lg:bg-transparent bg-[#2C2E2E]  py-4  px-6">
                         <div>
                             <h5>Rate Images</h5>
                             <p className='text-center sm:block lg:hidden pt-2'>More Ratings Unlock in 18h 37m</p>
                         </div>
-                        <div className="float-right mt-[-23px] lg:mt-[-34px]">
+                        <div className="float-right mt-[-35px]">
                             <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" />
                         </div>
                     </header>

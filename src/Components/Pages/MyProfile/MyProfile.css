@@ -1,6 +1,7 @@
 .tab-btn .tab-btn-font {
+    font-family: Satoshi-Regular !important;
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 500;
     line-height: 24.9px;
     border-radius: 20px !important;
 }
@@ -8,7 +9,6 @@
 @media only screen and (max-width: 600px) {
     .tab-btn .tab-btn-font {
         font-size: 14px;
-        font-weight: 700;
         line-height: 18.9px;
     }
 }
