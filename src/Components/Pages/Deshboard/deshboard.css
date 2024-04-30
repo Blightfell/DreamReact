@@ -41,7 +41,6 @@
 }
 
 .detail-box p {
-
     font-size: 14px;
     font-weight: 400;
     line-height: 18.9px;
@@ -63,10 +62,11 @@
     color: #AEAEAE;
 }
 
+/* 
 .chart-view svg {
-    width: 900px;
-    height: 370px;
-}
+    width: 900px !important;
+    height: 370px !important;
+} */
 
 @media only screen and (max-width: 600px) {
     .header-mob h5 {
@@ -101,4 +101,9 @@
         line-height: 24.3px;
     }
 
+    .chart-view-content>div {
+        width: 320px !important;
+        margin: 0 auto;
+        height: 370px !important;
+    }
 }

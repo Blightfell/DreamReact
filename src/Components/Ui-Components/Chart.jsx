@@ -1,7 +1,7 @@
 import { BarChart } from '@mui/x-charts/BarChart';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-// Create a custom theme to set the text color to white
+// Create a custom theme to set axis text color to white
 const theme = createTheme({
     components: {
         MuiChartAxis: {
@@ -14,31 +14,31 @@ const theme = createTheme({
     },
 });
 
-export default function BasicBars() {
-    // Define responsive widths and heights
-
+export default function ResponsiveBarChart() {
 
     return (
         <ThemeProvider theme={theme}> {/* Apply the custom theme */}
-            <div className="w-full chart-view flex flex-col items-center"> {/* Ensure full width */}
-                <div className="w-full md:w-1/2 lg:w-full"> {/* Responsive width */}
+            <div className="w-full chart-view"> {/* Ensure responsive layout */}
+                <div className="chart-view-content">
                     <BarChart
-                        xAxis={[{ scaleType: 'band', data: ['04/07/2024', '04/08/2024'] }]} // Ensure data aligns with the series
+                        xAxis={[{ scaleType: 'band', data: ['04/07/2024', '04/08/2024'] }]} // Data for the chart
                         series={[
                             { data: [500, 1500, 2000] },
                             { data: [150, 500, 0] },
                             { data: [0, 5] },
                         ]}
-                        margin={{ top: 30, bottom: 30, left: 900, right: 900 }}
+                        width={850} // Mobile width
+                        height={300} // Mobile height
+                        margin={{ top: 30, bottom: 30, left: 90, right: 40 }}
                     />
                 </div>
-                <div className='flex items-center justify-center gap-6 md:gap-10 mt-4'>
+                <div className='flex items-center justify-center gap-6 sm:gap-10 mt-4'> {/* Ensure responsive icon section */}
                     <div className='flex items-center gap-2'>
-                        <img className='h-3 md:h-5' src="Assets/Images/All Icons/Rectangle 59.svg" alt="Waifu Points" />
+                        <img className='h-3 sm:h-5' src="Assets/Images/All Icons/Rectangle 59.svg" alt="Waifu Points" />
                         <p>Waifu Points</p>
                     </div>
                     <div className='flex items-center gap-2'>
-                        <img className='h-3 md:h-5' src="Assets/Images/All Icons/Rectangle 58.svg" alt="Llama Points" />
+                        <img className='h-3 sm:h-5' src="Assets/Images/All Icons/Rectangle 58.svg" alt="Llama Points" />
                         <p>Llama Points</p>
                     </div>
                 </div>

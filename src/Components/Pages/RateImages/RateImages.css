@@ -29,6 +29,7 @@
     display: block;
     /* Remove extra spacing from inline-block */
     transition: all 0.3s ease;
+    cursor: pointer;
     /* Smooth transition for hover effect */
 }
 
@@ -56,6 +57,7 @@
     filter: blur(5px);
     /* Blur the image on hover */
     background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
     /* Add some transparency */
 }
 
