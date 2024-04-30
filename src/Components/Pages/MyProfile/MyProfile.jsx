@@ -25,8 +25,16 @@ const MyProfile = () => {
     return (
         <>
             <div className='mb-28'>
-                <header className="header-mob lg:px-16 2xl:px-[100px] lg:bg-transparent bg-[#2C2E2E] h-14 py-4  px-6">
-                    <h5>@TonyStark</h5>
+                <header className="header-mob lg:py-7 lg:px-16 2xl:px-[100px] lg:bg-transparent bg-[#2C2E2E] h-14 py-4  px-6">
+                    <h5 className='md:hidden'>@TonyStark</h5>
+                    <div className='sm-hidden md:block'>
+                        <div className='flex items-center gap-6 2xl:gap-8'>
+                            <h5>My Profile</h5>
+                            <div className='bg-[#2C2E2E] py-2 px-4 rounded-3xl username-label'>
+                                <h3>@Flook</h3>
+                            </div>
+                        </div>
+                    </div>
                     <div className="float-right mt-[-23px] lg:mt-[-34px] flex items-center gap-4">
                         <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" />
                         <Link className='sm-hidden' to="/MyProfile">
@@ -39,7 +47,7 @@ const MyProfile = () => {
                         </div>
                     </div>
                 </header>
-                <div className="container mx-auto p-6 lg:px-16 2xl:px-[100px]">
+                <div className="container mx-auto p-6 lg:px-16 2xl:px-[100px] lg:mt-9 ">
                     <div className="MyProfile-content">
                         <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box">
                             {boxes.map((box, index) => (

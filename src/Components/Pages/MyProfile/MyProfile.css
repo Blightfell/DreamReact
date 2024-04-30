@@ -6,6 +6,13 @@
     border-radius: 20px !important;
 }
 
+.username-label h3 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 27px;
+    color: white;
+}
+
 @media only screen and (max-width: 600px) {
     .tab-btn .tab-btn-font {
         font-size: 14px;

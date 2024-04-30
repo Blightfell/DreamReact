@@ -38,7 +38,7 @@ const TagImages = () => {
                     </div>
                 </header>
                 <div className="container mx-auto p-6 lg:px-16 2xl:px-[100px]">
-                    <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box ">
+                    <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box sm-hidden">
                         {boxes.map((box, index) => (
                             <div key={index} className="p-2 lg:p-3 2xl:p-4 bg-[#2C2E2E]  rounded-lg lg:rounded-xl 2xl:rounded-2xl w-full">
                                 <div className="flex items-center gap-2 lg:gap-3 2xl:gap-4 mb-1">
