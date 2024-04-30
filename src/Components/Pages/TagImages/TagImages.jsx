@@ -54,7 +54,7 @@ const TagImages = () => {
                             </div>
                         ))}
                     </div>
-                    <div className="TagImages-content grid grid-cols-12 gap-4 lg:gap-5 2xl:gap-6 lg:items-center">
+                    <div className="TagImages-content grid grid-cols-12 gap-4 lg:gap-5 2xl:gap-6 lg:items-center 2xl:items-start">
                         <div className="col-span-12 lg:col-span-8">
                             <h4 className="text-18-sm">Tag the image below</h4>
                             <div>

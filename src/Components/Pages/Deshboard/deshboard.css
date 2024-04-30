@@ -63,6 +63,11 @@
     color: #AEAEAE;
 }
 
+.chart-view svg {
+    width: 900px;
+    height: 370px;
+}
+
 @media only screen and (max-width: 600px) {
     .header-mob h5 {
         font-size: 17px;

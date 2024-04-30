@@ -16,16 +16,12 @@ const theme = createTheme({
 
 export default function BasicBars() {
     // Define responsive widths and heights
-    const chartDimensions = {
-        xs: { width: 360, height: 300 }, // Mobile (small screens)
-        sm: { width: 400, height: 320 }, // Tablets or larger mobile devices
-        lg: { width: 800, height: 470 }, // Larger screens and desktops
-    };
+
 
     return (
         <ThemeProvider theme={theme}> {/* Apply the custom theme */}
-            <div className="chart-view"> {/* Ensure full width */}
-                <div className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4"> {/* Responsive width */}
+            <div className="w-full chart-view flex flex-col items-center"> {/* Ensure full width */}
+                <div className="w-full md:w-1/2 lg:w-full"> {/* Responsive width */}
                     <BarChart
                         xAxis={[{ scaleType: 'band', data: ['04/07/2024', '04/08/2024'] }]} // Ensure data aligns with the series
                         series={[
@@ -33,9 +29,7 @@ export default function BasicBars() {
                             { data: [150, 500, 0] },
                             { data: [0, 5] },
                         ]}
-                        width={chartDimensions.xs.width} // Width for smaller screens
-                        height={chartDimensions.xs.height} // Height for smaller screens
-                        // margin={{ top: 30, bottom: 30, left: 100, right: 100 }}
+                        margin={{ top: 30, bottom: 30, left: 900, right: 900 }}
                     />
                 </div>
                 <div className='flex items-center justify-center gap-6 md:gap-10 mt-4'>
