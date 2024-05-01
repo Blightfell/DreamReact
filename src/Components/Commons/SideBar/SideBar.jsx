@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
 import LogoIcon from "../../Ui-Components/LogoIcon";
 import "./SideBar.css";
+import { Button } from "@material-tailwind/react";
 
 const SideBAr = () => {
   const navItems = [
     {
-      to: "/",
+      to: "/explore",
       iconSrc: "Assets/Images/All Icons/Group 28.svg",
       label: "Explore",
     },
@@ -48,24 +49,28 @@ const SideBAr = () => {
         <div className="border-b logo-sidebar border-[#2C2E2E] py-[38px] px-10">
           <LogoIcon />
         </div>
-        <ul className="sidebar-menu lg:py-8 2xl:py-10 2xl:px-6 lg:px-4">
+        <ul className="sidebar-menu lg:py-7 2xl:py-10 2xl:px-6 lg:px-3">
           {navItems.map((item, index) => (
             <li key={index} className="mb-4" >
-              <NavLink className="flex items-center gap-2 py-2 px-4" to={item.to}>
-                <img src={item.iconSrc} alt={`${item.label} Icon`} />
-                {item.label}
-              </NavLink>
+              <Button className="p-0 w-full rounded-3xl">
+                <NavLink className="flex items-center gap-2 py-2 px-4 w-full" to={item.to}>
+                  <img src={item.iconSrc} alt={`${item.label} Icon`} />
+                  {item.label}
+                </NavLink>
+              </Button>
             </li>
           ))}
         </ul>
         <div className="nav-bottom border-t border-[#2C2E2E]  mt-auto">
-          <ul className="sidebar-menu lg:py-8 2xl:py-10 2xl:px-6 lg:px-4">
+          <ul className="sidebar-menu lg:py-7 2xl:py-10 2xl:px-6 lg:px-3">
             {navItemsSupports.map((item, index) => (
               <li key={index} className="mb-4" >
-                <NavLink className="flex items-center gap-2 py-2 px-4" to={item.to}>
-                  <img src={item.iconSrc} alt={`${item.label} Icon`} />
-                  {item.label}
-                </NavLink>
+                <Button className="p-0 w-full rounded-3xl">
+                  <NavLink className="flex items-center gap-2 py-2 px-4" to={item.to}>
+                    <img src={item.iconSrc} alt={`${item.label} Icon`} />
+                    {item.label}
+                  </NavLink>
+                </Button>
               </li>
             ))}
           </ul>
