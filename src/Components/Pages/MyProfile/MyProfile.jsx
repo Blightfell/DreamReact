@@ -4,10 +4,36 @@ import Nav from "../../Commons/MobileNav/nav";
 import { Button } from '@material-tailwind/react';
 import { Link } from 'react-router-dom';
 import SideBAr from '../../Commons/SideBar/SideBar';
-
+const ImagePopup = ({ imageSrc, imageDetails, onClose }) => {
+    return (
+        <div className="popup-overlay" onClick={onClose}>
+            <div className="popup-content p-2 lg:p-3 2xl:p-4 bg-[#2C2E2E] rounded-lg lg:rounded-xl 2xl:rounded-2xl w-full " onClick={(e) => e.stopPropagation()}>
+                <img className="popup-image" src={imageSrc} alt="Popup" />
+                <p>{imageDetails}</p>
+                <Button className="popup-close" onClick={onClose}>
+                    Close
+                </Button>
+            </div>
+        </div>
+    );
+};
 const MyProfile = () => {
-
     const [activeTab, setActiveTab] = useState(0); // State to track which tab is active
+    const [popupVisible, setPopupVisible] = useState(false);
+    const [selectedImage, setSelectedImage] = useState(null);
+    const [imageDetails, setImageDetails] = useState('');
+
+    const openPopup = (imageSrc, details) => {
+        setSelectedImage(imageSrc);
+        setImageDetails(details);
+        setPopupVisible(true);
+    };
+
+    const closePopup = () => {
+        setPopupVisible(false);
+        setSelectedImage(null);
+        setImageDetails('');
+    };
 
     const boxes = [
         { iconSrc: "Assets/Images/All Icons/Group 64.svg", value: "100", text: "$Dream Earned" },
@@ -23,7 +49,7 @@ const MyProfile = () => {
         setActiveTab(index);
     };
 
-    return (    
+    return (
         <>
             <div className="flex justify-between">
                 <div className="md:w-0 2xl:w-[22%] md:w-[19%] sm-w-0 sm-hidden">
@@ -86,20 +112,63 @@ const MyProfile = () => {
                                     ))}
                                 </div>
 
-                                <div className="tab-content">
-                                    {activeTab === 0 && <div>
-                                        <img className='md:hidden' src="Assets/Images/MyProfile/Frame 6.png" alt="" />
-                                        <img className='sm-hidden lg:block' src="Assets/Images/MyProfile/Frame 5.png" alt="" />
-                                    </div>}
-                                    {activeTab === 1 && <div>
-                                        <img className='md:hidden' src="Assets/Images/MyProfile/Frame 6.png" alt="" />
-                                        <img className='sm-hidden lg:block' src="Assets/Images/MyProfile/Frame 5.png" alt="" />
+                                <div>
+                                    <div className="tab-content">
+                                        {activeTab === 0 && (
+                                            <div>
+                                                <img
+                                                    className="md:hidden"
+                                                    src="Assets/Images/MyProfile/Frame 6.png"
+                                                    alt="Frame 6"
+                                                    onClick={() => openPopup('Assets/Images/MyProfile/Frame 6.png', 'Details about Frame 6')}
+                                                />
+                                                <img
+                                                    className="sm-hidden lg:block"
+                                                    src="Assets/Images/MyProfile/Frame 5.png"
+                                                    alt="Frame 5"
+                                                    onClick={() => openPopup('Assets/Images/MyProfile/Frame 5.png', 'Details about Frame 5')}
+                                                />
+                                            </div>
+                                        )}
+                                        {activeTab === 1 && (
+                                            <div>
+                                                <img
+                                                    className="md:hidden"
+                                                    src="Assets/Images/MyProfile/Frame 6.png"
+                                                    alt="Frame 6"
+                                                    onClick={() => openPopup('Assets/Images/MyProfile/Frame 6.png', 'Details about Frame 6')}
+                                                />
+                                                <img
+                                                    className="sm-hidden lg:block"
+                                                    src="Assets/Images/MyProfile/Frame 5.png"
+                                                    alt="Frame 5"
+                                                    onClick={() => openPopup('Assets/Images/MyProfile/Frame 5.png', 'Details about Frame 5')}
+                                                />
+                                            </div>
+                                        )}
+                                        {activeTab === 2 && (
+                                            <div>
+                                                <img
+                                                    className="md:hidden"
+                                                    src="Assets/Images/MyProfile/Frame 6.png"
+                                                    alt="Frame 6"
+                                                    onClick={() => openPopup('Assets/Images/MyProfile/Frame 6.png', 'Details about Frame 6')}
+                                                />
+                                                <img
+                                                    className="sm-hidden lg:block"
+                                                    src="Assets/Images/MyProfile/Frame 5.png"
+                                                    alt="Frame 5"
+                                                    onClick={() => openPopup('Assets/Images/MyProfile/Frame 5.png', 'Details about Frame 5')} />
+                                            </div>
+                                        )}
                                     </div>
-                                    }
-                                    {activeTab === 2 && <div>
-                                        <img className='md:hidden' src="Assets/Images/MyProfile/Frame 6.png" alt="" />
-                                        <img className='sm-hidden lg:block' src="Assets/Images/MyProfile/Frame 5.png" alt="" />
-                                    </div>}
+                                    {popupVisible && (
+                                        <ImagePopup
+                                            imageSrc={selectedImage}
+                                            imageDetails={imageDetails}
+                                            onClose={closePopup}
+                                        />
+                                    )}
                                 </div>
                             </div>
                         </div>
