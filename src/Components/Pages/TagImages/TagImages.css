@@ -1,8 +1,12 @@
 .TagImages-content p {
-    
+
     font-size: 14px;
     font-style: italic;
     font-weight: 500;
     line-height: 18.9px;
     color: white;
+}
+
+.TagImages-content .popupbagde {
+    top: 57px !important;
 }

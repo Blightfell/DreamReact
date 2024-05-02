@@ -4,6 +4,9 @@ import Nav from "../../Commons/MobileNav/nav";
 import { Button } from '@material-tailwind/react';
 import SideBAr from '../../Commons/SideBar/SideBar';
 import CongurationPopup from '../../Ui-Components/CongurationPopup';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+
 
 const TagImages = () => {
     // Boxes information for the dashboard area
@@ -49,8 +52,8 @@ const TagImages = () => {
             setTimeout(() => {
                 setPopupVisible(false); // Hide the popup after 5 seconds
                 setClickCount((prevCount) => prevCount + 1); // Increment click count
-                setCurrentImage(images[clickCount + 1]); // Change to the next image
-            }, 5000);
+                setCurrentImage(images[clickCount]); // Change to the next image
+            }, 4000);
         } else {
             setAlertPopupVisible(true); // Show alert popup if limit is reached
         }
@@ -62,15 +65,17 @@ const TagImages = () => {
                 <div className="md:w-[19%] 2xl:w-[22%] sm-hidden">
                     <SideBAr />
                 </div>
-                <div className="md:w-full lg:w-[81%] 2xl:w-[78%] bg-[#3B3F3F] h-full sm-w-full">
-                    <div className="mb-28">
-                        <header className="header-mob lg:px-16 2xl:px-[100px] lg:bg-transparent bg-[#2C2E2E] h-14 py-4  px-6">
-                            <h5>Tag Images</h5>
-                            <div className="float-right mt-[-23px] lg:mt-[-34px]">
-                                <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" />
-                            </div>
-                        </header>
-                        <div className="container mx-auto p-6 lg:px-16 2xl:px-[100px]">
+                <div className="md:w-full lg:w-[81%] 2xl:w-[78%] bg-[#3B3F3F] h-full mb-11 sm-w-full">
+                    <div className='mb-10 relative'>
+                        <nav className='h-14 lg:h-auto'>
+                            <header className="header-mob lg:relative absolute top-0 w-full z-[999] lg:px-16 2xl:px-[100px] lg:bg-transparent bg-[#2C2E2E] py-4 px-6">
+                                <h5>Tag Images</h5>
+                                <div className="float-right mt-[-23px] lg:mt-[-34px]">
+                                    <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" />
+                                </div>
+                            </header>
+                        </nav>
+                        <div className="container mx-auto p-6 md:px-16 2xl:px-[100px]">
                             <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box sm-hidden">
                                 {boxes.map((box, index) => (
                                     <div key={index} className="p-2 lg:p-3 2xl:p-4 bg-[#2C2E2E] rounded-lg lg:rounded-xl 2xl:rounded-2xl w-full">
@@ -93,7 +98,7 @@ const TagImages = () => {
                                         <img className="w-full mt-4" src={currentImage} alt="Current Image" /> {/* Updated image */}
                                     </div>
                                 </div>
-                                <form onSubmit={handleSubmit} className="Form col-span-12 lg:col-span-4 lg:px-0 lg:bg-transparent lg:mt-7 mt-0">
+                                <form onSubmit={handleSubmit} className="Form col-span-12 lg:col-span-4 md:px-3 lg:px-0 lg:bg-transparent lg:mt-7 mt-0">
                                     <p className='mb-4'>Write 5 words you associate with this image. All lowercase, no symbols or spaces.</p>
                                     {tags.map((tag, index) => (
                                         <input
@@ -110,16 +115,24 @@ const TagImages = () => {
                                         Confirm
                                     </Button>
                                 </form>
-                                {popupVisible && ( /* Conditional rendering for the popup */
+                                {popupVisible && ( /* Congratulatory popup */
                                     <CongurationPopup />
                                 )}
-                                {alertPopupVisible && ( /* Alert popup after 5 image changes */
-                                    <div className="popup-overlay">
-                                        <div className="popup-alert rounded-3xl h-72 w-auto p-6 bg-slate-950 mx-auto">
-                                            <h3>Limit Reached</h3>
-                                            <p>You can only tag five times.</p>
-                                        </div>
-                                    </div>
+                                {alertPopupVisible && ( /* Alert popup if limit is reached */
+                                    <Dialog open={alertPopupVisible} onClose={() => setAlertPopupVisible(false)}>
+                                        <DialogContent className="text-center bg-[#2C2E2E] w-full">
+                                            <h2 className='text-red-800 text-4xl font-bold'>Limit Reached</h2>
+                                            <p className='text-white text-lg py-4'>You can only tag five times.</p>
+                                            <Button className='py-2'
+                                                onClick={() => setAlertPopupVisible(false)}
+                                                variant="contained"
+                                                style={{ backgroundColor: '#414545', color: '#fff', borderRadius: '20px', marginTop: '1rem' }}
+                                            >
+                                                Close
+                                            </Button>
+
+                                        </DialogContent>
+                                    </Dialog>
                                 )}
                             </div>
                         </div>

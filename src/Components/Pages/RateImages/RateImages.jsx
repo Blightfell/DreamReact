@@ -24,11 +24,11 @@ const RateImages = () => {
     return (
         <>
             <div className="flex justify-between">
-                <div className="md:w-0 2xl:w-[22%] md:w-[19%]">
+                <div className="2xl:w-[22%] md:w-[19%] sm-hidden">
                     <SideBAr />
                 </div>
                 <div className=" md:w-full lg:w-[81%] 2xl:w-[78%]  bg-[#3B3F3F] h-full sm-w-full">
-                    <div className='mb-10 relative'>
+                    <div className='mb-10'>
                         <nav className='h-[80px] lg:h-auto'>
                             <header className="header-mob lg:relative  absolute top-0 w-full z-[999] lg:px-16 2xl:px-[100px] lg:bg-transparent bg-[#2C2E2E]  py-4  px-6">
                                 <div>
@@ -40,7 +40,7 @@ const RateImages = () => {
                                 </div>
                             </header>
                         </nav>
-                        <div className="container mx-auto p-6 lg:px-16 2xl:px-[100px] rateimages-content">
+                        <div className="container mx-auto p-6 md:px-16 2xl:px-[100px] rateimages-content">
                             <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box">
                                 {boxes.map((box, index) => (
                                     <div key={index} className="p-2 lg:p-3 2xl:p-4 bg-[#2C2E2E] rounded-lg lg:rounded-xl 2xl:rounded-2xl w-full mini-desh-box">
@@ -49,7 +49,7 @@ const RateImages = () => {
                                                 <img className='h-4 lg:h-8 2xl:h-10' src={box.iconSrc} alt="" />
                                             </div>
                                             <div>
-                                                <p className="sm-hidden md:block">{box.text}</p>
+                                                <p className="xs-hidden md:block">{box.text}</p>
                                                 <h4>{box.value}</h4>
                                             </div>
                                         </div>
@@ -84,7 +84,7 @@ const RateImages = () => {
                                 </div>
 
                                 {showPopup && (
-                                    <CongurationPopup/>
+                                    <CongurationPopup />
                                 )}
                             </div>
                         </div>

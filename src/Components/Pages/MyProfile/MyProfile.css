@@ -13,13 +13,37 @@
     color: white;
 }
 
-@media only screen and (max-width: 600px) {
-    .tab-btn .tab-btn-font {
-        font-size: 14px;
-        line-height: 18.9px;
-    }
+.grid-img img {
+    height: 100%;
+    width: auto;
 }
 
 .tab-content img {
     width: 100%;
 }
+
+.popup-profile-text {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 25.2px;
+    color: white;
+}
+
+@media only screen and (max-width: 840px) {
+    .tab-btn .tab-btn-font {
+        font-size: 14px;
+        line-height: 18.9px;
+    }
+
+    .popup-profile-text {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 16.2px;
+        color: white;
+    }
+}
+
+
+
+
+@media only screen and (min-width: 1566px) {}

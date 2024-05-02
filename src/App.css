@@ -32,7 +32,7 @@
     font-weight: 500;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 840px) {
     body {
         background: #414545;
     }
@@ -54,7 +54,11 @@
 
     }
 }
-
+@media only screen and (max-width: 600px){
+    .xs-hidden {
+        display: none !important;
+    }
+}
 @media only screen and (min-width: 1566px) {
 
 

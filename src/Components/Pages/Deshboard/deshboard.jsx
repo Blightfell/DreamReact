@@ -46,7 +46,7 @@ const Deshboard = () => {
     return (
         <>
             <div className="flex justify-between">
-                <div className="md:w-0 2xl:w-[22%] md:w-[19%]">
+                <div className="2xl:w-[22%] md:w-[19%] sm-hidden">
                     <SideBAr />
                 </div>
                 <div className=" md:w-full lg:w-[81%] 2xl:w-[78%]  bg-[#3B3F3F] h-full sm-w-full">
@@ -57,7 +57,7 @@ const Deshboard = () => {
                                 <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" />
                             </div>
                         </header>
-                        <div className="container mx-auto p-6 lg:px-16 2xl:px-[100px]">
+                        <div className="container mx-auto p-6 md:px-16 2xl:px-[100px]">
                             <div className="deshboard-content ">
                                 <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box">
                                     {boxes.map((box, index) => (
@@ -67,7 +67,7 @@ const Deshboard = () => {
                                                     <img className='h-4 lg:h-8 2xl:h-10' src={box.iconSrc} alt="" />
                                                 </div>
                                                 <div>
-                                                    <p className="sm-hidden md:block">{box.text}</p>
+                                                    <p className="xs-hidden md:block">{box.text}</p>
                                                     <h4>{box.value}</h4>
                                                 </div>
                                             </div>
@@ -85,7 +85,7 @@ const Deshboard = () => {
                                         <Chart />
                                     </div>
                                 </div>
-                                <div className="desktopTable rounded-md lg:rounded-xl 2xl:rounded-2xl bg-[#2C2E2E] sm-hidden lg:block">
+                                <div className="desktopTable rounded-md lg:rounded-xl 2xl:rounded-2xl bg-[#2C2E2E] xs-hidden lg:block">
                                     <div className="border-[#414545] border-b p-4 lg:px-5">
                                         <h4 className="text-xl font-semibold text-white">
                                             Request History

@@ -130,7 +130,7 @@
     /* Ensure it appears above other content */
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 840px) {
     .rateimages {
         gap: 16px;
         flex-direction: column;
@@ -143,8 +143,7 @@
     .rateimages-content .desh-box .mini-desh-box:last-child {
         display: none;
     }
-
-    .popupbagde {
+ .popupbagde {
         top: 80px;
         right: 15.5%;
         width: 249px;
@@ -153,6 +152,7 @@
         height: 83px;
 
     }
+   
 
     .popupbagde h3 {
         font-size: 18px;
