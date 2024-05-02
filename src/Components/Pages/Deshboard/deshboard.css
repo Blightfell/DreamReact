@@ -1,12 +1,12 @@
 .header-mob h5 {
-    font-size: 32px;
+    font-size: 26px;
     font-weight: 900;
     line-height: 43.2px;
     color: white;
 }
 
 .desh-box h4 {
-    font-size: 32px;
+    font-size: 26px;
     font-weight: 700;
     line-height: 43.2px;
     color: white;
@@ -15,7 +15,7 @@
 
 
 .desh-box p {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: 400;
     line-height: 32.4px;
     color: #AEAEAE;
@@ -105,5 +105,19 @@
         width: 320px !important;
         margin: 0 auto;
         height: 370px !important;
+    }
+}
+
+@media only screen and (min-width: 1566px) {
+    .header-mob h5 {
+        font-size: 32px;
+    }
+
+    .desh-box h4 {
+        font-size: 32px;
+    }
+
+    .desh-box p {
+        font-size: 24px;
     }
 }

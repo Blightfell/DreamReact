@@ -44,9 +44,9 @@ const SideBAr = () => {
     },
   ];
   return (
-    <div>
-      <nav className="sidebar">
-        <div className="border-b logo-sidebar border-[#2C2E2E] py-[38px] px-10">
+    <div className="sm-hidden lg:block">
+      <nav className="sidebar ">
+        <div className="border-b logo-sidebar border-[#2C2E2E] h-20 2xl:h-24 flex justify-center items-center">
           <LogoIcon />
         </div>
         <ul className="sidebar-menu lg:py-7 2xl:py-10 2xl:px-6 lg:px-3">

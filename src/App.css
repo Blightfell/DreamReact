@@ -27,7 +27,6 @@
 }
 
 .para-18-500 {
-
     font-size: 18px;
     color: #FFFFFF;
     font-weight: 500;
@@ -42,6 +41,14 @@
         display: none !important;
     }
 
+    .sm-w-0 {
+        width: 0 !important;
+    }
+
+    .sm-w-full {
+        width: 100% !important;
+    }
+
     .chart-view p {
         font-size: 12px;
 
@@ -49,6 +56,8 @@
 }
 
 @media only screen and (min-width: 1566px) {
+
+
     .logo {
         max-width: 393px;
         height: auto;

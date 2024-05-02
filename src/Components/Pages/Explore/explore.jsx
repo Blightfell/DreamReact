@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./explore.css";
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import BreadCrum from './BreadCrum';
+import SideBAr from '../../Commons/SideBar/SideBar';
 
 const Explore = () => {
     const posts = [
@@ -76,87 +77,93 @@ const Explore = () => {
     const [activeTab, setActiveTab] = useState("tab1"); // Default tab
 
     return (
-        <div>
-            <BreadCrum/>
-            <div className="container mx-auto p-6 lg:px-16 2xl:px-[100px]">
-                <div className="generate-tab">
-                    {/* Tab Buttons */}
-                    <div className="flex generate-tab-btn justify-center my-6 border-b border-[#D2D2D2] md:w-[280px] 2xl:w-[360px]  mx-auto "> {/* Center the tabs */}
-                        <Button
-                            onClick={() => setActiveTab("tab1")}
-                            className={`${activeTab === "tab1" ? "active-btn-generate" : "shadow-none"}`}
-                        >
-                            Explore
-                        </Button>
-                        <Button
-                            onClick={() => setActiveTab("tab2")}
-                            className={`${activeTab === "tab2" ? "active-btn-generate" : "shadow-none"}`}
-                        >
-                            Top Rated
-                        </Button>
-                    </div>
+        <div className="flex justify-between">
+            <div className="md:w-0 2xl:w-[22%] md:w-[19%]">
+                <SideBAr />
+            </div>
+            <div className=" md:w-full lg:w-[81%] 2xl:w-[78%]  bg-[#3B3F3F] h-full sm-w-full">
+                <BreadCrum />
+                <div className="container mx-auto p-6 lg:px-16 2xl:px-[100px]">
+                    <div className="generate-tab">
+                        {/* Tab Buttons */}
+                        <div className="flex generate-tab-btn justify-center my-6 border-b border-[#D2D2D2] md:w-[280px] 2xl:w-[360px]  mx-auto "> {/* Center the tabs */}
+                            <Button
+                                onClick={() => setActiveTab("tab1")}
+                                className={`${activeTab === "tab1" ? "active-btn-generate" : "shadow-none"}`}
+                            >
+                                Explore
+                            </Button>
+                            <Button
+                                onClick={() => setActiveTab("tab2")}
+                                className={`${activeTab === "tab2" ? "active-btn-generate" : "shadow-none"}`}
+                            >
+                                Top Rated
+                            </Button>
+                        </div>
 
-                    {/* Tab Content */}
-                    <div className="tab-content">
-                        {activeTab === "tab1" && (
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 2xl:gap-6"> {/* Responsive grid layout */}
-                                {posts.map((post) => (
-                                    <div key={post.id} className="generate-box h-auto"> {/* Flexibility with height */}
-                                        <img className="w-full h-auto" src={post.image} alt={post.authorName} /> {/* Ensures proper scaling */}
-                                        <div className="mt-3 2xl:mt-4">
-                                            <div className="flex justify-between">
-                                                <div className="flex gap-3 2xl:gap-4 items-center">
-                                                    <img className="h-8 w-8 rounded-full" src={post.authorImage} alt={post.authorName} />
-                                                    <div>
-                                                        <h5>{post.authorName}</h5>
-                                                        <p>{post.timeAgo}</p>
+                        {/* Tab Content */}
+                        <div className="tab-content">
+                            {activeTab === "tab1" && (
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 2xl:gap-6"> {/* Responsive grid layout */}
+                                    {posts.map((post) => (
+                                        <div key={post.id} className="generate-box h-auto"> {/* Flexibility with height */}
+                                            <img className="w-full h-auto" src={post.image} alt={post.authorName} /> {/* Ensures proper scaling */}
+                                            <div className="mt-3 2xl:mt-4">
+                                                <div className="flex justify-between">
+                                                    <div className="flex gap-3 2xl:gap-4 items-center">
+                                                        <img className="h-8 w-8 rounded-full" src={post.authorImage} alt={post.authorName} />
+                                                        <div>
+                                                            <h5>{post.authorName}</h5>
+                                                            <p>{post.timeAgo}</p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div className="flex items-center gap-3 2xl:gap-4">
-                                                    <div className="flex items-center gap-2">
-                                                        <h6>{post.rating}</h6>
-                                                        <img src="Assets/Images/All Icons/Group 40.svg" alt="Rating Icon" />
+                                                    <div className="flex items-center gap-3 2xl:gap-4">
+                                                        <div className="flex items-center gap-2">
+                                                            <h6>{post.rating}</h6>
+                                                            <img src="Assets/Images/All Icons/Group 40.svg" alt="Rating Icon" />
+                                                        </div>
+                                                        <BsThreeDotsVertical className="text-white cursor-pointer" />
                                                     </div>
-                                                    <BsThreeDotsVertical className="text-white cursor-pointer" />
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                ))}
-                            </div>
+                                    ))}
+                                </div>
 
-                        )}
-                        {activeTab === "tab2" && (
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 2xl:gap-6"> {/* Responsive grid layout */}
-                                {posts.map((post) => (
-                                    <div key={post.id} className="generate-box h-auto"> {/* Flexibility with height */}
-                                        <img className="w-full h-auto" src={post.image} alt={post.authorName} /> {/* Ensures proper scaling */}
-                                        <div className="mt-3 2xl:mt-4">
-                                            <div className="flex justify-between">
-                                                <div className="flex gap-3 2xl:gap-4 items-center">
-                                                    <img className="h-8 w-8 rounded-full" src={post.authorImage} alt={post.authorName} />
-                                                    <div>
-                                                        <h5>{post.authorName}</h5>
-                                                        <p>{post.timeAgo}</p>
+                            )}
+                            {activeTab === "tab2" && (
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 2xl:gap-6"> {/* Responsive grid layout */}
+                                    {posts.map((post) => (
+                                        <div key={post.id} className="generate-box h-auto"> {/* Flexibility with height */}
+                                            <img className="w-full h-auto" src={post.image} alt={post.authorName} /> {/* Ensures proper scaling */}
+                                            <div className="mt-3 2xl:mt-4">
+                                                <div className="flex justify-between">
+                                                    <div className="flex gap-3 2xl:gap-4 items-center">
+                                                        <img className="h-8 w-8 rounded-full" src={post.authorImage} alt={post.authorName} />
+                                                        <div>
+                                                            <h5>{post.authorName}</h5>
+                                                            <p>{post.timeAgo}</p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div className="flex items-center gap-3 2xl:gap-4">
-                                                    <div className="flex items-center gap-2">
-                                                        <h6>{post.rating}</h6>
-                                                        <img src="Assets/Images/All Icons/Group 40.svg" alt="Rating Icon" />
+                                                    <div className="flex items-center gap-3 2xl:gap-4">
+                                                        <div className="flex items-center gap-2">
+                                                            <h6>{post.rating}</h6>
+                                                            <img src="Assets/Images/All Icons/Group 40.svg" alt="Rating Icon" />
+                                                        </div>
+                                                        <BsThreeDotsVertical className="text-white cursor-pointer" />
                                                     </div>
-                                                    <BsThreeDotsVertical className="text-white cursor-pointer" />
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                ))}
-                            </div>
-                        )}
+                                    ))}
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
     );
 };
 

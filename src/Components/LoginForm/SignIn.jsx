@@ -62,7 +62,7 @@ const SignIn = () => {
                 <p className='sm-font-16'>Or Login With</p>
                 <hr />
               </div>
-              <Link to="/deshboard">
+              <Link to="/Deshboard">
                 <Button className="sub-button flex gap-4 justify-center items-center mb-4">
                   <img src="Assets/Images/All Icons/Group 2.svg" alt="" /> Google
                 </Button>

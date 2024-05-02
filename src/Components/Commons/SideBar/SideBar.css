@@ -1,7 +1,7 @@
 .sidebar {
     height: 100vh;
     background: #404444;
-    width: 250px;
+    width: 19%;
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -66,8 +66,7 @@
 
 @media only screen and (min-width: 1566px) {
     .sidebar {
-        width: 300px;
-
+        width: 22%;
     }
 
     .logo-sidebar img {
