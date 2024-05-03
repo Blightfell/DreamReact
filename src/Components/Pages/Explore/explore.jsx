@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Button } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
 import "./explore.css";
 import { BsThreeDotsVertical } from 'react-icons/bs';
 import BreadCrum from './BreadCrum';
@@ -78,12 +77,12 @@ const Explore = () => {
 
     return (
         <div className="flex justify-between">
-            <div className="md:w-0 2xl:w-[22%] md:w-[19%]">
+            <div className="sm-hidden 2xl:w-[300px] md:w-[19%]">
                 <SideBAr />
             </div>
-            <div className=" md:w-full lg:w-[81%] 2xl:w-[78%]  bg-[#3B3F3F] h-full sm-w-full">
+            <div className=" md:w-full lg:w-[81%] 2xl:w-full   h-full sm-w-full">
                 <BreadCrum />
-                <div className="container mx-auto p-6 md:px-16 2xl:px-[100px]">
+                <div className=" p-6 md:px-16 2xl:px-[100px]">
                     <div className="generate-tab">
                         {/* Tab Buttons */}
                         <div className="flex generate-tab-btn justify-center my-6 border-b border-[#D2D2D2] md:w-[280px] 2xl:w-[360px]  mx-auto "> {/* Center the tabs */}
@@ -107,7 +106,7 @@ const Explore = () => {
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 2xl:gap-6"> {/* Responsive grid layout */}
                                     {posts.map((post) => (
                                         <div key={post.id} className="generate-box h-auto"> {/* Flexibility with height */}
-                                            <img className="w-full h-auto" src={post.image} alt={post.authorName} /> {/* Ensures proper scaling */}
+                                            <img className="explore-generate-img" src={post.image} alt={post.authorName} /> {/* Ensures proper scaling */}
                                             <div className="mt-3 2xl:mt-4">
                                                 <div className="flex justify-between">
                                                     <div className="flex gap-3 2xl:gap-4 items-center">
@@ -135,7 +134,7 @@ const Explore = () => {
                                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 2xl:gap-6"> {/* Responsive grid layout */}
                                     {posts.map((post) => (
                                         <div key={post.id} className="generate-box h-auto"> {/* Flexibility with height */}
-                                            <img className="w-full h-auto" src={post.image} alt={post.authorName} /> {/* Ensures proper scaling */}
+                                            <img className="explore-generate-img" src={post.image} alt={post.authorName} /> {/* Ensures proper scaling */}
                                             <div className="mt-3 2xl:mt-4">
                                                 <div className="flex justify-between">
                                                     <div className="flex gap-3 2xl:gap-4 items-center">

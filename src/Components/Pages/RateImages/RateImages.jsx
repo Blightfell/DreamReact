@@ -13,7 +13,7 @@ const RateImages = () => {
         setShowPopup(true);
         setTimeout(() => {
             setShowPopup(false);
-        }, 4000); // Hide the popup after 5 seconds
+        }, 2000); // Hide the popup after 5 seconds
     };
 
     const boxes = [
@@ -24,10 +24,10 @@ const RateImages = () => {
     return (
         <>
             <div className="flex justify-between">
-                <div className="2xl:w-[22%] md:w-[19%] sm-hidden">
+                <div className="2xl:w-[300px] md:w-[19%] sm-hidden">
                     <SideBAr />
                 </div>
-                <div className=" md:w-full lg:w-[81%] 2xl:w-[78%]  bg-[#3B3F3F] h-full sm-w-full">
+                <div className=" md:w-full lg:w-[81%] 2xl:w-full   h-full sm-w-full">
                     <div className='mb-10'>
                         <nav className='h-[80px] lg:h-auto'>
                             <header className="header-mob lg:relative  absolute top-0 w-full z-[999] lg:px-16 2xl:px-[100px] lg:bg-transparent bg-[#2C2E2E]  py-4  px-6">
@@ -36,11 +36,11 @@ const RateImages = () => {
                                     <p className='text-center sm:block lg:hidden pt-2'>More Ratings Unlock in 18h 37m</p>
                                 </div>
                                 <div className="float-right mt-[-35px]">
-                                    <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" />
+                                {/* <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" /> */}
                                 </div>
                             </header>
                         </nav>
-                        <div className="container mx-auto p-6 md:px-16 2xl:px-[100px] rateimages-content">
+                        <div className=" p-6 md:px-16 2xl:px-[100px] rateimages-content">
                             <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box">
                                 {boxes.map((box, index) => (
                                     <div key={index} className="p-2 lg:p-3 2xl:p-4 bg-[#2C2E2E] rounded-lg lg:rounded-xl 2xl:rounded-2xl w-full mini-desh-box">
@@ -57,12 +57,12 @@ const RateImages = () => {
                                     </div>
                                 ))}
                             </div>
-                            <h4 className="text-18-sm my-4">
+                            <h4 className="text-18-sm my-4 2xl:my-10">
                                 Select the Image you prefer
                             </h4>
                             {/* <RateImagesPopup /> */}
                             <div>
-                                <div className="rateimages  mb-12">
+                                <div className="rateimages mb-12">
                                     <div className="">
                                         <div className="image-container" onClick={handleImageClick}>
                                             <img src="Assets/Images/Rateimages/Component 21.png" alt="Image 1" />

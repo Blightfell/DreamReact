@@ -29,7 +29,7 @@ const PagesRoutes = () => {
                         <div className="sm-hidden lg:block lg:w-[18%] ">
                             <SideBar />
                         </div>
-                        <div className="sm:w-full lg:w-[82%] bg-[#3B3F3F] h-full">
+                        <div className="sm:w-full lg:w-[82%]  h-full">
                             <Route path="/Deshboard" element={<Deshboard />} />
                             <Route path="/RateImages" element={<RateImages />} />
                             <Route path="/TagImages" element={<TagImages />} />

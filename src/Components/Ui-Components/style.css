@@ -95,9 +95,21 @@
 .animation-container {
     display: flex;
     justify-content: space-between;
-    gap: 16px;
+    gap: 16px !important;
     height: 100vh;
     background: #414545;
 }
-
-
+.drop-animation{
+    width: 100%;
+    height: auto;
+}
+.drop-animation img {
+    width: 100%;
+}
+@media only screen and (min-width: 1860px) { 
+    .animation-container {
+    
+        gap: 32px !important;
+        
+    }
+}

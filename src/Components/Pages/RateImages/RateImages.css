@@ -183,5 +183,8 @@
     .rateimages p {
         font-size: 24px;
         padding-top: 24px;
+        line-height: 32.4px;
+        font-weight: 400;
+        padding-right: 10%;
     }
 }

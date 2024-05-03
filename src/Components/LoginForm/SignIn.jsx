@@ -1,9 +1,27 @@
-import { useState } from 'react';
+
+import { useState, useEffect } from 'react';
 import "./LoginForm.css";
 import { Button } from "@material-tailwind/react";
 import { Checkbox } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import LogoIcon from '../Ui-Components/LogoIcon';
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return isMobile;
+};
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,8 +34,14 @@ const SignIn = () => {
       alert('Please enter both email and password');
       return;
     }
-    // Your login logic here
   };
+
+  const isMobile = useIsMobile();
+
+  const mobileLink = "/Deshboard"; // Link for mobile
+  const desktopLink = "/explore"; // Link for desktop
+
+  const link = isMobile ? mobileLink : desktopLink;
 
   return (
     <section className="SignIn">
@@ -26,7 +50,7 @@ const SignIn = () => {
           <div className="md:col-span-12 lg:col-span-6 xl:col-span-8">
             <div className="flex flex-col justify-between h-full">
               <div className='sm-hidden md:block lg:block pt-2'>
-                <LogoIcon/>
+                <LogoIcon />
               </div>
               <div className="title-form sm-hidden md:hidden lg:block xl:block">
                 <h3 className="font-black-48">Imagination Unbound</h3>
@@ -62,12 +86,13 @@ const SignIn = () => {
                 <p className='sm-font-16'>Or Login With</p>
                 <hr />
               </div>
-              <Link to="/Deshboard">
+              <Link to={link}>
                 <Button className="sub-button flex gap-4 justify-center items-center mb-4">
-                  <img src="Assets/Images/All Icons/Group 2.svg" alt="" /> Google
+                  <img src="Assets/Images/All Icons/Group 2.svg" alt="" />
+                  {isMobile ? "Google" : "Google"}
                 </Button>
               </Link>
-              <Link to="/deshboard">
+              <Link to={link}>
                 <Button style={{ color: "white", background: "black" }} className="sub-button flex gap-4 justify-center items-center">
                   <img src="Assets/Images/All Icons/Group 4.svg" alt="" />
                   Connect Wallet

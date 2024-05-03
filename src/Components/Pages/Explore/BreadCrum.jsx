@@ -5,11 +5,11 @@ import "./explore.css";
 
 const BreadCrum = () => {
     return (
-        <div className="container mx-auto  lg:px-16 2xl:px-[100px] py-4 px-6">
+        <div className="lg:px-16 2xl:px-[100px] py-4 px-6">
             <header className="header-mob lg:pb-7  lg:bg-transparent bg-[#2C2E2E] ">
                 <h5>Welcome Back! Adam.</h5>
                 <div className="float-right mt-[-23px] md:mt-[-13px] lg:mt-[-34px] flex items-center gap-4">
-                    <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" />
+                {/* <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" /> */}
                     <Link className='sm-hidden' to="/MyProfile">
                         <img className='lg:h-8 2xl:h-10' src="Assets/Images/All Icons/Ellipse 2.svg" alt="" />
                     </Link>

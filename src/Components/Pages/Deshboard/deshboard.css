@@ -62,12 +62,6 @@
     color: #AEAEAE;
 }
 
-/* 
-.chart-view svg {
-    width: 900px !important;
-    height: 370px !important;
-} */
-
 @media only screen and (max-width: 840px) {
     .header-mob h5 {
         font-size: 17px;
@@ -101,12 +95,18 @@
         line-height: 24.3px;
     }
 
-    .chart-view-content>div {
-        width: 320px !important;
-        margin: 0 auto;
-        height: 370px !important;
+    .chart-view-content {
+        padding: 10px 0;
     }
+
+    .chart-view-content>div {
+        width: auto !important;
+        margin: 0 auto;
+        height: auto !important;
+    }
+
 }
+
 
 @media only screen and (min-width: 1566px) {
     .header-mob h5 {
@@ -119,5 +119,15 @@
 
     .desh-box p {
         font-size: 24px;
+    }
+
+    .text-18-sm {
+        font-size: 40px;
+        line-height: 54.4px;
+    }
+
+    .chart-view-content>div {
+        width: 100%;
+        height: 605px;
     }
 }

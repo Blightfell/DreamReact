@@ -4,23 +4,23 @@ const DropAnimationExample = () => {
     const imageSources = [
         {
             alt: "Image 2",
-            src: "Assets/Images/BackgroundImages/Property 1=Frame6.png"
+            src: "Assets/Images/BackgroundImages/property-1frame6-66350aba9d1d3.webp"
         },
         {
             alt: "Image 1",
-            src: "Assets/Images/BackgroundImages/Property 1=Frame3.png"
+            src: "Assets/Images/BackgroundImages/property-1frame3-66350ac63b586.webp"
         },
         {
             alt: "Image 2",
-            src: "Assets/Images/BackgroundImages/Property 1=Frame6.png"
+            src: "Assets/Images/BackgroundImages/property-1frame6-66350aba9d1d3.webp"
         },
         {
             alt: "Image 2",
-            src: "Assets/Images/BackgroundImages/Property 1=Frame61.png"
+            src: "Assets/Images/BackgroundImages/property-1frame61-66350aba4c4e3.webp"
         },
         {
             alt: "Image 2",
-            src: "Assets/Images/BackgroundImages/Property 1=Frame2.png"
+            src: "Assets/Images/BackgroundImages/property-1frame2-66350ac39a48c.webp"
         }
     ];
 

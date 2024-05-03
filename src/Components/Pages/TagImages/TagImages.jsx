@@ -14,7 +14,6 @@ const TagImages = () => {
         { iconSrc: "Assets/Images/All Icons/Group 101.svg", value: "15", text: "Images Tagged" },
     ];
 
-    // Image rotation list
     const images = [
         "Assets/Images/Rateimages/18 - Ripley.png",
         "Assets/Images/Explore/37 - Jin and Jang.png",
@@ -23,14 +22,12 @@ const TagImages = () => {
         "Assets/Images/generate/48 - Star Ram.png",
     ];
 
-    // States for tags, popup visibility, click count, and current image
-    const [tags, setTags] = useState(Array(5).fill(''));
-    const [popupVisible, setPopupVisible] = useState(false); // Congratulatory popup
-    const [alertPopupVisible, setAlertPopupVisible] = useState(false); // Alert popup for exceeding limit
-    const [clickCount, setClickCount] = useState(0); // Click count for the "Confirm" button
-    const [currentImage, setCurrentImage] = useState(images[0]); // Initial image
+    const [tags, setTags] = useState(Array(5).fill("")); // Initial tags
+    const [popupVisible, setPopupVisible] = useState(false);
+    const [alertPopupVisible, setAlertPopupVisible] = useState(false);
+    const [clickCount, setClickCount] = useState(0);
+    const [currentImage, setCurrentImage] = useState(images[0]);
 
-    // Utility function to validate tags
     const isValidTag = (tag) => /^[a-z]+$/.test(tag); // Only lowercase letters, no symbols or spaces
 
     const handleChange = (index) => (e) => {
@@ -45,37 +42,40 @@ const TagImages = () => {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent form submission
+        e.preventDefault();
 
-        if (clickCount < 5) { // Change image if under limit
-            setPopupVisible(true); // Show the popup
+        if (clickCount < 5) {
+            setPopupVisible(true);
             setTimeout(() => {
-                setPopupVisible(false); // Hide the popup after 5 seconds
-                setClickCount((prevCount) => prevCount + 1); // Increment click count
-                setCurrentImage(images[clickCount]); // Change to the next image
-            }, 4000);
+                setPopupVisible(false);
+                setClickCount((prevCount) => prevCount + 1);
+                setCurrentImage(images[clickCount]); // Update the current image
+            }, 2000);
         } else {
-            setAlertPopupVisible(true); // Show alert popup if limit is reached
+            setAlertPopupVisible(true);
         }
+
+        // Clear the tags after submission
+        setTags(Array(5).fill("")); // Clears all inputs
     };
 
     return (
         <>
             <div className="flex justify-between">
-                <div className="md:w-[19%] 2xl:w-[22%] sm-hidden">
+                <div className="md:w-[19%] 2xl:w-[300px] sm-hidden">
                     <SideBAr />
                 </div>
-                <div className="md:w-full lg:w-[81%] 2xl:w-[78%] bg-[#3B3F3F] h-full mb-11 sm-w-full">
+                <div className="md:w-full lg:w-[81%] 2xl:w-full  h-full mb-11 sm-w-full">
                     <div className='mb-10 relative'>
                         <nav className='h-14 lg:h-auto'>
                             <header className="header-mob lg:relative absolute top-0 w-full z-[999] lg:px-16 2xl:px-[100px] lg:bg-transparent bg-[#2C2E2E] py-4 px-6">
                                 <h5>Tag Images</h5>
                                 <div className="float-right mt-[-23px] lg:mt-[-34px]">
-                                    <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" />
+                                    {/* <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" /> */}
                                 </div>
                             </header>
                         </nav>
-                        <div className="container mx-auto p-6 md:px-16 2xl:px-[100px]">
+                        <div className=" p-6 md:px-16 2xl:px-[100px]">
                             <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box sm-hidden">
                                 {boxes.map((box, index) => (
                                     <div key={index} className="p-2 lg:p-3 2xl:p-4 bg-[#2C2E2E] rounded-lg lg:rounded-xl 2xl:rounded-2xl w-full">
@@ -91,19 +91,19 @@ const TagImages = () => {
                                     </div>
                                 ))}
                             </div>
-                            <div className="TagImages-content grid grid-cols-12 gap-4 lg:gap-5 2xl:gap-6 lg:items-center 2xl:items-start">
-                                <div className="col-span-12 lg:col-span-8">
+                            <div className="TagImages-content lg:mt-10 2xl:mt-14 grid grid-cols-12 gap-4 lg:gap-5 2xl:gap-6 ">
+                                <div className="col-span-12 lg:col-span-8 ">
                                     <h4 className="text-18-sm">Tag the image below</h4>
                                     <div>
-                                        <img className="w-full mt-4" src={currentImage} alt="Current Image" /> {/* Updated image */}
+                                        <img className="w-full mt-4 2xl:mt-8 tag-images-gen" src={currentImage} alt="Current Image" /> {/* Updated image */}
                                     </div>
                                 </div>
-                                <form onSubmit={handleSubmit} className="Form col-span-12 lg:col-span-4 md:px-3 lg:px-0 lg:bg-transparent lg:mt-7 mt-0">
-                                    <p className='mb-4'>Write 5 words you associate with this image. All lowercase, no symbols or spaces.</p>
+                                <form onSubmit={handleSubmit} className="Form col-span-12 lg:col-span-4 md:px-3 2xl:w-full lg:px-0 lg:bg-transparent mt-0 lg:py-0">
+                                    <p className="mb-4 2xl:mb-8">Write 5 words you associate with this image. All lowercase, no symbols or spaces.</p>
                                     {tags.map((tag, index) => (
                                         <input
                                             key={index}
-                                            className="focus:ring-blue-500 input-custom"
+                                            className="input-custom"
                                             type="text"
                                             placeholder={`Enter Tag ${index + 1}`}
                                             value={tag}

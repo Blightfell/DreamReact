@@ -4,6 +4,9 @@
     box-sizing: border-box;
     font-family: Satoshi-Regular;
 }
+body {
+    background-color: #3B3F3F;
+}
 
 /* Font-Family */
 @font-face {
@@ -32,6 +35,30 @@
     font-weight: 500;
 }
 
+
+/* -- */
+.chart-view .MuiChartsAxis-line {
+    stroke: #414545 !important;
+    shape-rendering: crispEdges;
+    stroke-width: 1;
+}
+
+.chart-view p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.2px;
+    color: #AEAEAE;
+
+}
+
+.chart-view .MuiChartsAxis-tickLabel {
+    font-family: Satoshi-regular !important;
+    letter-spacing: 0.03333em;
+    fill: #AEAEAE !important;
+    font-size: 12px !important;
+    font-weight: 400 !important;
+
+}
 @media only screen and (max-width: 840px) {
     body {
         background: #414545;
@@ -69,28 +96,3 @@
 }
 
 /* ---- */
-
-/* -- */
-.chart-view .MuiChartsAxis-line {
-    stroke: #414545 !important;
-    shape-rendering: crispEdges;
-    stroke-width: 1;
-}
-
-.chart-view p {
-
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 16.2px;
-    color: #AEAEAE;
-
-}
-
-.chart-view .MuiChartsAxis-tickLabel {
-    font-family: Satoshi-regular !important;
-    letter-spacing: 0.03333em;
-    fill: #AEAEAE !important;
-    font-size: 12px !important;
-    font-weight: 400 !important;
-
-}

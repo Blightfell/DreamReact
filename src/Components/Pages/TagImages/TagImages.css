@@ -1,12 +1,29 @@
 .TagImages-content p {
-
-    font-size: 14px;
+    font-size: 18px;
     font-style: italic;
     font-weight: 500;
-    line-height: 18.9px;
+    line-height: 24.7px;
     color: white;
 }
 
-.TagImages-content .popupbagde {
-    top: 57px !important;
+
+@media only screen and (max-width: 840px) {
+    .TagImages-content .popupbagde {
+        top: 0 !important;
+    }
+    .TagImages-content p {
+        font-size: 14px;
+        line-height: 18.9px;
+    }
+}
+
+@media only screen and (min-width: 1566px) {
+    .tag-images-gen {
+        max-height: 578px;
+        width: auto;
+    }
+    .TagImages-content p {
+        font-size: 22px;
+        line-height: 29.7px;
+    }
 }

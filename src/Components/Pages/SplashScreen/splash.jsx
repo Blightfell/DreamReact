@@ -7,7 +7,7 @@ const splash = () => {
             <div className='SplashScreenBG bg1 bg2 bg3'>
                 <div className="container mx-auto">
                     <img className="logo pt-12 md:pt-5 lg:pt-2" src="Assets/Images/Logo/AEON PROTOCOL.svg" alt="" />
-                    <div className="splash-mid-content pt-20 md:pt-20 ">
+                    <div className="splash-mid-content">
                         <div>
                             <h1>WELCOME TO THE
                                 AEON PROTOCOL</h1>

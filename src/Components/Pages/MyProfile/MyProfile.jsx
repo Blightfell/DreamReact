@@ -10,38 +10,43 @@ import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 
 const imageData = [
-    { id: 1, src: "Assets/Images/MyProfile/10 -Thief in the Night.png", alt: "Thief in the Night" },
-    { id: 2, src: "Assets/Images/MyProfile/11_Hamhock (3).png", alt: "Hamhock" },
-    { id: 3, src: "Assets/Images/MyProfile/13 - Bristle Pig (1).png", alt: "Bristle Pig" },
-    { id: 4, src: "Assets/Images/MyProfile/14 - Kiki and her Kestrels.png", alt: "Kiki and her Kestrels" },
-    { id: 5, src: "Assets/Images/MyProfile/15_The_Anatomist (1).png", alt: "The Anatomist" },
-    { id: 6, src: "Assets/Images/MyProfile/17 - Sheira the Revered.png", alt: "Sheira the Revered" },
-    { id: 7, src: "Assets/Images/MyProfile/18 - Ripley.png", alt: "Ripley" },
-    { id: 8, src: "Assets/Images/MyProfile/2 - One-Handed Thale (5).png", alt: "One-Handed Thale" },
-    { id: 9, src: "Assets/Images/MyProfile/20 - Aisling (2).png", alt: "Aisling" },
-    { id: 10, src: "Assets/Images/MyProfile/21-TheRedKing.png", alt: "The Red King" },
-    { id: 11, src: "Assets/Images/MyProfile/22 - Necramona.png", alt: "Necramona" },
-    { id: 12, src: "Assets/Images/MyProfile/24 - Dunwalker.png", alt: "Dunwalker" },
-    { id: 13, src: "Assets/Images/MyProfile/28 - Haku Spearman.png", alt: "Haku Spearman" },
-    { id: 14, src: "Assets/Images/MyProfile/29 - Pain Eater.png", alt: "Pain Eater" },
-    { id: 15, src: "Assets/Images/MyProfile/30 - Aeon Sisters.png", alt: "Aeon Sisters" },
-    { id: 16, src: "Assets/Images/MyProfile/31- San stalker.png", alt: "San Stalker" },
-    { id: 17, src: "Assets/Images/MyProfile/5 Thorn Covered Trent.png", alt: "Thorn Covered Trent" },
-    { id: 18, src: "Assets/Images/MyProfile/50.png", alt: "Unknown Image" },
+    { id: 1, src: "Assets/Images/MyProfile/10 -Thief in the Night.webp", alt: "Thief in the Night" },
+    { id: 2, src: "Assets/Images/MyProfile/11_Hamhock (3).webp", alt: "Hamhock" },
+    { id: 3, src: "Assets/Images/MyProfile/13 - Bristle Pig (1).webp", alt: "Bristle Pig" },
+    { id: 4, src: "Assets/Images/MyProfile/14 - Kiki and her Kestrels.webp", alt: "Kiki and her Kestrels" },
+    { id: 5, src: "Assets/Images/MyProfile/15_The_Anatomist (1).webp", alt: "The Anatomist" },
+    { id: 6, src: "Assets/Images/MyProfile/17 - Sheira the Revered.webp", alt: "Sheira the Revered" },
+    { id: 7, src: "Assets/Images/MyProfile/18 - Ripley.webp", alt: "Ripley" },
+    { id: 8, src: "Assets/Images/MyProfile/2 - One-Handed Thale (5).webp", alt: "One-Handed Thale" },
+    { id: 9, src: "Assets/Images/MyProfile/20 - Aisling (2).webp", alt: "Aisling" },
+    { id: 10, src: "Assets/Images/MyProfile/21-TheRedKing.webp", alt: "The Red King" },
+    { id: 11, src: "Assets/Images/MyProfile/22 - Necramona.webp", alt: "Necramona" },
+    { id: 12, src: "Assets/Images/MyProfile/24 - Dunwalker.webp", alt: "Dunwalker" },
+    { id: 13, src: "Assets/Images/MyProfile/28 - Haku Spearman.webp", alt: "Haku Spearman" },
+    { id: 14, src: "Assets/Images/MyProfile/29 - Pain Eater.webp", alt: "Pain Eater" },
+    { id: 15, src: "Assets/Images/MyProfile/30 - Aeon Sisters.webp", alt: "Aeon Sisters" },
+    { id: 16, src: "Assets/Images/MyProfile/31- San stalker.webp", alt: "San Stalker" },
+    { id: 17, src: "Assets/Images/MyProfile/5 Thorn Covered Trent.webp", alt: "Thorn Covered Trent" },
+    { id: 18, src: "Assets/Images/MyProfile/50.webp", alt: "Unknown Image" },
 ];
 
 const ImagePopup = ({ imageSrc, imageDetails, open, onClose }) => {
     return (
         <Dialog open={open} onClose={onClose}>
-            <DialogContent className="p-4 lg:p-3 2xl:p-4  bg-[#2C2E2E] w-full">
+            <DialogContent className="inner-img-popup bg-[#2C2E2E] w-full">
                 <IconButton
-                    className="popup-close float-right p-2"
+                    className="popup-close p-1"
                     onClick={onClose}
-                    style={{ backgroundColor: '#414545' }}
+                    style={{
+                        backgroundColor: '#414545',
+                        position: 'absolute',
+                        top: '4px',
+                        right: '4px'
+                    }}
                 >
                     <RiCloseFill className='text-white' />
                 </IconButton>
-                <img className="popup-image" src={imageSrc} alt="Popup" />
+                <img className="popup-image-inner" src={imageSrc} alt="Popup" />
                 <p className='popup-profile-text pt-3'>
                     {imageDetails}
                     a large illustrative background showing simple and minimalistic ancient statues, symmetrical, light grey and blue color palette, high resolution, high contrast, cinematic, mysterious atmosphere, clean, alien atmosphere
@@ -88,10 +93,10 @@ const MyProfile = () => {
     return (
         <>
             <div className="flex justify-between">
-                <div className=" 2xl:w-[22%] md:w-[19%] sm-w-0 sm-hidden">
+                <div className=" 2xl:w-[300px] md:w-[19%] sm-w-0 sm-hidden">
                     <SideBAr />
                 </div>
-                <div className=" md:w-full lg:w-[81%] 2xl:w-[78%] bg-[#3B3F3F] h-full sm-w-full">
+                <div className=" md:w-full lg:w-[81%] 2xl:w-full  h-full sm-w-full">
                     <div className='mb-28'>
                         <header className="header-mob lg:py-7 lg:px-16 2xl:px-[100px] lg:bg-transparent bg-[#2C2E2E] h-14 py-4 px-6">
                             <h5 className='lg:hidden'>@TonyStark</h5>
@@ -104,7 +109,7 @@ const MyProfile = () => {
                                 </div>
                             </div>
                             <div className="float-right mt-[-23px]  lg:mt-[-34px] flex items-center gap-4">
-                                <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" />
+                                {/* <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" /> */}
                                 <Link className='sm-hidden' to="/MyProfile">
                                     <img className='lg:h-8 2xl:h-10' src="Assets/Images/All Icons/Ellipse 2.svg" alt="" />
                                 </Link>
@@ -115,7 +120,7 @@ const MyProfile = () => {
                                 </div>
                             </div>
                         </header>
-                        <div className="container mx-auto p-6 md:px-16 2xl:px-[100px] lg:mt-9 ">
+                        <div className=" p-6 md:px-16 2xl:px-[100px] lg:mt-9 ">
                             <div className="MyProfile-content">
                                 <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box">
                                     {boxes.map((box, index) => (
@@ -147,7 +152,6 @@ const MyProfile = () => {
                                         </Button>
                                     ))}
                                 </div>
-
                                 <div>
                                     <div className="tab-content">
                                         {activeTab === 0 && (

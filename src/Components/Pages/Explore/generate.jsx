@@ -19,12 +19,12 @@ const generate = () => {
     return (
         <>
             <div className="flex justify-between">
-                <div className="md:w-0 2xl:w-[22%] md:w-[19%]">
+                <div className="sm-hidden 2xl:w-[300px] md:w-[19%]">
                     <SideBAr />
                 </div>
-                <div className=" md:w-full lg:w-[81%] 2xl:w-[78%]  bg-[#3B3F3F] h-full sm-w-full">
+                <div className=" md:w-full lg:w-[81%] 2xl:w-full   h-full sm-w-full">
                     <BreadCrum />
-                    <div className="container mx-auto p-6 md:px-16 2xl:px-[100px]">
+                    <div className=" p-6 md:px-16 2xl:px-[100px]">
                         <div className="generate-img">
                             <p className="generate-img-text mb-9 2xl:mb-14">a large illustrative background showing simple and minimalistic ancient statues, symmetrical, light grey and blue color palette high resolution, high contrast, cinematic, mysterious atmosphere, clean, alien atmosphere --ar 2:1 --s 250 --v 6.0 - <span className="text-[#AEAEAE] text-base">by</span>  <span className='bg-[#2C2E2E] rounded-3xl py-1 px-3 text-white text-sm'>
                                 @Flook
