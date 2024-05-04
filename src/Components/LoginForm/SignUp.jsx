@@ -35,7 +35,7 @@ const SignUp = () => {
                 <div className="grid grid-cols-1 md:grid-cols-12">
                     <div className="md:col-span-12 lg:col-span-6 xl:col-span-8">
                         <div className="flex flex-col justify-between h-full">
-                            <div className='sm-hidden md:block lg:block pt-2'>
+                            <div className='sm-hidden md:block lg:block mt-2 2xl:mt-3'>
                                 <LogoIcon />
                             </div>
                             <div className="title-form sm-hidden md:block lg:block">

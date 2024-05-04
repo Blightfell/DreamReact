@@ -49,7 +49,7 @@ const SignIn = () => {
         <div className="grid grid-cols-1 md:grid-cols-12">
           <div className="md:col-span-12 lg:col-span-6 xl:col-span-8">
             <div className="flex flex-col justify-between h-full">
-              <div className='sm-hidden md:block lg:block pt-2'>
+              <div className='sm-hidden md:block lg:block mt-2 2xl:mt-3'>
                 <LogoIcon />
               </div>
               <div className="title-form sm-hidden md:hidden lg:block xl:block">
@@ -66,7 +66,7 @@ const SignIn = () => {
               <p className="form-para fp1">Login to your account</p>
               <input className={`focus:ring-blue-500 input-custom ${error && (!email || !password) ? 'border-red-500' : ''}`} type="email" placeholder="Email/Username" value={email} onChange={(e) => setEmail(e.target.value)} required />
               <input className={`focus:ring-blue-500 input-custom ${error && (!email || !password) ? 'border-red-500' : ''}`} type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-              <div className="flex justify-between w-full mb-8 md:mb-9 lg:mb-9 xl:mb-11">
+              <div className="flex justify-between w-full mb-8 md:mb-4 lg:mb-5 xl:mb-11">
                 <div className="checkbox-div">
                   <Checkbox style={{ padding: "0" }} className="h-5 w-5" label="Remember Me" />
                 </div>
@@ -81,7 +81,7 @@ const SignIn = () => {
               <Button className="sub-button" onClick={handleLogin}>
                 Login
               </Button>
-              <div className="horizontal-dir my-6 md:my-10 xl:my-12 lg:my-5 flex justify-center items-center">
+              <div className="horizontal-dir my-6 md:my-5 xl:my-12 lg:my-3 flex justify-center items-center">
                 <hr />
                 <p className='sm-font-16'>Or Login With</p>
                 <hr />
@@ -98,7 +98,7 @@ const SignIn = () => {
                   Connect Wallet
                 </Button>
               </Link>
-              <div className="mt-12 md:mt-9 xl:mt-12 lg:mt-6">
+              <div className="mt-12 md:mt-9 xl:mt-12 lg:mt-4">
                 <p className="para-18-500  text-center">Don’t have an account? <span className="font-bold duration-300 hover:text-gray-200 cursor-pointer">
                   <Link to="/signup">Sign up</Link>
                 </span>

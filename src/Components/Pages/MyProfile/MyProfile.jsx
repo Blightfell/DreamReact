@@ -39,8 +39,8 @@ const ImagePopup = ({ imageSrc, imageDetails, open, onClose }) => {
             maxWidth={false} // Allows custom widths outside predefined options like "sm", "md", "lg"
             PaperProps={{
                 style: {
-                    width: '700px', 
-                    maxHeight:"500px",// Set the width to 760px
+                    width: '700px',
+                    maxHeight: "500px",// Set the width to 760px
                     maxWidth: '100%', // Ensures it doesn't exceed 100% of screen width
                     backgroundColor: '#2C2E2E', // Set background color
                 },
@@ -155,66 +155,68 @@ const MyProfile = () => {
                                     ))}
                                 </div>
                                 <h4 className="text-18-sm mt-10 mb-6 md:hidden ">My Generations</h4>
-                                <div className='tab-btn flex gap-2 mb-6 items-center md:mt-14 2xl:mt-[72px] lg:mb-14'>
-                                    <h4 className='tab-btn-font sm-hidden text-white'>My Generations:</h4>
-                                    {['Today', 'This Week', 'This Month'].map((name, index) => (
-                                        <Button
-                                            key={index}
-                                            className={`py-[6px] lg:py-2 px-4 lg:px[18px] rounded-[20px] ${activeTab === index ? 'bg-white text-black py-[2px]' : 'bg-[#2C2E2E] text-white lg:bg-[rgba(255, 255, 255, 0.3)] tab-btn-font'
-                                                }`}
-                                            onClick={() => handleTabChange(index)}
-                                        >
-                                            {name}
-                                        </Button>
-                                    ))}
-                                </div>
-                                <div>
-                                    <div className="tab-content">
-                                        {activeTab === 0 && (
-                                            <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 grid-img gap-0'>
-                                                {imageData.map((image) => (
-                                                    <img
-                                                        key={image.id}
-                                                        src={image.src}
-                                                        alt={image.alt}
-                                                        onClick={() => openPopup(image.src)}
-                                                    />
-                                                ))}
-                                            </div>
-                                        )}
-                                        {activeTab === 1 && (
-                                            <div className='grid grid-cols-3 md:grid-cols-4  lg:grid-cols-6 grid-img gap-0'>
-                                                {imageData.map((image) => (
-                                                    <img
-                                                        key={image.id}
-                                                        src={image.src}
-                                                        alt={image.alt}
-                                                        onClick={() => openPopup(image.src)}
-                                                    />
-                                                ))}
-                                            </div>
-                                        )}
-                                        {activeTab === 2 && (
-                                            <div className='grid grid-cols-3 md:grid-cols-4  lg:grid-cols-6 grid-img gap-0'>
-                                                {imageData.map((image) => (
-                                                    <img
-                                                        key={image.id}
-                                                        src={image.src}
-                                                        alt={image.alt}
-                                                        onClick={() => openPopup(image.src)}
-                                                    />
-                                                ))}
-                                            </div>
+                                <div className="myprofiletab">
+                                    <div className='tab-btn flex gap-2 mb-6 items-center md:mt-14 2xl:mt-[72px] lg:mb-14'>
+                                        <h4 className='tab-btn-font sm-hidden text-white'>My Generations:</h4>
+                                        {['Today', 'This Week', 'This Month'].map((name, index) => (
+                                            <Button
+                                                key={index}
+                                                className={`py-[6px] lg:py-2 px-4 lg:px[18px] rounded-[20px] ${activeTab === index ? 'bg-white text-black py-[2px]' : 'bg-[#2C2E2E] text-white lg:bg-[rgba(255, 255, 255, 0.3)] tab-btn-font'
+                                                    }`}
+                                                onClick={() => handleTabChange(index)}
+                                            >
+                                                {name}
+                                            </Button>
+                                        ))}
+                                    </div>
+                                    <div>
+                                        <div className="tab-content">
+                                            {activeTab === 0 && (
+                                                <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 grid-img gap-0'>
+                                                    {imageData.map((image) => (
+                                                        <img
+                                                            key={image.id}
+                                                            src={image.src}
+                                                            alt={image.alt}
+                                                            onClick={() => openPopup(image.src)}
+                                                        />
+                                                    ))}
+                                                </div>
+                                            )}
+                                            {activeTab === 1 && (
+                                                <div className='grid grid-cols-3 md:grid-cols-4  lg:grid-cols-6 grid-img gap-0'>
+                                                    {imageData.map((image) => (
+                                                        <img
+                                                            key={image.id}
+                                                            src={image.src}
+                                                            alt={image.alt}
+                                                            onClick={() => openPopup(image.src)}
+                                                        />
+                                                    ))}
+                                                </div>
+                                            )}
+                                            {activeTab === 2 && (
+                                                <div className='grid grid-cols-3 md:grid-cols-4  lg:grid-cols-6 grid-img gap-0'>
+                                                    {imageData.map((image) => (
+                                                        <img
+                                                            key={image.id}
+                                                            src={image.src}
+                                                            alt={image.alt}
+                                                            onClick={() => openPopup(image.src)}
+                                                        />
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
+                                        {popupVisible && (
+                                            <ImagePopup
+                                                imageSrc={selectedImage}
+                                                imageDetails={imageDetails}
+                                                open={popupVisible}
+                                                onClose={closePopup}
+                                            />
                                         )}
                                     </div>
-                                    {popupVisible && (
-                                        <ImagePopup
-                                            imageSrc={selectedImage}
-                                            imageDetails={imageDetails}
-                                            open={popupVisible}
-                                            onClose={closePopup}
-                                        />
-                                    )}
                                 </div>
                             </div>
                         </div>

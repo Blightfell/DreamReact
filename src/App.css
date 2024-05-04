@@ -90,11 +90,12 @@ body {
     }
 }
 @media only screen and (min-width: 1566px) {
-
-
     .logo {
         max-width: 393px;
         height: auto;
+    }
+    .chart-view tspan {
+        font-size: 10px !important;
     }
 }
 
