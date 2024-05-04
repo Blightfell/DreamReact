@@ -51,7 +51,7 @@ const Deshboard = () => {
                 </div>
                 <div className="md:w-full lg:w-[81%] 2xl:w-full h-full sm-w-full">
                     <div className='mb-28'>
-                        <header className="header-mob lg:px-16 2xl:px-[100px] lg:bg-transparent 2xl:pt-7 2xl:pb-[50px] bg-[#2C2E2E]  py-4  px-6">
+                        <header className="header-mob lg:px-16 2xl:px-[100px] lg:bg-transparent 2xl:pt-7 2xl:pb-[50px] bg-[#2C2E2E] py-4 px-6">
                             <h5>Dashboard</h5>
                             <div className="float-right mt-[-23px] lg:mt-[-39px]">
                                 {/* <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" /> */}

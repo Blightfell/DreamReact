@@ -57,7 +57,7 @@ const RateImages = () => {
                                     </div>
                                 ))}
                             </div>
-                            <h3 className="my-4 text-40 2xl:mb-10 2xl:mt-14">
+                            <h3 className="my-4 text-40 lg:mt-11 lg:mb-6 2xl:mb-10 2xl:mt-14">
                                 Select the Image you prefer
                             </h3>
                             {/* <RateImagesPopup /> */}

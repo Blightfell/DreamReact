@@ -138,6 +138,11 @@
 }
 
 @media only screen and (max-width: 840px) {
+    .text-40 {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 24.3px;
+    }
     .rateimages {
         gap: 16px;
         flex-direction: column;
