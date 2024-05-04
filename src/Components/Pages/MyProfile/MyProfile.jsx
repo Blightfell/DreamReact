@@ -31,9 +31,22 @@ const imageData = [
 ];
 
 const ImagePopup = ({ imageSrc, imageDetails, open, onClose }) => {
+
     return (
-        <Dialog open={open} onClose={onClose}>
-            <DialogContent className="inner-img-popup bg-[#2C2E2E] w-full">
+        <Dialog
+            open={open}
+            onClose={onClose}
+            maxWidth={false} // Allows custom widths outside predefined options like "sm", "md", "lg"
+            PaperProps={{
+                style: {
+                    width: '700px', 
+                    maxHeight:"500px",// Set the width to 760px
+                    maxWidth: '100%', // Ensures it doesn't exceed 100% of screen width
+                    backgroundColor: '#2C2E2E', // Set background color
+                },
+            }}
+        >
+            <DialogContent className="inner-img-popup w-full relative">
                 <IconButton
                     className="popup-close p-1"
                     onClick={onClose}
@@ -41,15 +54,18 @@ const ImagePopup = ({ imageSrc, imageDetails, open, onClose }) => {
                         backgroundColor: '#414545',
                         position: 'absolute',
                         top: '4px',
-                        right: '4px'
+                        right: '4px',
                     }}
                 >
-                    <RiCloseFill className='text-white' />
+                    <RiCloseFill className="text-white" />
                 </IconButton>
-                <img className="popup-image-inner" src={imageSrc} alt="Popup" />
-                <p className='popup-profile-text pt-3'>
-                    {imageDetails}
-                    a large illustrative background showing simple and minimalistic ancient statues, symmetrical, light grey and blue color palette, high resolution, high contrast, cinematic, mysterious atmosphere, clean, alien atmosphere
+                <img
+                    className="popup-image-inner w-full" // Make image take full width of the popup
+                    src={imageSrc}
+                    alt="Popup"
+                />
+                <p className="popup-profile-text pt-3 text-white">
+                    {imageDetails} a large illustrative background showing simple and minimalistic ancient statues, symmetrical, light grey and blue color palette, high resolution, high contrast, cinematic, mysterious atmosphere, clean, alien atmosphere
                     --ar 2:1 --s 250 --v 6.0
                 </p>
             </DialogContent>
@@ -97,8 +113,8 @@ const MyProfile = () => {
                     <SideBAr />
                 </div>
                 <div className=" md:w-full lg:w-[81%] 2xl:w-full  h-full sm-w-full">
-                    <div className='mb-28'>
-                        <header className="header-mob lg:py-7 lg:px-16 2xl:px-[100px] lg:bg-transparent bg-[#2C2E2E] h-14 py-4 px-6">
+                    <div className='mb-5'>
+                        <header className="header-mob lg:py-7 2xl:pb-12  lg:px-16 2xl:px-[100px] lg:bg-transparent bg-[#2C2E2E] h-14 py-4 px-6">
                             <h5 className='lg:hidden'>@TonyStark</h5>
                             <div className='sm-hidden md:block'>
                                 <div className='flex items-center gap-6 2xl:gap-8'>
@@ -108,7 +124,7 @@ const MyProfile = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="float-right mt-[-23px]  lg:mt-[-34px] flex items-center gap-4">
+                            <div className="float-right mt-[-23px]  lg:mt-[-39px] 2xl:mt-[-40px] flex items-center gap-4">
                                 {/* <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" /> */}
                                 <Link className='sm-hidden' to="/MyProfile">
                                     <img className='lg:h-8 2xl:h-10' src="Assets/Images/All Icons/Ellipse 2.svg" alt="" />
@@ -139,7 +155,7 @@ const MyProfile = () => {
                                     ))}
                                 </div>
                                 <h4 className="text-18-sm mt-10 mb-6 md:hidden ">My Generations</h4>
-                                <div className='tab-btn flex gap-2 mb-6 items-center md:mt-14 2xl:mt[72px] lg:mb-14'>
+                                <div className='tab-btn flex gap-2 mb-6 items-center md:mt-14 2xl:mt-[72px] lg:mb-14'>
                                     <h4 className='tab-btn-font sm-hidden text-white'>My Generations:</h4>
                                     {['Today', 'This Week', 'This Month'].map((name, index) => (
                                         <Button

@@ -22,11 +22,11 @@ const generateEdit = () => {
                         <p className="generate-img-text mb-9 2xl:mb-14">a large illustrative background showing simple and minimalistic ancient statues, symmetrical, light grey and blue color palette high resolution, high contrast, cinematic, mysterious atmosphere, clean, alien atmosphere --ar 2:1 --s 250 --v 6.0 - <span className="text-[#AEAEAE] text-base">by</span>  <span className='bg-[#2C2E2E] rounded-3xl py-1 px-3 text-white text-sm'>
                             @Flook
                         </span> </p>
-                        <div className="grid grid-cols-12 gap-6 items-center">
-                            <div className="col-span-12 lg:col-span-7">
-                                <img src="Assets/Images/generate/4 - Dream Totem.png" alt="" />
+                        <div className="grid grid-cols-12 gap-6 ">
+                            <div className="col-span-12 lg:col-span-7 2xl:col-span-8">
+                                <img className="w-full" src="Assets/Images/generate/4 - Dream Totem.png" alt="" />
                             </div>
-                            <div className="col-span-12 lg:col-span-5">
+                            <div className="col-span-12 lg:col-span-5 2xl:col-span-4">
                                 <ul className="regenerate-box-btn">
                                     {buttons.map((button) => (
                                         <li
@@ -35,7 +35,7 @@ const generateEdit = () => {
                                         >
                                             <Link className="w-full" to={button.link}>
                                                 <Button className="flex items-center gap-4 2xl:gap-6 w-full">
-                                                    <img src={button.icon} alt={button.label} className="h-6 w-6" />
+                                                    <img src={button.icon} alt={button.label} className="h-6 w-6 lg:h-8 2xl:h-10 lg:w-8 2xl:w-10" />
                                                     {button.label}
                                                 </Button>
                                             </Link>

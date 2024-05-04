@@ -28,9 +28,9 @@ const RateImages = () => {
                     <SideBAr />
                 </div>
                 <div className=" md:w-full lg:w-[81%] 2xl:w-full   h-full sm-w-full">
-                    <div className='mb-10'>
+                    <div className='mb-10 2xl:mb-0'>
                         <nav className='h-[80px] lg:h-auto'>
-                            <header className="header-mob lg:relative  absolute top-0 w-full z-[999] lg:px-16 2xl:px-[100px] lg:bg-transparent bg-[#2C2E2E]  py-4  px-6">
+                            <header className="header-mob lg:relative  absolute top-0 w-full z-[999] lg:px-16 2xl:px-[100px] 2xl:pt-7 lg:bg-transparent bg-[#2C2E2E]  py-4  px-6">
                                 <div>
                                     <h5>Rate Images</h5>
                                     <p className='text-center sm:block lg:hidden pt-2'>More Ratings Unlock in 18h 37m</p>
@@ -40,7 +40,7 @@ const RateImages = () => {
                                 </div>
                             </header>
                         </nav>
-                        <div className=" p-6 md:px-16 2xl:px-[100px] rateimages-content">
+                        <div className="p-6 2xl:pb-0 md:px-16 2xl:px-[100px] rateimages-content">
                             <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box">
                                 {boxes.map((box, index) => (
                                     <div key={index} className="p-2 lg:p-3 2xl:p-4 bg-[#2C2E2E] rounded-lg lg:rounded-xl 2xl:rounded-2xl w-full mini-desh-box">
@@ -57,9 +57,9 @@ const RateImages = () => {
                                     </div>
                                 ))}
                             </div>
-                            <h4 className="text-18-sm my-4 2xl:my-10">
+                            <h3 className="my-4 text-40 2xl:mb-10 2xl:mt-14">
                                 Select the Image you prefer
-                            </h4>
+                            </h3>
                             {/* <RateImagesPopup /> */}
                             <div>
                                 <div className="rateimages mb-12">

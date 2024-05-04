@@ -130,6 +130,13 @@
     /* Ensure it appears above other content */
 }
 
+.text-40 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 44px;
+    color: white;
+}
+
 @media only screen and (max-width: 840px) {
     .rateimages {
         gap: 16px;
@@ -143,7 +150,8 @@
     .rateimages-content .desh-box .mini-desh-box:last-child {
         display: none;
     }
- .popupbagde {
+
+    .popupbagde {
         top: 80px;
         right: 15.5%;
         width: 249px;
@@ -152,7 +160,7 @@
         height: 83px;
 
     }
-   
+
 
     .popupbagde h3 {
         font-size: 18px;
@@ -186,5 +194,10 @@
         line-height: 32.4px;
         font-weight: 400;
         padding-right: 10%;
+    }
+
+    .text-40  {
+        font-size: 40px;
+        line-height: 54px;
     }
 }

@@ -66,11 +66,11 @@ const TagImages = () => {
                     <SideBAr />
                 </div>
                 <div className="md:w-full lg:w-[81%] 2xl:w-full  h-full mb-11 sm-w-full">
-                    <div className='mb-10 relative'>
+                    <div className='mb-10 2xl:mb-0 relative'>
                         <nav className='h-14 lg:h-auto'>
                             <header className="header-mob lg:relative absolute top-0 w-full z-[999] lg:px-16 2xl:px-[100px] lg:bg-transparent bg-[#2C2E2E] py-4 px-6">
                                 <h5>Tag Images</h5>
-                                <div className="float-right mt-[-23px] lg:mt-[-34px]">
+                                <div className="float-right mt-[-23px] lg:mt-[-39px]">
                                     {/* <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" /> */}
                                 </div>
                             </header>
@@ -93,24 +93,26 @@ const TagImages = () => {
                             </div>
                             <div className="TagImages-content lg:mt-10 2xl:mt-14 grid grid-cols-12 gap-4 lg:gap-5 2xl:gap-6 ">
                                 <div className="col-span-12 lg:col-span-8 ">
-                                    <h4 className="text-18-sm">Tag the image below</h4>
+                                    <h3 className="text-40 ">Tag the image below</h3>
                                     <div>
                                         <img className="w-full mt-4 2xl:mt-8 tag-images-gen" src={currentImage} alt="Current Image" /> {/* Updated image */}
                                     </div>
                                 </div>
-                                <form onSubmit={handleSubmit} className="Form col-span-12 lg:col-span-4 md:px-3 2xl:w-full lg:px-0 lg:bg-transparent mt-0 lg:py-0">
-                                    <p className="mb-4 2xl:mb-8">Write 5 words you associate with this image. All lowercase, no symbols or spaces.</p>
-                                    {tags.map((tag, index) => (
-                                        <input
-                                            key={index}
-                                            className="input-custom"
-                                            type="text"
-                                            placeholder={`Enter Tag ${index + 1}`}
-                                            value={tag}
-                                            onChange={handleChange(index)}
-                                            required
-                                        />
-                                    ))}
+                                <form onSubmit={handleSubmit} className="Form col-span-12 lg:col-span-4 md:px-3 2xl:w-full lg:px-0 lg:bg-transparent mt-0 lg:py-0 tag-form">
+                                    <div className="">
+                                        <p className="mb-4 2xl:mb-8">Write 5 words you associate with this image. All lowercase, no symbols or spaces.</p>
+                                        {tags.map((tag, index) => (
+                                            <input
+                                                key={index}
+                                                className="input-custom"
+                                                type="text"
+                                                placeholder={`Enter Tag ${index + 1}`}
+                                                value={tag}
+                                                onChange={handleChange(index)}
+                                                required
+                                            />
+                                        ))}
+                                    </div>
                                     <Button type="submit" className="sub-button mt-4">
                                         Confirm
                                     </Button>

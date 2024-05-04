@@ -49,15 +49,15 @@ const Deshboard = () => {
                 <div className="2xl:w-[300px] md:w-[19%] sm-hidden">
                     <SideBAr />
                 </div>
-                <div className="md:w-full lg:w-[81%] 2xl:w-full   h-full sm-w-full">
+                <div className="md:w-full lg:w-[81%] 2xl:w-full h-full sm-w-full">
                     <div className='mb-28'>
-                        <header className="header-mob lg:px-16 2xl:px-[100px] lg:bg-transparent bg-[#2C2E2E] h-14 py-4  px-6">
+                        <header className="header-mob lg:px-16 2xl:px-[100px] lg:bg-transparent 2xl:pt-7 2xl:pb-[50px] bg-[#2C2E2E]  py-4  px-6">
                             <h5>Dashboard</h5>
-                            <div className="float-right mt-[-23px] lg:mt-[-34px]">
+                            <div className="float-right mt-[-23px] lg:mt-[-39px]">
                                 {/* <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" /> */}
                             </div>
                         </header>
-                        <div className=" p-6 md:px-16 2xl:px-[100px] overflow-x-hidden">
+                        <div className="p-6 2xl:pt-0 md:px-16 2xl:px-[100px] overflow-x-hidden">
                             <div className="deshboard-content ">
                                 <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box">
                                     {boxes.map((box, index) => (
@@ -87,7 +87,7 @@ const Deshboard = () => {
                                 </div>
                                 <div className="desktopTable rounded-md lg:rounded-xl 2xl:rounded-2xl bg-[#2C2E2E] xs-hidden lg:block">
                                     <div className="border-[#414545] border-b p-4 lg:px-5">
-                                        <h4 className="text-xl font-semibold text-white">
+                                        <h4 className="text-18-sm">
                                             Request History
                                         </h4>
                                     </div>
