@@ -1,3 +1,27 @@
+.user-profile h5 {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    color: white;
+}
+
+.user-profile>div {
+    height: 40px;
+}
+
+.pwa-download {
+    background: #FFFFFF33;
+    width: 175px !important;
+    height: 40px !important;
+    display: flex;
+    align-items: center;
+    gap: 8px !important;
+    padding: 0 !important;
+    border: 1px solid white;
+    border-radius: 40px !important;
+    justify-content: center;
+}
+
 /* animation bg  */
 
 /* Keyframes for drop animation (downward) */
@@ -99,17 +123,32 @@
     height: 100vh;
     background: #414545;
 }
-.drop-animation{
+
+.drop-animation {
     width: 100%;
     height: auto;
 }
+
 .drop-animation img {
     width: 100%;
 }
-@media only screen and (min-width: 1860px) { 
+
+@media only screen and (min-width: 1860px) {
     .animation-container {
-    
         gap: 32px !important;
-        
+
     }
+}
+
+@media only screen and (min-width: 1566px) {
+    .pwa-download {
+        width: 185px !important;
+        height: 48px !important;
+    }
+
+    .user-profile>div {
+        width: 147px;
+        height: 48px;
+    }
+
 }

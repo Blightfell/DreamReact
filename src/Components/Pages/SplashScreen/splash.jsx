@@ -1,12 +1,18 @@
 import { Button } from "@material-tailwind/react";
 import "./splash.css";
 import { Link } from "react-router-dom";
+import DowloadPWA from "../../Ui-Components/DowloadPWA";
 const splash = () => {
     return (
         <>
             <div className='SplashScreenBG bg1 bg2 bg3'>
                 <div className="container mx-auto">
-                    <img className="logo pt-12 md:pt-5 lg:pt-2" src="Assets/Images/Logo/AEON PROTOCOL.svg" alt="" />
+                    <div className="flex justify-center items-center lg:justify-between">
+                        <img className="logo pt-12 md:pt-5 lg:pt-2" src="Assets/Images/Logo/AEON PROTOCOL.svg" alt="" />
+                        <div className="sm-hidden">
+                            <DowloadPWA />
+                        </div>
+                    </div>
                     <div className="splash-mid-content">
                         <div>
                             <h1>WELCOME TO THE

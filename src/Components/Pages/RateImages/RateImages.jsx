@@ -5,6 +5,8 @@ import { AiFillLike } from "react-icons/ai";
 import Nav from "../../Commons/MobileNav/nav";
 import SideBAr from '../../Commons/SideBar/SideBar';
 import CongurationPopup from '../../Ui-Components/CongurationPopup';
+import DowloadPWA from '../../Ui-Components/DowloadPWA';
+import UserProfile from '../../Ui-Components/UserProfile';
 
 const RateImages = () => {
     const [showPopup, setShowPopup] = useState(false);
@@ -30,13 +32,18 @@ const RateImages = () => {
                 <div className=" md:w-full lg:w-[81%] 2xl:w-full   h-full sm-w-full">
                     <div className='mb-10 2xl:mb-0'>
                         <nav className='h-[80px] lg:h-auto'>
-                            <header className="header-mob lg:relative  absolute top-0 w-full z-[999] lg:px-16 2xl:px-[100px] 2xl:pt-7 lg:bg-transparent bg-[#2C2E2E]  py-4  px-6">
-                                <div>
-                                    <h5>Rate Images</h5>
-                                    <p className='text-center sm:block lg:hidden pt-2'>More Ratings Unlock in 18h 37m</p>
-                                </div>
-                                <div className="float-right mt-[-35px]">
-                                {/* <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" /> */}
+                            <header className="header-mob lg:relative absolute top-0 w-full z-[999] lg:px-16 2xl:px-[100px] 2xl:pt-7 lg:bg-transparent bg-[#2C2E2E] py-4 px-6">
+                                <div className="flex items-center justify-center lg:justify-between w-full">
+                                    <div>
+                                        <h5>Rate Images</h5>
+                                        <p className='text-center sm:block lg:hidden pt-2'>More Ratings Unlock in 18h 37m</p>
+                                    </div>
+                                    <div className="sm-hidden lg:block">
+                                        <div className="flex gap-5 2xl:gap-6">
+                                            <DowloadPWA />
+                                            <UserProfile />
+                                        </div>
+                                    </div>
                                 </div>
                             </header>
                         </nav>

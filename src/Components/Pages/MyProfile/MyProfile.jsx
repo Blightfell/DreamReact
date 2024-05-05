@@ -8,6 +8,8 @@ import { RiCloseFill } from 'react-icons/ri';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
+import UserProfile from '../../Ui-Components/UserProfile';
+import DowloadPWA from '../../Ui-Components/DowloadPWA';
 
 const imageData = [
     { id: 1, src: "Assets/Images/MyProfile/10 -Thief in the Night.webp", alt: "Thief in the Night" },
@@ -117,18 +119,22 @@ const MyProfile = () => {
                         <header className="header-mob lg:py-7 2xl:pb-12  lg:px-16 2xl:px-[100px] lg:bg-transparent bg-[#2C2E2E] h-14 py-4 px-6">
                             <h5 className='lg:hidden'>@TonyStark</h5>
                             <div className='sm-hidden md:block'>
-                                <div className='flex items-center gap-6 2xl:gap-8'>
-                                    <h5>My Profile</h5>
-                                    <div className='bg-[#2C2E2E] py-2 px-4 rounded-3xl username-label'>
-                                        <h3>@Flook</h3>
+                                <div className="flex justify-between items-center">
+                                    <div className='flex items-center gap-6 2xl:gap-8'>
+                                        <h5>My Profile</h5>
+                                        <div className='bg-[#2C2E2E] py-2 px-4 rounded-3xl username-label'>
+                                            <h3>@Flook</h3>
+                                        </div>
+                                    </div>
+                                    <div className="sm-hidden lg:block 2xl:block">
+                                        <div className="flex gap-5 2xl:gap-6">
+                                            <DowloadPWA />
+                                            <UserProfile />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <div className="float-right mt-[-23px]  lg:mt-[-39px] 2xl:mt-[-40px] flex items-center gap-4">
-                                {/* <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" /> */}
-                                <Link className='sm-hidden' to="/MyProfile">
-                                    <img className='lg:h-8 2xl:h-10' src="Assets/Images/All Icons/Ellipse 2.svg" alt="" />
-                                </Link>
                                 <div className='lg:hidden'>
                                     <Link to="/">
                                         <img src="Assets/Images/All Icons/Group 177.svg" alt="" />

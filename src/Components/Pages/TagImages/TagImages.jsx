@@ -6,6 +6,8 @@ import SideBAr from '../../Commons/SideBar/SideBar';
 import CongurationPopup from '../../Ui-Components/CongurationPopup';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
+import DowloadPWA from '../../Ui-Components/DowloadPWA';
+import UserProfile from '../../Ui-Components/UserProfile';
 
 
 const TagImages = () => {
@@ -69,9 +71,14 @@ const TagImages = () => {
                     <div className='mb-10 2xl:mb-0 relative'>
                         <nav className='h-14 lg:h-auto'>
                             <header className="header-mob lg:relative absolute top-0 w-full z-[999] lg:px-16 2xl:px-[100px] lg:bg-transparent bg-[#2C2E2E] py-4 px-6">
-                                <h5>Tag Images</h5>
-                                <div className="float-right mt-[-23px] lg:mt-[-39px]">
-                                    {/* <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" /> */}
+                                <div className="flex items-center justify-between w-full">
+                                    <h5>Tag Images</h5>
+                                    <div className="sm-hidden lg:block">
+                                        <div className="flex gap-5 2xl:gap-6">
+                                            <DowloadPWA />
+                                            <UserProfile />
+                                        </div>
+                                    </div>
                                 </div>
                             </header>
                         </nav>

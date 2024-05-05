@@ -2,6 +2,8 @@ import "./deshboard.css";
 import Nav from "../../Commons/MobileNav/nav";
 import Chart from "../../Ui-Components/Chart";
 import SideBAr from "../../Commons/SideBar/SideBar";
+import DowloadPWA from "../../Ui-Components/DowloadPWA";
+import UserProfile from "../../Ui-Components/UserProfile";
 const Deshboard = () => {
     // Define an array of box data
     const boxes = [
@@ -52,9 +54,14 @@ const Deshboard = () => {
                 <div className="md:w-full lg:w-[81%] 2xl:w-full h-full sm-w-full">
                     <div className='mb-28'>
                         <header className="header-mob lg:px-16 2xl:px-[100px] lg:bg-transparent 2xl:pt-7 2xl:pb-[50px] bg-[#2C2E2E] py-4 px-6">
-                            <h5>Dashboard</h5>
-                            <div className="float-right mt-[-23px] lg:mt-[-39px]">
-                                {/* <img className="lg:h-7 2xl:h-8" src="Assets/Images/All Icons/Group 85.svg" alt="" /> */}
+                            <div className="flex items-center justify-between w-full">
+                                <h5>Dashboard</h5>
+                                <div className="sm-hidden lg:block 2xl:block">
+                                    <div className="flex gap-5 2xl:gap-6">
+                                        <DowloadPWA />
+                                        <UserProfile />
+                                    </div>
+                                </div>
                             </div>
                         </header>
                         <div className="p-6 2xl:pt-0 md:px-16 2xl:px-[100px] overflow-x-hidden">
