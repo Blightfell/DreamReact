@@ -1,9 +1,7 @@
 import "./deshboard.css";
-import Nav from "../../Commons/MobileNav/nav";
+
 import Chart from "../../Ui-Components/Chart";
-import SideBAr from "../../Commons/SideBar/SideBar";
-import DowloadPWA from "../../Ui-Components/DowloadPWA";
-import UserProfile from "../../Ui-Components/UserProfile";
+import Header from "../../Commons/Header";
 const Deshboard = () => {
     // Define an array of box data
     const boxes = [
@@ -47,102 +45,86 @@ const Deshboard = () => {
     ];
     return (
         <>
-            <div className="flex justify-between">
-                <div className="2xl:w-[300px] md:w-[19%] sm-hidden">
-                    <SideBAr />
-                </div>
-                <div className="md:w-full lg:w-[81%] 2xl:w-full h-full sm-w-full">
-                    <div className='mb-28'>
-                        <header className="header-mob lg:px-16 2xl:px-[100px] lg:bg-transparent 2xl:pt-7 2xl:pb-[50px] bg-[#2C2E2E] py-4 px-6">
-                            <div className="flex items-center justify-between w-full">
-                                <h5>Dashboard</h5>
-                                <div className="sm-hidden lg:block 2xl:block">
-                                    <div className="flex gap-5 2xl:gap-6">
-                                        <DowloadPWA />
-                                        <UserProfile />
+            <div className="">
+                <div className='mb-28'>
+                    <Header title={'Dashboard'} displayButton={true} />
+                    <div className="p-6 pt-0 2xl:pt-0 md:px-16 2xl:px-[100px] overflow-x-hidden">
+                        <div className="deshboard-content ">
+                            <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box">
+                                {boxes.map((box, index) => (
+                                    <div key={index} className="p-2 lg:p-3 2xl:p-4 bg-[#2C2E2E] rounded-lg lg:rounded-xl 2xl:rounded-2xl w-full">
+                                        <div className="flex items-center gap-2 lg:gap-3 2xl:gap-4 mb-1">
+                                            <div className="rounded-md lg:rounded-lg 2xl:rounded-xl p-2 lg:p-3 2xl:p-4 bg-[#222222]">
+                                                <img className='h-4 lg:h-8 2xl:h-10' src={box.iconSrc} alt="" />
+                                            </div>
+                                            <div>
+                                                <p className="xs-hidden md:block">{box.text}</p>
+                                                <h4>{box.value}</h4>
+                                            </div>
+                                        </div>
+                                        <p className="sm:block md:hidden">{box.text}</p>
                                     </div>
+                                ))}
+                            </div>
+                            <div className="chart-box rounded-md lg:rounded-xl 2xl:rounded-2xl bg-[#2C2E2E] mt-4 lg:mt-6 mb-8">
+                                <div className="border-[#414545] border-b p-4 lg:px-5">
+                                    <h4 className="text-18-sm">
+                                        Daily Points
+                                    </h4>
+                                </div>
+                                <div className="chart px-1 pb-4">
+                                    <Chart />
                                 </div>
                             </div>
-                        </header>
-                        <div className="p-6 2xl:pt-0 md:px-16 2xl:px-[100px] overflow-x-hidden">
-                            <div className="deshboard-content ">
-                                <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box">
-                                    {boxes.map((box, index) => (
-                                        <div key={index} className="p-2 lg:p-3 2xl:p-4 bg-[#2C2E2E] rounded-lg lg:rounded-xl 2xl:rounded-2xl w-full">
-                                            <div className="flex items-center gap-2 lg:gap-3 2xl:gap-4 mb-1">
-                                                <div className="rounded-md lg:rounded-lg 2xl:rounded-xl p-2 lg:p-3 2xl:p-4 bg-[#222222]">
-                                                    <img className='h-4 lg:h-8 2xl:h-10' src={box.iconSrc} alt="" />
-                                                </div>
-                                                <div>
-                                                    <p className="xs-hidden md:block">{box.text}</p>
-                                                    <h4>{box.value}</h4>
-                                                </div>
-                                            </div>
-                                            <p className="sm:block md:hidden">{box.text}</p>
-                                        </div>
-                                    ))}
-                                </div>
-                                <div className="chart-box rounded-md lg:rounded-xl 2xl:rounded-2xl bg-[#2C2E2E] mt-4 lg:mt-6 mb-8">
-                                    <div className="border-[#414545] border-b p-4 lg:px-5">
-                                        <h4 className="text-18-sm">
-                                            Daily Points
-                                        </h4>
-                                    </div>
-                                    <div className="chart px-1 pb-4">
-                                        <Chart />
-                                    </div>
-                                </div>
-                                <div className="desktopTable rounded-md lg:rounded-xl 2xl:rounded-2xl bg-[#2C2E2E] xs-hidden lg:block">
-                                    <div className="border-[#414545] border-b p-4 lg:px-5">
-                                        <h4 className="text-18-sm">
-                                            Request History
-                                        </h4>
-                                    </div>
-
-                                    <table className="w-full text-left">
-                                        <thead>
-                                            <tr>
-                                                <th className="px-6 py-3 ">Time</th>
-                                                <th className="px-6 py-3 ">Model ID</th>
-                                                <th className="px-6 py-3 ">Total Latency</th>
-                                                <th className="px-6 py-3 ">Inference Latency</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            {requestData.map((item, index) => (
-                                                <tr key={index} className="hover:bg-[#414545] transition duration-200 rounded-2xl"> {/* Hover effect */}
-                                                    <td className="px-6 py-3 ">{item.time}</td>
-                                                    <td className="px-6 py-3 ">{item.modelId}</td>
-                                                    <td className="px-6 py-3 ">{item.totalLatency}</td>
-                                                    <td className="px-6 pt-3 pb-4 ">{item.inferenceLatency}</td>
-                                                </tr>
-                                            ))}
-                                        </tbody>
-                                    </table  >
-                                </div>
-                                <div className="sm:block md:hidden">
+                            <div className="desktopTable rounded-md lg:rounded-xl 2xl:rounded-2xl bg-[#2C2E2E] xs-hidden lg:block">
+                                <div className="border-[#414545] border-b p-4 lg:px-5">
                                     <h4 className="text-18-sm">
                                         Request History
                                     </h4>
-                                    <div className="detail-box-container">
-                                        {detailBoxes.map((details, index) => (
-                                            <div key={index} className="detail-box p-4 bg-[#2C2E2E]  rounded-md  lg:rounded-xl 2xl:rounded-2xl grid grid-cols-2 gap-4 my-4">
-                                                {details.map((detail, detailIndex) => (
-                                                    <div key={detailIndex} className="detail-item">
-                                                        <h5>{detail.label}</h5>
-                                                        <p>{detail.value}</p>
-                                                    </div>
-                                                ))}
-                                            </div>
+                                </div>
+
+                                <table className="w-full text-left">
+                                    <thead>
+                                        <tr>
+                                            <th className="px-6 py-3 ">Time</th>
+                                            <th className="px-6 py-3 ">Model ID</th>
+                                            <th className="px-6 py-3 ">Total Latency</th>
+                                            <th className="px-6 py-3 ">Inference Latency</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {requestData.map((item, index) => (
+                                            <tr key={index} className="hover:bg-[#414545] transition duration-200 rounded-2xl"> {/* Hover effect */}
+                                                <td className="px-6 py-3 ">{item.time}</td>
+                                                <td className="px-6 py-3 ">{item.modelId}</td>
+                                                <td className="px-6 py-3 ">{item.totalLatency}</td>
+                                                <td className="px-6 pt-3 pb-4 ">{item.inferenceLatency}</td>
+                                            </tr>
                                         ))}
-                                    </div>
+                                    </tbody>
+                                </table  >
+                            </div>
+                            <div className="sm:block md:hidden">
+                                <h4 className="text-18-sm">
+                                    Request History
+                                </h4>
+                                <div className="detail-box-container">
+                                    {detailBoxes.map((details, index) => (
+                                        <div key={index} className="detail-box p-4 bg-[#2C2E2E]  rounded-md  lg:rounded-xl 2xl:rounded-2xl grid grid-cols-2 gap-4 my-4">
+                                            {details.map((detail, detailIndex) => (
+                                                <div key={detailIndex} className="detail-item">
+                                                    <h5>{detail.label}</h5>
+                                                    <p>{detail.value}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <Nav />
         </>
     );
 };

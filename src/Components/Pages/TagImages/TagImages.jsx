@@ -1,13 +1,10 @@
 import { useState } from 'react';
 import './TagImages.css';
-import Nav from "../../Commons/MobileNav/nav";
 import { Button } from '@material-tailwind/react';
-import SideBAr from '../../Commons/SideBar/SideBar';
 import CongurationPopup from '../../Ui-Components/CongurationPopup';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
-import DowloadPWA from '../../Ui-Components/DowloadPWA';
-import UserProfile from '../../Ui-Components/UserProfile';
+import Header from '../../Commons/Header';
 
 
 const TagImages = () => {
@@ -30,7 +27,7 @@ const TagImages = () => {
     const [clickCount, setClickCount] = useState(0);
     const [currentImage, setCurrentImage] = useState(images[0]);
 
-    const isValidTag = (tag) => /^[a-z]+$/.test(tag); // Only lowercase letters, no symbols or spaces
+    const isValidTag = (tag) => /^[a-z]+$/.test(tag); // Validates lowercase words
 
     const handleChange = (index) => (e) => {
         const newValue = e.target.value.toLowerCase();
@@ -44,111 +41,98 @@ const TagImages = () => {
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault(); // Prevent form default behavior (refresh)
 
         if (clickCount < 5) {
-            setPopupVisible(true);
+            setPopupVisible(true); // Show the popup
             setTimeout(() => {
-                setPopupVisible(false);
-                setClickCount((prevCount) => prevCount + 1);
-                setCurrentImage(images[clickCount]); // Update the current image
-            }, 2000);
+                setPopupVisible(false); // Hide the popup after 2 seconds
+                setClickCount((prevCount) => prevCount + 1); // Increment the click count
+                // Make sure `clickCount` doesn't exceed the array length
+                if (clickCount + 1 < images.length) {
+                    setCurrentImage(images[clickCount + 1]); // Update the current image
+                }
+            }, 2600); // Delay before hiding the popup
         } else {
-            setAlertPopupVisible(true);
+            setAlertPopupVisible(true); // Trigger an alert if limit is reached
         }
 
-        // Clear the tags after submission
-        setTags(Array(5).fill("")); // Clears all inputs
+        // Clear the tag input after submission
+        setTags(Array(5).fill("")); // Reset the tags
     };
 
     return (
         <>
-            <div className="flex justify-between">
-                <div className="md:w-[19%] 2xl:w-[300px] sm-hidden">
-                    <SideBAr />
-                </div>
-                <div className="md:w-full lg:w-[81%] 2xl:w-full  h-full mb-11 sm-w-full">
-                    <div className='mb-10 2xl:mb-0 relative'>
-                        <nav className='h-14 lg:h-auto'>
-                            <header className="header-mob lg:relative absolute top-0 w-full z-[999] lg:px-16 2xl:px-[100px] lg:bg-transparent bg-[#2C2E2E] py-4 px-6">
-                                <div className="flex items-center justify-between w-full">
-                                    <h5>Tag Images</h5>
-                                    <div className="sm-hidden lg:block">
-                                        <div className="flex gap-5 2xl:gap-6">
-                                            <DowloadPWA />
-                                            <UserProfile />
+            <div className="">
+                <nav className='h-14 lg:h-auto mb-6 lg:mb-0 2xl:mb-0'>
+                    <Header title={'Tag Images'} displayButton={true} />
+                </nav>
+                <div className='mb-10 2xl:mb-0 relative'>
+                    <div className="p-6 pt-0 md:px-16 2xl:px-[100px]">
+                        <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box sm-hidden">
+                            {boxes.map((box, index) => (
+                                <div key={index} className="p-2 lg:p-3 2xl:p-4 bg-[#2C2E2E] rounded-lg lg:rounded-xl 2xl:rounded-2xl w-full">
+                                    <div className="flex items-center gap-2 lg:gap-3 2xl:gap-4 mb-1">
+                                        <div className="rounded-md lg:rounded-lg 2xl:rounded-xl p-2 lg:p-3 2xl:p-4 bg-[#222222]">
+                                            <img className='h-4 lg:h-8 2xl:h-10' src={box.iconSrc} alt="" />
+                                        </div>
+                                        <div>
+                                            <p className="sm-hidden md:block">{box.text}</p>
+                                            <h4>{box.value}</h4>
                                         </div>
                                     </div>
                                 </div>
-                            </header>
-                        </nav>
-                        <div className=" p-6 md:px-16 2xl:px-[100px]">
-                            <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box sm-hidden">
-                                {boxes.map((box, index) => (
-                                    <div key={index} className="p-2 lg:p-3 2xl:p-4 bg-[#2C2E2E] rounded-lg lg:rounded-xl 2xl:rounded-2xl w-full">
-                                        <div className="flex items-center gap-2 lg:gap-3 2xl:gap-4 mb-1">
-                                            <div className="rounded-md lg:rounded-lg 2xl:rounded-xl p-2 lg:p-3 2xl:p-4 bg-[#222222]">
-                                                <img className='h-4 lg:h-8 2xl:h-10' src={box.iconSrc} alt="" />
-                                            </div>
-                                            <div>
-                                                <p className="sm-hidden md:block">{box.text}</p>
-                                                <h4>{box.value}</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
+                            ))}
+                        </div>
+                        <div className="TagImages-content lg:mt-10 2xl:mt-14 grid grid-cols-12 gap-4 lg:gap-5 2xl:gap-6 ">
+                            <div className="col-span-12 lg:col-span-8 ">
+                                <h3 className="text-40 ">Tag the image below</h3>
+                                <div>
+                                    <img className="w-full mt-4 2xl:mt-8 tag-images-gen rounded-xl" src={currentImage} alt="Current Image" /> {/* Updated image */}
+                                </div>
                             </div>
-                            <div className="TagImages-content lg:mt-10 2xl:mt-14 grid grid-cols-12 gap-4 lg:gap-5 2xl:gap-6 ">
-                                <div className="col-span-12 lg:col-span-8 ">
-                                    <h3 className="text-40 ">Tag the image below</h3>
-                                    <div>
-                                        <img className="w-full mt-4 2xl:mt-8 tag-images-gen" src={currentImage} alt="Current Image" /> {/* Updated image */}
-                                    </div>
+                            <form onSubmit={handleSubmit} className="Form col-span-12 lg:col-span-4 md:px-3 2xl:w-full lg:px-0 lg:bg-transparent mt-0 lg:py-0 tag-form">
+                                <div className="">
+                                    <p className="mb-4 2xl:mb-8">Write 5 words you associate with this image. All lowercase, no symbols or spaces.</p>
+                                    {tags.map((tag, index) => (
+                                        <input
+                                            key={index}
+                                            className="input-custom"
+                                            type="text"
+                                            placeholder={`Enter Tag ${index + 1}`}
+                                            value={tag}
+                                            onChange={handleChange(index)}
+                                            required
+                                        />
+                                    ))}
                                 </div>
-                                <form onSubmit={handleSubmit} className="Form col-span-12 lg:col-span-4 md:px-3 2xl:w-full lg:px-0 lg:bg-transparent mt-0 lg:py-0 tag-form">
-                                    <div className="">
-                                        <p className="mb-4 2xl:mb-8">Write 5 words you associate with this image. All lowercase, no symbols or spaces.</p>
-                                        {tags.map((tag, index) => (
-                                            <input
-                                                key={index}
-                                                className="input-custom"
-                                                type="text"
-                                                placeholder={`Enter Tag ${index + 1}`}
-                                                value={tag}
-                                                onChange={handleChange(index)}
-                                                required
-                                            />
-                                        ))}
-                                    </div>
-                                    <Button type="submit" className="sub-button mt-4">
-                                        Confirm
-                                    </Button>
-                                </form>
-                                {popupVisible && ( /* Congratulatory popup */
-                                    <CongurationPopup />
-                                )}
-                                {alertPopupVisible && ( /* Alert popup if limit is reached */
-                                    <Dialog open={alertPopupVisible} onClose={() => setAlertPopupVisible(false)}>
-                                        <DialogContent className="text-center bg-[#2C2E2E] w-full">
-                                            <h2 className='text-red-800 text-4xl font-bold'>Limit Reached</h2>
-                                            <p className='text-white text-lg py-4'>You can only tag five times.</p>
-                                            <Button className='py-2'
-                                                onClick={() => setAlertPopupVisible(false)}
-                                                variant="contained"
-                                                style={{ backgroundColor: '#414545', color: '#fff', borderRadius: '20px', marginTop: '1rem' }}
-                                            >
-                                                Close
-                                            </Button>
+                                <Button type="submit" className="sub-button mt-4">
+                                    Confirm
+                                </Button>
+                            </form>
+                            {popupVisible && ( /* Congratulatory popup */
+                                <CongurationPopup />
+                            )}
+                            {alertPopupVisible && ( /* Alert popup if limit is reached */
+                                <Dialog open={alertPopupVisible} onClose={() => setAlertPopupVisible(false)}>
+                                    <DialogContent className="text-center bg-[#2C2E2E] w-full">
+                                        <h2 className='text-red-800 text-4xl font-bold'>Limit Reached</h2>
+                                        <p className='text-white text-lg py-4'>You can only tag five times.</p>
+                                        <Button className='py-2'
+                                            onClick={() => setAlertPopupVisible(false)}
+                                            variant="contained"
+                                            style={{ backgroundColor: '#414545', color: '#fff', borderRadius: '20px', marginTop: '1rem' }}
+                                        >
+                                            Close
+                                        </Button>
 
-                                        </DialogContent>
-                                    </Dialog>
-                                )}
-                            </div>
+                                    </DialogContent>
+                                </Dialog>
+                            )}
                         </div>
                     </div>
                 </div>
             </div>
-            <Nav />
         </>
     );
 };

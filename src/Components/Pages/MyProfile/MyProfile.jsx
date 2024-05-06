@@ -1,15 +1,12 @@
 import { useState } from 'react';
 import './MyProfile.css';
-import Nav from "../../Commons/MobileNav/nav";
 import { Button } from '@material-tailwind/react';
-import { Link } from 'react-router-dom';
-import SideBAr from '../../Commons/SideBar/SideBar';
 import { RiCloseFill } from 'react-icons/ri';
 import Dialog from '@mui/material/Dialog';
 import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
-import UserProfile from '../../Ui-Components/UserProfile';
-import DowloadPWA from '../../Ui-Components/DowloadPWA';
+import Header from '../../Commons/Header';
+import { Link } from 'react-router-dom';
 
 const imageData = [
     { id: 1, src: "Assets/Images/MyProfile/10 -Thief in the Night.webp", alt: "Thief in the Night" },
@@ -110,126 +107,100 @@ const MyProfile = () => {
 
     return (
         <>
-            <div className="flex justify-between">
-                <div className=" 2xl:w-[300px] md:w-[19%] sm-w-0 sm-hidden">
-                    <SideBAr />
+            <div className="">
+                <div className="relative">
+                    <Header title={'My Profile'} displayButton={true} />
+                    <Link to={'/'}>
+                        <img className='lg:hidden absolute top-[25.7%] right-4 z-50' src="Assets/Images/All Icons/Group 177.svg" alt="" />
+                    </Link>
                 </div>
-                <div className=" md:w-full lg:w-[81%] 2xl:w-full  h-full sm-w-full">
-                    <div className='mb-5'>
-                        <header className="header-mob lg:py-7 2xl:pb-12  lg:px-16 2xl:px-[100px] lg:bg-transparent bg-[#2C2E2E] h-14 py-4 px-6">
-                            <h5 className='lg:hidden'>@TonyStark</h5>
-                            <div className='sm-hidden md:block'>
-                                <div className="flex justify-between items-center">
-                                    <div className='flex items-center gap-6 2xl:gap-8'>
-                                        <h5>My Profile</h5>
-                                        <div className='bg-[#2C2E2E] py-2 px-4 rounded-3xl username-label'>
-                                            <h3>@Flook</h3>
-                                        </div>
-                                    </div>
-                                    <div className="sm-hidden lg:block 2xl:block">
-                                        <div className="flex gap-5 2xl:gap-6">
-                                            <DowloadPWA />
-                                            <UserProfile />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="float-right mt-[-23px]  lg:mt-[-39px] 2xl:mt-[-40px] flex items-center gap-4">
-                                <div className='lg:hidden'>
-                                    <Link to="/">
-                                        <img src="Assets/Images/All Icons/Group 177.svg" alt="" />
-                                    </Link>
-                                </div>
-                            </div>
-                        </header>
-                        <div className=" p-6 md:px-16 2xl:px-[100px] lg:mt-9 ">
-                            <div className="MyProfile-content">
-                                <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box">
-                                    {boxes.map((box, index) => (
-                                        <div key={index} className="p-2 lg:p-3 2xl:p-4 bg-[#2C2E2E] rounded-lg lg:rounded-xl 2xl:rounded-2xl w-full">
-                                            <div className="flex items-center gap-2 lg:gap-3 2xl:gap-4 mb-1">
-                                                <div className="rounded-md lg:rounded-lg 2xl:rounded-xl p-2 lg:p-3 2xl:p-4 bg-[#222222]">
-                                                    <img className='h-4 lg:h-8 2xl:h-10' src={box.iconSrc} alt="" />
-                                                </div>
-                                                <div>
-                                                    <p className="xs-hidden md:block">{box.text}</p>
-                                                    <h4>{box.value}</h4>
-                                                </div>
+                <div className='mb-5'>
+                    <div className="pt-0 p-6 md:px-16 2xl:px-[100px]">
+                        <div className="MyProfile-content">
+                            <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box">
+                                {boxes.map((box, index) => (
+                                    <div key={index} className="p-2 lg:p-3 2xl:p-4 bg-[#2C2E2E] rounded-lg lg:rounded-xl 2xl:rounded-2xl w-full">
+                                        <div className="flex items-center gap-2 lg:gap-3 2xl:gap-4 mb-1">
+                                            <div className="rounded-md lg:rounded-lg 2xl:rounded-xl p-2 lg:p-3 2xl:p-4 bg-[#222222]">
+                                                <img className='h-4 lg:h-8 2xl:h-10' src={box.iconSrc} alt="" />
                                             </div>
-                                            <p className="sm:block md:hidden">{box.text}</p>
+                                            <div>
+                                                <p className="xs-hidden md:block">{box.text}</p>
+                                                <h4>{box.value}</h4>
+                                            </div>
                                         </div>
+                                        <p className="sm:block md:hidden">{box.text}</p>
+                                    </div>
+                                ))}
+                            </div>
+                            <h4 className="text-18-sm mt-10 mb-6 md:hidden ">My Generations</h4>
+                            <div className="myprofiletab">
+                                <div className='tab-btn flex gap-2 mb-6 items-center md:mt-14 2xl:mt-[72px] lg:mb-14'>
+                                    <h4 className='tab-btn-font sm-hidden text-white'>My Generations:</h4>
+                                    {['Today', 'This Week', 'This Month'].map((name, index) => (
+                                        <Button
+                                            key={index}
+                                            className={`py-[6px] lg:py-2 px-4 lg:px[18px] rounded-[20px] ${activeTab === index ? 'bg-white text-black py-[2px]' : 'bg-[#2C2E2E] text-white lg:bg-[rgba(255, 255, 255, 0.3)] tab-btn-font'
+                                                }`}
+                                            onClick={() => handleTabChange(index)}
+                                        >
+                                            {name}
+                                        </Button>
                                     ))}
                                 </div>
-                                <h4 className="text-18-sm mt-10 mb-6 md:hidden ">My Generations</h4>
-                                <div className="myprofiletab">
-                                    <div className='tab-btn flex gap-2 mb-6 items-center md:mt-14 2xl:mt-[72px] lg:mb-14'>
-                                        <h4 className='tab-btn-font sm-hidden text-white'>My Generations:</h4>
-                                        {['Today', 'This Week', 'This Month'].map((name, index) => (
-                                            <Button
-                                                key={index}
-                                                className={`py-[6px] lg:py-2 px-4 lg:px[18px] rounded-[20px] ${activeTab === index ? 'bg-white text-black py-[2px]' : 'bg-[#2C2E2E] text-white lg:bg-[rgba(255, 255, 255, 0.3)] tab-btn-font'
-                                                    }`}
-                                                onClick={() => handleTabChange(index)}
-                                            >
-                                                {name}
-                                            </Button>
-                                        ))}
-                                    </div>
-                                    <div>
-                                        <div className="tab-content">
-                                            {activeTab === 0 && (
-                                                <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 grid-img gap-0'>
-                                                    {imageData.map((image) => (
-                                                        <img
-                                                            key={image.id}
-                                                            src={image.src}
-                                                            alt={image.alt}
-                                                            onClick={() => openPopup(image.src)}
-                                                        />
-                                                    ))}
-                                                </div>
-                                            )}
-                                            {activeTab === 1 && (
-                                                <div className='grid grid-cols-3 md:grid-cols-4  lg:grid-cols-6 grid-img gap-0'>
-                                                    {imageData.map((image) => (
-                                                        <img
-                                                            key={image.id}
-                                                            src={image.src}
-                                                            alt={image.alt}
-                                                            onClick={() => openPopup(image.src)}
-                                                        />
-                                                    ))}
-                                                </div>
-                                            )}
-                                            {activeTab === 2 && (
-                                                <div className='grid grid-cols-3 md:grid-cols-4  lg:grid-cols-6 grid-img gap-0'>
-                                                    {imageData.map((image) => (
-                                                        <img
-                                                            key={image.id}
-                                                            src={image.src}
-                                                            alt={image.alt}
-                                                            onClick={() => openPopup(image.src)}
-                                                        />
-                                                    ))}
-                                                </div>
-                                            )}
-                                        </div>
-                                        {popupVisible && (
-                                            <ImagePopup
-                                                imageSrc={selectedImage}
-                                                imageDetails={imageDetails}
-                                                open={popupVisible}
-                                                onClose={closePopup}
-                                            />
+                                <div>
+                                    <div className="tab-content">
+                                        {activeTab === 0 && (
+                                            <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 grid-img gap-0'>
+                                                {imageData.map((image) => (
+                                                    <img
+                                                        key={image.id}
+                                                        src={image.src}
+                                                        alt={image.alt}
+                                                        onClick={() => openPopup(image.src)}
+                                                    />
+                                                ))}
+                                            </div>
+                                        )}
+                                        {activeTab === 1 && (
+                                            <div className='grid grid-cols-3 md:grid-cols-4  lg:grid-cols-6 grid-img gap-0'>
+                                                {imageData.map((image) => (
+                                                    <img
+                                                        key={image.id}
+                                                        src={image.src}
+                                                        alt={image.alt}
+                                                        onClick={() => openPopup(image.src)}
+                                                    />
+                                                ))}
+                                            </div>
+                                        )}
+                                        {activeTab === 2 && (
+                                            <div className='grid grid-cols-3 md:grid-cols-4  lg:grid-cols-6 grid-img gap-0'>
+                                                {imageData.map((image) => (
+                                                    <img
+                                                        key={image.id}
+                                                        src={image.src}
+                                                        alt={image.alt}
+                                                        onClick={() => openPopup(image.src)}
+                                                    />
+                                                ))}
+                                            </div>
                                         )}
                                     </div>
+                                    {popupVisible && (
+                                        <ImagePopup
+                                            imageSrc={selectedImage}
+                                            imageDetails={imageDetails}
+                                            open={popupVisible}
+                                            onClose={closePopup}
+                                        />
+                                    )}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <Nav />
         </>
     );
 };
