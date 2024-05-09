@@ -84,7 +84,7 @@ const TagImages = () => {
                                 </div>
                             ))}
                         </div>
-                        <div className="TagImages-content lg:mt-10 2xl:mt-14 grid grid-cols-12 gap-4 lg:gap-5 2xl:gap-6 ">
+                        <div className="TagImages-content lg:mt-10 2xl:mt-14 grid grid-cols-12 gap-4 lg:gap-5 2xl:gap-6 mb-8 lg:mb-0">
                             <div className="col-span-12 lg:col-span-8 ">
                                 <h3 className="text-40 ">Tag the image below</h3>
                                 <div>

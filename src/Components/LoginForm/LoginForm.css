@@ -1,8 +1,8 @@
 .SignIn {
-    background-image: url(../../../public/Assets/Images/BackgroundImages/group112-66350abf77a95.webp);
+    background-image: url(../../../Assets/Images/BackgroundImages/group112-66350abf77a95.webp);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100%;
+    height: 100vh;
     padding: 24px;
 
 }
@@ -11,7 +11,7 @@
     background-image: url(../../../Assets/Images/BackgroundImages/group113-66350abe7474a.webp);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100%;
+    height: 100vh;
     padding: 24px;
 }
 
@@ -21,15 +21,15 @@
 
 .title-form h3 {
     font-family: Satoshi-Black;
-    font-size: 42px;
+    font-size: 32px;
     color: #FFFFFF;
 }
 
 .form-para {
 
-    font-size: 20px;
+    font-size: 16px;
     color: #FFFFFF;
-    padding-top: 12px;
+    padding-top: 10px;
     font-weight: 300;
 }
 
@@ -42,24 +42,23 @@
 }
 
 .Form h2 {
-
-    font-size: 42px;
+    font-size: 32px;
     color: #FFFFFF;
     font-weight: 700;
 
 }
 
 .fp1 {
-    padding: 0px 0 32px;
+    padding: 0px 0 24px;
 }
 
 .Form .input-custom {
-    height: 54px;
+    height: 48px;
     width: 100%;
     background: #2C2E2E;
     border-radius: 8px;
     border: none;
-    font-size: 18px;
+    font-size: 16px;
     padding: 16px;
     color: white !important;
     margin-bottom: 16px;
@@ -73,9 +72,9 @@
 
 .Form .sub-button {
     font-weight: 700;
-    font-size: 18px;
+    font-size: 16px;
     color: black;
-    height: 54px;
+    height: 48px;
     width: 100%;
     border-radius: 8px;
     border: none;
@@ -100,7 +99,7 @@
     background: transparent;
     color: white;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 16px;
     border: none;
     cursor: pointer;
 }
@@ -122,12 +121,11 @@
 }
 
 .notice-text {
-
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     line-height: 24.3px;
     color: white;
-    padding: 0 0 36px;
+    padding: 0 0 24px;
 }
 
 @media only screen and (max-width: 840px) {
@@ -214,13 +212,11 @@
 
 @media only screen and (min-width: 1566px) {
     .SignIn {
-        height: 100vh;
         padding: 40px 24px;
 
     }
 
     .SignUp {
-        height: 100vh;
         padding: 40px 24px;
     }
 
@@ -233,22 +229,27 @@
 
     .notice-text {
         padding: 0 0 48px;
+        font-size: 18px;
+    }
+
+    .forget-btn {
+        font-weight: 700;
     }
 
     .Form .input-custom {
+        font-size: 18px;
         height: 64px;
     }
 
     .Form .sub-button {
         height: 64px;
+        font-size: 18px;
     }
 
     .Form h2 {
-
         font-weight: 700;
         font-size: 48px;
         color: #FFFFFF;
-
     }
 
     .fp1 {

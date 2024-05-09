@@ -59,7 +59,7 @@ const SignUp = () => {
                             <Button type="submit" className="sub-button">
                                 Sign Up
                             </Button>
-                            <div className="mt-12 md:mt-5 xl:mt-12 lg:mt-6">
+                            <div className="mt-10 md:mt-5 lg:mt-8 2xl:mt-12 ">
                                 <p className="para-18-500 text-center">Already have an account? <span className="font-bold duration-300 hover:text-gray-200 cursor-pointer">
                                     <Link to="/">Sign in</Link>
                                 </span>

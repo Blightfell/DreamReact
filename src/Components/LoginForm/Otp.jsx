@@ -12,7 +12,7 @@ const Otp = () => {
 
     return (
         <div className='SignUp'>
-            <form className="Form" onSubmit={handleConfirm}>
+            <form className="Form 2xl:w-[534px] lg:w-[426px] lg:float-end lg:h-full" onSubmit={handleConfirm}>
                 <h2>Enter OTP</h2>
                 <p className="form-para fp1">Enter the 6-digit code sent to tony*****@email.com</p>
                 <input

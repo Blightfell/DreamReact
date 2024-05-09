@@ -33,7 +33,7 @@ const ResetPassword = () => {
 
     return (
         <div className='SignUp'>
-            <form className="Form" onSubmit={handleResetPassword}>
+            <form className="Form 2xl:w-[534px] lg:w-[426px] lg:float-end lg:h-full" onSubmit={handleResetPassword}>
                 <h2>Reset Password</h2>
                 <p className="form-para fp1">Enter your new password below.</p>
                 <input

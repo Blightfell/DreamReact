@@ -15,7 +15,7 @@ const ForgetPassword = () => {
 
     return (
         <div className='SignUp'>
-            <form className="Form" onSubmit={handleForgetPassword}>
+            <form className="Form 2xl:w-[534px] lg:w-[426px] lg:float-end lg:h-full" onSubmit={handleForgetPassword}>
                 <h2>Forget Password</h2>
                 <p className="form-para fp1">Enter your email to get password reset code.</p>
                 <input
