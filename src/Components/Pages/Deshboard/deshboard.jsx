@@ -86,23 +86,23 @@ const Deshboard = () => {
                                 <table className="w-full text-left">
                                     <thead>
                                         <tr>
-                                            <th className="px-6 py-3 ">Time</th>
-                                            <th className="px-6 py-3 ">Model ID</th>
-                                            <th className="px-6 py-3 ">Total Latency</th>
-                                            <th className="px-6 py-3 ">Inference Latency</th>
+                                            <th className="px-6 py-4 ">Time</th>
+                                            <th className="px-6 py-4 ">Model ID</th>
+                                            <th className="px-6 py-4 ">Total Latency</th>
+                                            <th className="px-6 py-4 ">Inference Latency</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {requestData.map((item, index) => (
                                             <tr key={index} className="hover:bg-[#414545] transition duration-200 rounded-2xl"> {/* Hover effect */}
-                                                <td className="px-6 py-3 ">{item.time}</td>
-                                                <td className="px-6 py-3 ">{item.modelId}</td>
-                                                <td className="px-6 py-3 ">{item.totalLatency}</td>
-                                                <td className="px-6 pt-3 pb-4 ">{item.inferenceLatency}</td>
+                                                <td className="px-6 py-4 ">{item.time}</td>
+                                                <td className="px-6 py-4 ">{item.modelId}</td>
+                                                <td className="px-6 py-4 ">{item.totalLatency}</td>
+                                                <td className="px-6 py-4 ">{item.inferenceLatency}</td>
                                             </tr>
                                         ))}
                                     </tbody>
-                                </table  >
+                                </table>
                             </div>
                             <div className="sm:block md:hidden">
                                 <h4 className="text-18-sm">

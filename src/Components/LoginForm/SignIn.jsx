@@ -61,7 +61,7 @@ const SignIn = () => {
             </div>
           </div>
           <div className="md:col-span-12 lg:col-span-6 xl:col-span-4">
-            <form className="Form">
+            <form className="Form lg:h-full">
               <h2>Welcome Back!</h2>
               <p className="form-para fp1">Login to your account</p>
               <input className={`focus:ring-blue-500 input-custom ${error && (!email || !password) ? 'border-red-500' : ''}`} type="email" placeholder="Email/Username" value={email} onChange={(e) => setEmail(e.target.value)} required />
