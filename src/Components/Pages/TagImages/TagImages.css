@@ -26,6 +26,10 @@
     .text-40 {
         font-size: 26px !important;
     }
+
+    .TagImages-content .popupbagde {
+        top: 75px !important;
+    }
 }
 
 @media only screen and (min-width: 1536px) {

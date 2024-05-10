@@ -218,6 +218,51 @@
         line-height: 24.4px;
         padding-top: 6px;
     }
+
+    /* ===popup==== */
+
+    .popupbagde {
+        top: 99px;
+        right: 30.5%;
+        width: 334px;
+        border-radius: 0px 0px 16px 16px;
+        transform: translateY(0%);
+        height: 95px;
+    }
+
+    @keyframes slideInDown {
+        from {
+            transform: translateY(-100%);
+        }
+
+        to {
+            transform: translateY(2%);
+        }
+    }
+
+    @keyframes slideOutDown {
+        from {
+            transform: translateY(-100%);
+        }
+
+        to {
+            transform: translateY(2%);
+        }
+    }
+
+    .popupbagde.show {
+        transform: translateY(0);
+        animation: slideOutDown 0.9s ease-in-out !important;
+    }
+
+    .popupbagde.hide {
+        animation: slideInUp 0.9s ease-in-out !important;
+        transform: translateY(2%);
+        margin-top: -95px !important;
+
+    }
+
+    /* ==== */
 }
 
 @media only screen and (min-width: 1536px) {
