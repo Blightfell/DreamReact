@@ -42,7 +42,7 @@ const PagesRoutes = () => {
         <>
             <div className="flex justify-between">
                 <div
-                    className={`md:w-[19%] 2xl:w-[300px] sm-hidden ${!shouldShowSidebar && 'hidden'
+                    className={`lg:w-[19%] 2xl:w-[300px] sm-hidden ${!shouldShowSidebar && 'hidden'
                         }`}
                 >
                     {shouldShowSidebar && <SideBAr />}

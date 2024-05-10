@@ -23,7 +23,7 @@ const RateImages = () => {
         <>
             <div className="">
                 <div className='mb-10 2xl:mb-0'>
-                    <nav className='h-[80px] lg:h-auto mb-6 lg:mb-0 2xl:mb-0'>
+                    <nav className='h-[80px] lg:h-auto mb-6 md:mb-11 lg:mb-0 2xl:mb-0 '>
                         <div className='lg:relative absolute top-0 w-full z-[999]'>
                             <Header title={'Rate Images'} displayButton={true} displayText={true} />
                         </div>
@@ -31,10 +31,10 @@ const RateImages = () => {
                     <div className="p-6 pt-0 2xl:pb-0 md:px-16 2xl:px-[100px] rateimages-content">
                         <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box">
                             {boxes.map((box, index) => (
-                                <div key={index} className="p-2 lg:p-3 2xl:p-4 bg-[#2C2E2E] rounded-lg lg:rounded-xl 2xl:rounded-2xl w-full mini-desh-box">
-                                    <div className="flex items-center gap-2 lg:gap-3 2xl:gap-4 mb-1">
-                                        <div className="rounded-md lg:rounded-lg 2xl:rounded-xl p-2 lg:p-3 2xl:p-4 bg-[#222222]">
-                                            <img className='h-4 lg:h-8 2xl:h-10' src={box.iconSrc} alt="" />
+                                <div key={index} className="p-2 lg:p-3 2xl:p-4 bg-[#2C2E2E] rounded-lg lg:rounded-xl 2xl:rounded-2xl w-full">
+                                    <div className="flex items-center gap-2 md:gap-3 2xl:gap-4 mb-1">
+                                        <div className="rounded-md lg:rounded-lg 2xl:rounded-xl p-2 md:p-3 2xl:p-4 bg-[#222222]">
+                                            <img className='h-4 md:h-8 2xl:h-10' src={box.iconSrc} alt="" />
                                         </div>
                                         <div>
                                             <p className="xs-hidden md:block">{box.text}</p>

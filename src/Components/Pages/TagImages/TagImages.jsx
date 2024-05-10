@@ -64,34 +64,35 @@ const TagImages = () => {
     return (
         <>
             <div className="">
-                <nav className='h-14 lg:h-auto mb-6 lg:mb-0 2xl:mb-0'>
+                <nav className='h-14 lg:h-auto mb-6 md:mb-11 lg:mb-0 2xl:mb-0 '>
                     <Header title={'Tag Images'} displayButton={true} />
                 </nav>
                 <div className='mb-10 2xl:mb-0 relative'>
                     <div className="p-6 pt-0 md:px-16 2xl:px-[100px]">
-                        <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box sm-hidden">
+                        <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box">
                             {boxes.map((box, index) => (
                                 <div key={index} className="p-2 lg:p-3 2xl:p-4 bg-[#2C2E2E] rounded-lg lg:rounded-xl 2xl:rounded-2xl w-full">
-                                    <div className="flex items-center gap-2 lg:gap-3 2xl:gap-4 mb-1">
-                                        <div className="rounded-md lg:rounded-lg 2xl:rounded-xl p-2 lg:p-3 2xl:p-4 bg-[#222222]">
-                                            <img className='h-4 lg:h-8 2xl:h-10' src={box.iconSrc} alt="" />
+                                    <div className="flex items-center gap-2 md:gap-3 2xl:gap-4 mb-1">
+                                        <div className="rounded-md lg:rounded-lg 2xl:rounded-xl p-2 md:p-3 2xl:p-4 bg-[#222222]">
+                                            <img className='h-4 md:h-8 2xl:h-10' src={box.iconSrc} alt="" />
                                         </div>
                                         <div>
-                                            <p className="sm-hidden md:block">{box.text}</p>
+                                            <p className="xs-hidden md:block">{box.text}</p>
                                             <h4>{box.value}</h4>
                                         </div>
                                     </div>
+                                    <p className="sm:block md:hidden">{box.text}</p>
                                 </div>
                             ))}
                         </div>
-                        <div className="TagImages-content lg:mt-10 2xl:mt-14 grid grid-cols-12 gap-4 lg:gap-5 2xl:gap-6 mb-8 lg:mb-0">
-                            <div className="col-span-12 lg:col-span-8 ">
+                        <div className="TagImages-content md:mt-8 lg:mt-10 2xl:mt-14 grid grid-cols-12 gap-4 lg:gap-5 2xl:gap-6 mb-8 lg:mb-0">
+                            <div className="col-span-12 lg:col-span-8  md:col-span-6 ">
                                 <h3 className="text-40 ">Tag the image below</h3>
                                 <div>
                                     <img className="w-full mt-4 2xl:mt-8 tag-images-gen rounded-xl" src={currentImage} alt="Current Image" /> {/* Updated image */}
                                 </div>
                             </div>
-                            <form onSubmit={handleSubmit} className="Form col-span-12 lg:col-span-4 md:px-3 2xl:w-full lg:px-0 lg:bg-transparent mt-0 lg:py-0 tag-form">
+                            <form onSubmit={handleSubmit} className="Form col-span-12 md:col-span-6  lg:col-span-4 md:px-3 2xl:w-full lg:px-0 md:bg-transparent mt-0 md:py-0 tag-form">
                                 <div className="">
                                     <p className="mb-4 2xl:mb-8">Write 5 words you associate with this image. All lowercase, no symbols or spaces.</p>
                                     {tags.map((tag, index) => (

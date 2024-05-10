@@ -7,8 +7,8 @@ const splash = () => {
         <>
             <div className='SplashScreenBG bg1 bg2 bg3'>
                 <div className="container mx-auto">
-                    <div className="flex justify-center items-center lg:justify-between">
-                        <img className="logo pt-12 md:pt-5 lg:pt-2" src="Assets/Images/Logo/AEON PROTOCOL.svg" alt="" />
+                    <div className="flex justify-center items-center md:justify-between">
+                        <img className="logo pt-12 md:pt-0 lg:pt-2" src="Assets/Images/Logo/AEON PROTOCOL.svg" alt="" />
                         <div className="sm-hidden">
                             <DowloadPWA />
                         </div>

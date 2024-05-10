@@ -4,6 +4,7 @@
     box-sizing: border-box;
     font-family: Satoshi-Regular;
 }
+
 body {
     background-color: #3B3F3F;
 }
@@ -42,9 +43,10 @@ body {
     shape-rendering: crispEdges;
     stroke-width: 1;
 }
-.chart-view  tspan {
-   font-size: 16px !important;
-} 
+
+.chart-view tspan {
+    font-size: 16px !important;
+}
 
 .chart-view p {
     font-size: 14px;
@@ -62,7 +64,14 @@ body {
     font-weight: 400 !important;
 
 }
-@media only screen and (max-width: 840px) {
+
+@media only screen and (max-width: 600px) {
+    .xs-hidden {
+        display: none !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
     body {
         background: #414545;
     }
@@ -84,16 +93,15 @@ body {
 
     }
 }
-@media only screen and (max-width: 600px){
-    .xs-hidden {
-        display: none !important;
-    }
-}
-@media only screen and (min-width: 1566px) {
+
+@media only screen and (min-width: 641px) and (max-width: 1023px) {}
+
+@media only screen and (min-width: 1536px) {
     .logo {
         max-width: 393px;
         height: auto;
     }
+
     .chart-view tspan {
         font-size: 10px !important;
     }

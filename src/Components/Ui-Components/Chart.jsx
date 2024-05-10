@@ -43,7 +43,7 @@ export default function ResponsiveBarChart() {
                     </div>
                 </div>
             </div>
-            <div className="w-full chart-view sm-hidden lg:block"> {/* Ensure responsive layout */}
+            <div className="w-full chart-view sm-hidden md:hidden lg:block"> {/* Ensure responsive layout */}
                 <div className="chart-view-content">
                     <BarChart
                         xAxis={[{ scaleType: 'band', data: ['04/07/2024', '04/08/2024'] }]} // Data for the chart

@@ -5,8 +5,8 @@ import UserProfile from "../Ui-Components/UserProfile"
 const Header = (props) => {
     return (
         <div>
-            <header className="header-mob lg:px-16 2xl:px-[100px] lg:bg-transparent bg-[#2C2E2E] py-4 px-6 2xl:pt-8 2xl:pb-11 lg:pb-9">
-                <div className="flex items-center justify-center lg:justify-between w-full">
+            <header className="header-mob md:px-16 2xl:px-[100px] lg:bg-transparent bg-[#2C2E2E] py-4 px-6 2xl:pt-8 2xl:pb-11 lg:pb-9 md:mb-6 lg:mb-0 2xl:mb-0">
+                <div className="flex items-center justify-center md:justify-between w-full">
                     <div>
                         <h5>{props.title}</h5>
                         {props.displayText ? <p className="lg:hidden">

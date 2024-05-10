@@ -66,7 +66,7 @@ const SignIn = () => {
               <p className="form-para fp1">Login to your account</p>
               <input className={`focus:ring-blue-500 input-custom ${error && (!email || !password) ? 'border-red-500' : ''}`} type="email" placeholder="Email/Username" value={email} onChange={(e) => setEmail(e.target.value)} required />
               <input className={`focus:ring-blue-500 input-custom ${error && (!email || !password) ? 'border-red-500' : ''}`} type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-              <div className="flex justify-between w-full mb-8 md:mb-4 lg:mb-5 2xl:mb-11">
+              <div className="flex justify-between w-full mb-8 md:mb-6 lg:mb-5 2xl:mb-11">
                 <div className="checkbox-div">
                   <Checkbox style={{ padding: "0" }} className="h-5 w-5" label="Remember Me" />
                 </div>
@@ -81,7 +81,7 @@ const SignIn = () => {
               <Button className="sub-button" onClick={handleLogin}>
                 Login
               </Button>
-              <div className="horizontal-dir my-6 md:my-5 2xl:my-12 lg:my-4 flex justify-center items-center">
+              <div className="horizontal-dir my-6 md:my-8 2xl:my-12 lg:my-4 flex justify-center items-center">
                 <hr />
                 <p className='sm-font-16'>Or Login With</p>
                 <hr />

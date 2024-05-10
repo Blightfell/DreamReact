@@ -111,7 +111,7 @@ const MyProfile = () => {
                 <div className="relative">
                     <Header title={'My Profile'} displayButton={true} />
                     <Link to={'/'}>
-                        <img className='lg:hidden absolute top-[25.7%] right-4 z-50' src="Assets/Images/All Icons/Group 177.svg" alt="" />
+                        <img className='md:hidden absolute top-[25.7%] right-4 z-50' src="Assets/Images/All Icons/Group 177.svg" alt="" />
                     </Link>
                 </div>
                 <div className='mb-5'>
@@ -120,9 +120,9 @@ const MyProfile = () => {
                             <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box">
                                 {boxes.map((box, index) => (
                                     <div key={index} className="p-2 lg:p-3 2xl:p-4 bg-[#2C2E2E] rounded-lg lg:rounded-xl 2xl:rounded-2xl w-full">
-                                        <div className="flex items-center gap-2 lg:gap-3 2xl:gap-4 mb-1">
-                                            <div className="rounded-md lg:rounded-lg 2xl:rounded-xl p-2 lg:p-3 2xl:p-4 bg-[#222222]">
-                                                <img className='h-4 lg:h-8 2xl:h-10' src={box.iconSrc} alt="" />
+                                        <div className="flex items-center gap-2 md:gap-3 2xl:gap-4 mb-1">
+                                            <div className="rounded-md lg:rounded-lg 2xl:rounded-xl p-2 md:p-3 2xl:p-4 bg-[#222222]">
+                                                <img className='h-4 md:h-8 2xl:h-10' src={box.iconSrc} alt="" />
                                             </div>
                                             <div>
                                                 <p className="xs-hidden md:block">{box.text}</p>

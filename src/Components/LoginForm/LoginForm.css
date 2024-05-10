@@ -128,7 +128,7 @@
     padding: 0 0 24px;
 }
 
-@media only screen and (max-width: 840px) {
+@media only screen and (max-width: 767px) {
     .notice-text {
         color: #AEAEAE;
         padding: 0 0 32px;
@@ -193,24 +193,25 @@
 
 }
 
-@media only screen and (min-width: 600px) and (max-width: 787px) {
+@media only screen and (min-width: 641px) and (max-width: 1023px) {
     .logo {
         max-width: 273px;
-        margin-bottom: 60px;
+        /* margin-bottom: 60px; */
     }
 
     .title-form {
         display: none;
     }
-
     .Form {
-        padding: 40px 64px;
+        padding: 30px 44px;
         border-radius: 24px;
+        max-width: 555px;
+        margin: 22% auto 0;
     }
 }
 
 
-@media only screen and (min-width: 1566px) {
+@media only screen and (min-width: 1536px) {
     .SignIn {
         padding: 40px 24px;
 

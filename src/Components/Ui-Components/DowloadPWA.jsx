@@ -41,8 +41,8 @@ const DowloadPWA = () => {
     }
   };
   return (
-    <div>
-        <Button className='pwa-download' onClick={handleInstallPWA}><img src="Assets/Images/All Icons/Group 115.svg" alt="" /> Download App</Button>
+    <div className="md:hidden lg:block">
+      <Button className='pwa-download' onClick={handleInstallPWA}><img src="Assets/Images/All Icons/Group 115.svg" alt="" /> Download App</Button>
     </div>
   )
 }

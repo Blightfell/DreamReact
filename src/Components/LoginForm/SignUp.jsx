@@ -38,7 +38,7 @@ const SignUp = () => {
                             <div className='sm-hidden md:block lg:block mt-2 2xl:mt-3'>
                                 <LogoIcon />
                             </div>
-                            <div className="title-form sm-hidden md:block lg:block">
+                            <div className="title-form sm-hidden lg:block">
                                 <h3 className="font-black-48">Imagination Unbound</h3>
                                 <p className="form-para">
                                     Aeon Protocol invites you to defy the ordinary. Experience the alchemy of art and AI as you convert thoughts into breathtaking imagery. Your canvas awaits beyond this gateway.
