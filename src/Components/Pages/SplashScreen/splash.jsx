@@ -9,9 +9,6 @@ const splash = () => {
                 <div className="container mx-auto">
                     <div className="flex justify-center items-center md:justify-between">
                         <img className="logo pt-12 md:pt-0 lg:pt-2" src="Assets/Images/Logo/AEON PROTOCOL.svg" alt="" />
-                        <div className="sm-hidden">
-                            <DowloadPWA />
-                        </div>
                     </div>
                     <div className="splash-mid-content">
                         <div>

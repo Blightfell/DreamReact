@@ -25,7 +25,7 @@ const RateImages = () => {
                 <div className='mb-10 2xl:mb-0'>
                     <nav className='h-[80px] lg:h-auto mb-6 md:mb-11 lg:mb-0 2xl:mb-0 '>
                         <div className='lg:relative absolute top-0 w-full z-[999]'>
-                            <Header title={'Rate Images'} displayButton={true} displayText={true} />
+                            <Header title={'Rate Images'} displayButton={false} displayText={true} />
                         </div>
                     </nav>
                     <div className="p-6 pt-0 2xl:pb-0 md:px-16 2xl:px-[100px] rateimages-content">
