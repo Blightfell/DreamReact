@@ -14,10 +14,10 @@ const generateEdit = () => {
             <div className=" ">
                 <BreadCrum />
                 <div className=" p-6 md:px-16 2xl:px-[100px] h-full">
-                    <p className="generate-img-text mb-9 2xl:mb-12 2xl:mt-4">a large illustrative background showing simple and minimalistic ancient statues, symmetrical, light grey and blue color palette high resolution, high contrast, cinematic, mysterious atmosphere, clean, alien atmosphere --ar 2:1 --s 250 --v 6.0 - <span className="text-[#AEAEAE] text-base">by</span>  <span className='bg-[#2C2E2E] rounded-3xl py-1 px-3 text-white text-sm'>
+                    <p className="generate-img-text mb-6 lg:mb-9 2xl:mb-12 2xl:mt-4">a large illustrative background showing simple and minimalistic ancient statues, symmetrical, light grey and blue color palette high resolution, high contrast, cinematic, mysterious atmosphere, clean, alien atmosphere --ar 2:1 --s 250 --v 6.0 - <span className="text-[#AEAEAE] text-base">by</span>  <span className='bg-[#2C2E2E] rounded-3xl py-1 px-3 text-white text-sm'>
                         @Flook
                     </span> </p>
-                    <div className="grid grid-cols-12 gap-6 ">
+                    <div className="grid grid-cols-12 gap-6 pb-24 lg:pb-0 2xl:pb-0">
                         <div className="col-span-12 lg:col-span-7 2xl:col-span-8">
                             <img className="w-full" src="Assets/Images/generate/4 - Dream Totem.png" alt="" />
                         </div>

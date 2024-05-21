@@ -114,7 +114,7 @@
 }
 
 /* lodaer  */
-  
+
 /* .loader {
     width: 50px;
     aspect-ratio: 1;
@@ -148,7 +148,7 @@
       transform: rotate(0.5turn);
     }
   } */
-  
+
 /* 2 */
 .loader {
     width: 40px;
@@ -225,13 +225,19 @@
 /*  */
 @media only screen and (max-width: 767px) {
     .generate-form button {
-        font-size: 16px;
-        height: 32px;
-        width: 90px;
+        font-size: 13px;
+        height: 28px;
+        width: 65px;
     }
 
     .generate-form input {
         font-size: 14px;
+    }
+
+    .generate-img-text {
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 26px;
     }
 }
 
