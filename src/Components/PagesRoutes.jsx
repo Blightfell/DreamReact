@@ -18,6 +18,7 @@ import Generate from './Pages/Explore/generate';
 import GenerateEdit from './Pages/Explore/generateEdit';
 import SideBAr from './Commons/SideBar/SideBar';
 import MobileNav from './Commons/MobileNav/nav';
+import SubmitYourArtwork from './Pages/SubmitYourArtwork/SubmitYourArtwork';
 
 const sidebarRoutes = [
     '/Deshboard',
@@ -27,6 +28,7 @@ const sidebarRoutes = [
     '/explore',
     '/Generate',
     '/GenerateEdit',
+    '/Submit-Your-Artwork',
 ];
 
 const PagesRoutes = () => {
@@ -62,6 +64,7 @@ const PagesRoutes = () => {
                         <Route path="/explore" element={<Explore />} />
                         <Route path="/Generate" element={<Generate />} />
                         <Route path="/GenerateEdit" element={<GenerateEdit />} />
+                        <Route path="/Submit-Your-Artwork" element={<SubmitYourArtwork />} />
                     </Routes>
                 </div>
             </div>

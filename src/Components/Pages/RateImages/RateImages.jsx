@@ -17,7 +17,7 @@ const RateImages = () => {
     const boxes = [
         { iconSrc: "Assets/Images/All Icons/Group 37.svg", value: "20/25", text: "Paid Ratings Limits" },
         { iconSrc: "Assets/Images/All Icons/Group 64.svg", value: "100", text: "$Dream Earned" },
-        { iconSrc: "Assets/Images/All Icons/Group 82.svg", value: "More Ratings Unlock in", text: "18hrs 37min" },
+        { iconSrc: "Assets/Images/All Icons/Group 82.svg", value: "18hrs 37min", text: "More Ratings Unlock in" },
     ];
     return (
         <>

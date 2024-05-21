@@ -30,6 +30,11 @@ const SideBAr = () => {
       iconSrc: "Assets/Images/All Icons/Group 41.svg",
       label: "Tag Images",
     },
+    {
+      to: "/Submit-Your-Artwork",
+      iconSrc: "Assets/Images/All Icons/designtools.svg",
+      label: "Submit Your Artwork",
+    },
   ];
   const navItemsSupports = [
     {
@@ -46,7 +51,7 @@ const SideBAr = () => {
   return (
     <div className="sm-hidden md:hidden lg:block">
       <nav className="sidebar ">
-        <div className="border-b logo-sidebar border-[#2C2E2E] h-20 2xl:h-24 flex justify-center items-center">
+        <div className="border-b logo-sidebar border-[#2C2E2E] h-20 py-6 2xl:py-0 2xl:h-24 flex justify-center items-center">
           <LogoIcon />
         </div>
         <ul className="sidebar-menu lg:py-7 2xl:py-10 2xl:px-6 lg:px-3">

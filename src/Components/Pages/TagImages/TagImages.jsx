@@ -66,7 +66,7 @@ const TagImages = () => {
             <div className="">
                 <nav className='h-14 lg:h-auto mb-6 md:mb-12 lg:mb-0 2xl:mb-0'>
                     <div className="lg:relative md:absolute top-0 w-full z-[999]">
-                        <Header title={'Tag Images'} displayButton={false} />
+                        <Header title={'Tag Images'}  />
                     </div>
                 </nav>
                 <div className='mb-10 2xl:mb-0 relative'>
