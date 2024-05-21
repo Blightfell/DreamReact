@@ -29,7 +29,7 @@ const generateEdit = () => {
                                         className="bg-[#2C2E2E] rounded-2xl flex items-center  h-16 2xl:h-24 w-full hover:bg-[#3A3B3B] mb-4 2xl:mb-6"
                                     >
                                         <Link className="w-full" to={button.link}>
-                                            <Button className="flex items-center gap-4 2xl:gap-6 w-full">
+                                            <Button className="flex items-center gap-4 2xl:gap-6 h-full w-full">
                                                 <img src={button.icon} alt={button.label} className="h-6 w-6 lg:h-8 2xl:h-10 lg:w-8 2xl:w-10" />
                                                 {button.label}
                                             </Button>

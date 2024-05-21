@@ -42,7 +42,7 @@ const Generate = () => {
     }, []);
 
     const Loader = () => (
-        <div className="flex items-center justify-center h-48 lg:h-64 2xl:h-72 w-full bg-[#2C2E2E] border-[#3B3F3F] border-[1px]">
+        <div className="image-skeleton border-[#3B3F3F] border-[1px]">
             <div className="loader"></div>
         </div>
     );
@@ -50,7 +50,7 @@ const Generate = () => {
     const renderImages = () => (
         <>
             {imageSources.map((src, index) => (
-                <img key={index} className="w-full" src={src} alt={`Image ${index + 1}`} />
+                <img key={index} className="image-skeleton" src={src} alt={`Image ${index + 1}`} />
             ))}
         </>
     );
