@@ -86,18 +86,32 @@ const SignIn = () => {
                 <p className='sm-font-16'>Or Login With</p>
                 <hr />
               </div>
-              <Link to={link}>
-                <Button className="sub-button flex gap-4 justify-center items-center mb-4">
-                  <img src="Assets/Images/All Icons/Group 2.svg" alt="" />
-                  {isMobile ? "Google" : "Google"}
-                </Button>
-              </Link>
-              <Link to={link}>
-                <Button style={{ color: "white", background: "black" }} className="sub-button flex gap-4 justify-center items-center">
-                  <img src="Assets/Images/All Icons/Group 4.svg" alt="" />
-                  Connect Wallet
-                </Button>
-              </Link>
+              <div className="flex gap-4 2xl:gap-6 justify-between">
+                <div className="w-full">
+                  <Link className='w-full' to={link}>
+                    <Button className="sub-button flex gap-2 justify-center items-center   mb-4">
+                      <img className='h-4 2xl:h-6' src="Assets/Images/All Icons/Group 2.svg" alt="" />
+                      {isMobile ? "Google" : "Google"}
+                    </Button>
+                  </Link>
+                </div>
+                <div className="w-full">
+                  <Link className='w-full' to={link}>
+                    <Button className="sub-button flex gap-2 justify-center items-center px-2 ">
+                      <img className='h-4 2xl:h-6' src="Assets/Images/All Icons/Vector (2).svg" alt="" />
+                      X-Twitter
+                    </Button>
+                  </Link>
+                </div>
+                <div className="w-full">
+                  <Link className='w-full' to={link}>
+                    <Button style={{ color: "white", background: "black" }} className="sub-button flex gap-2 justify-center items-center ">
+                      <img className='h-4 2xl:h-6' src="Assets/Images/All Icons/Group 4.svg" alt="" />
+                      Wallet
+                    </Button>
+                  </Link>
+                </div>
+              </div>
               <div className="mt-12 md:mt-9 2xl:mt-12 lg:mt-4">
                 <p className="para-18-500  text-center">Don’t have an account? <span className="font-bold duration-300 hover:text-gray-200 cursor-pointer">
                   <Link to="/signup">Sign up</Link>
