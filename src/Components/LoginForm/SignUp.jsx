@@ -47,7 +47,7 @@ const SignUp = () => {
                         </div>
                     </div>
                     <div className="md:col-span-12 lg:col-span-6 xl:col-span-4">
-                        <form className="Form lg:h-full" onSubmit={handleSignUp}>
+                        <form className="Form lg:h-[92vh] overflow-y-auto" onSubmit={handleSignUp}>
                             <h2>Sign Up</h2>
                             <p className="form-para fp1">Create your new account.</p>
                             <input className="focus:ring-blue-500 input-custom" type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} required />

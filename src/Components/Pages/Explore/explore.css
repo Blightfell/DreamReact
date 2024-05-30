@@ -12,7 +12,7 @@
 }
 
 
-.generate-form button {
+.generate-form .generate-btn {
     font-size: 20px;
     font-weight: 700;
     line-height: 32.4px;
@@ -22,7 +22,6 @@
     padding: 0;
     padding: 0 12px;
     height: 44px;
-    /* width: 140px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -118,7 +117,10 @@
     border: none !important;
     color: white !important;
     border-radius: 0 !important;
-    font-size: 17px !important;
+    font-size: 16px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 8px;
 }
 
@@ -204,7 +206,7 @@
 
 
 @media only screen and (max-width: 767px) {
-    .generate-form button {
+    .generate-form .generate-btn {
         font-size: 13px;
         height: 28px;
         width: 65px;
@@ -222,6 +224,19 @@
 
     .generate-form button:nth-child(2) {
         width: 100%;
+    }
+
+    .menu-btn {
+        font-size: 14px !important;
+    }
+
+    .MuiMenu-list {
+        font-size: 12px !important;
+    }
+
+    .MuiMenuItem-root {
+        gap: 16px !important;
+
     }
 }
 
@@ -264,9 +279,8 @@
 
     .regenerate-box-btn a {
         font-size: 32px;
-
-
     }
+
 
 }
 
