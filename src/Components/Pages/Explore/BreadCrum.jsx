@@ -8,7 +8,12 @@ import "./explore.css";
 import { FaAngleDown } from "react-icons/fa6";
 import { FiAlertCircle } from "react-icons/fi";
 
-const BreadCrum = ({ buttonText = "Generate", placeholder = "Describe what you want to see here", suggestionButtons = [] }) => {
+const BreadCrum = ({
+    buttonText = "Generate",
+    placeholder = "Describe what you want to see here",
+    suggestionButtons = [],
+    dropdownOptions = true // default to true
+}) => {
     const [anchorEl, setAnchorEl] = useState(null);
     const [selectedModel, setSelectedModel] = useState("Select Model");
     const [activeSuggestion, setActiveSuggestion] = useState(null);
@@ -55,14 +60,16 @@ const BreadCrum = ({ buttonText = "Generate", placeholder = "Describe what you w
                             <Button className="generate-btn">{buttonText}</Button>
                         </Link>
                     </div>
-                    <div className="w-full flex justify-end">
-                        <Button className="menu-btn mt-4" onClick={handleClick}>
-                            {selectedModel}
-                            <span className={`icon ${open ? "rotate" : ""}`}>
-                                <FaAngleDown />
-                            </span>
-                        </Button>
-                    </div>
+                    {dropdownOptions && (
+                        <div className="w-full flex justify-end">
+                            <Button className="menu-btn mt-4" onClick={handleClick}>
+                                {selectedModel}
+                                <span className={`icon ${open ? "rotate" : ""}`}>
+                                    <FaAngleDown />
+                                </span>
+                            </Button>
+                        </div>
+                    )}
                 </form>
                 <div className="suggestion-button flex gap-2 lg:gap-3 2xl:gap-4 flex-wrap mt-4 lg:mt-8 2xl:mt-10">
                     {suggestionButtons.map((suggestion, index) => (
@@ -81,36 +88,38 @@ const BreadCrum = ({ buttonText = "Generate", placeholder = "Describe what you w
                     ))}
                 </div>
             </div>
-            <Menu
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                MenuListProps={{
-                    'aria-labelledby': 'basic-button',
-                }}
-                PaperProps={{
-                    sx: {
-                        mt: 1.6, // 1.5 * 8px = 12px (MUI spacing unit)
-                        border: '1px solid #2C2E2E',
-                    }
-                }}
-            >
-                <MenuItem disabled>
-                    <Typography sx={{ color: '#2C2E2E' }}>Select Model</Typography>
-                </MenuItem>
-                <MenuItem onClick={() => handleMenuItemClick("Playground v2.5")}>
-                    Playground v2.5
-                    <FiAlertCircle />
-                </MenuItem>
-                <MenuItem onClick={() => handleMenuItemClick("Stable Diffusion XL 1.0")}>
-                    Stable Diffusion XL 1.0
-                    <FiAlertCircle />
-                </MenuItem>
-                <MenuItem onClick={() => handleMenuItemClick("Segmind Stable Diffusion 1B")}>
-                    Segmind Stable Diffusion 1B
-                    <FiAlertCircle />
-                </MenuItem>
-            </Menu>
+            {dropdownOptions && (
+                <Menu
+                    anchorEl={anchorEl}
+                    open={open}
+                    onClose={handleClose}
+                    MenuListProps={{
+                        'aria-labelledby': 'basic-button',
+                    }}
+                    PaperProps={{
+                        sx: {
+                            mt: 1.6, // 1.5 * 8px = 12px (MUI spacing unit)
+                            border: '1px solid #2C2E2E',
+                        }
+                    }}
+                >
+                    <MenuItem disabled>
+                        <Typography sx={{ color: '#2C2E2E' }}>Select Model</Typography>
+                    </MenuItem>
+                    <MenuItem onClick={() => handleMenuItemClick("Playground v2.5")}>
+                        Playground v2.5
+                        <FiAlertCircle />
+                    </MenuItem>
+                    <MenuItem onClick={() => handleMenuItemClick("Stable Diffusion XL 1.0")}>
+                        Stable Diffusion XL 1.0
+                        <FiAlertCircle />
+                    </MenuItem>
+                    <MenuItem onClick={() => handleMenuItemClick("Segmind Stable Diffusion 1B")}>
+                        Segmind Stable Diffusion 1B
+                        <FiAlertCircle />
+                    </MenuItem>
+                </Menu>
+            )}
         </>
     );
 };

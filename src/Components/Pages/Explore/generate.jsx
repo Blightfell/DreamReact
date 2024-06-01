@@ -75,7 +75,8 @@ const Generate = () => {
 
     return (
         <div className="generate-container">
-            <BreadCrum />
+            <BreadCrum dropdownOptions={false} />
+          
             <div className="p-6 2xl:pt-10 md:px-16 2xl:px-[100px]">
                 <div className="generate-img pb-28 lg:pb-0 2xl:pb-0">
                     <p className="generate-img-text mb-6 lg:mb-9 2xl:mb-10">
