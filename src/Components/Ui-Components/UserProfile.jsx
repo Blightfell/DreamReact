@@ -74,6 +74,9 @@ const UserProfile = () => {
                         backgroundColor: '#414545',
                         color: 'white',
                         minWidth: '200px',
+                        marginTop: "2px",
+                        // right: "71px",
+                        left:"80%"
                     },
                 }}
             >
