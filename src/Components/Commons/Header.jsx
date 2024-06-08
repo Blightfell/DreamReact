@@ -21,9 +21,11 @@ const Header = (props) => {
                             <UserProfile />
                         </div>
                     </div>
-                    <Link to='/myprofile'>
-                        <img className="h-6 md:hidden absolute right-4 top-[14px]" src="Assets/Images/Navbar/Ellipse 2.png" alt="" />
-                    </Link>
+                    <div className="md:hidden">
+                        <Link to='/myprofile'>
+                            <img className="h-6  absolute right-4 top-[14px]" src="Assets/Images/Navbar/Ellipse 2.png" alt="" />
+                        </Link>
+                    </div>
                 </div>
             </header>
 
