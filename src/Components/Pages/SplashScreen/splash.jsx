@@ -1,7 +1,6 @@
 import { Button } from "@material-tailwind/react";
 import "./splash.css";
 import { Link } from "react-router-dom";
-import DowloadPWA from "../../Ui-Components/DowloadPWA";
 const splash = () => {
     return (
         <>
@@ -13,8 +12,8 @@ const splash = () => {
                     <div className="splash-mid-content">
                         <div>
                             <h1>WELCOME TO THE
-                                AEON PROTOCOL</h1>
-                            <p>Harness the power of AI to bring your visions to life with Aeon Protocol. Enter a world where artistry meets innovation, and every creation is a masterpiece waiting to happen. Log in to begin your artistic adventure.</p>
+                                Dream PROTOCOL</h1>
+                            <p>Harness the power of AI to bring your visions to life with Dream Protocol. Enter a world where artistry meets innovation, and every creation is a masterpiece waiting to happen. Log in to begin your artistic adventure.</p>
                             <div className="flex gap-6 justify-center sign-btn">
                                 <Link to="/signIn">
                                     <Button className="mob-btn" variant="outlined">Login</Button>

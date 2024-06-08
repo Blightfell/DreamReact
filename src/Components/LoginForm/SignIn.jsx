@@ -99,7 +99,9 @@ const SignIn = () => {
                   <Link className='w-full' to={link}>
                     <Button className="sub-button flex gap-2 justify-center items-center px-2 ">
                       <img className='h-4 2xl:h-6' src="Assets/Images/All Icons/Vector (2).svg" alt="" />
-                      X-Twitter
+                      <span>
+                        X<span className='xs-hidden'>-Twitter</span>
+                      </span>
                     </Button>
                   </Link>
                 </div>
@@ -107,7 +109,9 @@ const SignIn = () => {
                   <Link className='w-full' to={link}>
                     <Button style={{ color: "white", background: "black" }} className="sub-button flex gap-2 justify-center items-center ">
                       <img className='h-4 2xl:h-6' src="Assets/Images/All Icons/Group 4.svg" alt="" />
+
                       Wallet
+
                     </Button>
                   </Link>
                 </div>
