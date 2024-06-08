@@ -10,7 +10,7 @@ const Explore = () => {
     return (
         <div className="">
             <BreadCrum />
-            <div className=" p-6 md:px-16 2xl:px-[100px]">
+            <div className=" p-6 md:px-16 2xl:px-[100px] pb-32 lg:pb-6 2xl:pb-6">
                 <div className="generate-tab">
                     {/* Tab Buttons */}
                     <div className="flex generate-tab-btn justify-center my-6 border-b border-[#D2D2D2] md:w-[280px] 2xl:w-[360px] lg:mb-10 2xl:mb-14  mx-auto "> {/* Center the tabs */}
