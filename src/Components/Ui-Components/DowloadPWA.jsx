@@ -8,7 +8,8 @@ const DownloadPWA = () => {
     const handleBeforeInstallPrompt = (e) => {
       // Prevent the default behavior
       e.preventDefault();
-      
+      console.log("Before install prompt triggered");
+
       // Store the event so it can be used later
       setInstallPromptEvent(e);
     };
@@ -28,12 +29,14 @@ const DownloadPWA = () => {
 
     if (isMobile && installPromptEvent) {
       // Trigger the prompt automatically for mobile devices
+      console.log("Mobile device detected, triggering prompt");
       handleInstallPWA();
     }
   }, [installPromptEvent]);
 
   const handleInstallPWA = async () => {
     if (installPromptEvent) {
+      console.log("Prompting for installation");
       // Show the install prompt
       installPromptEvent.prompt();
 
@@ -45,8 +48,10 @@ const DownloadPWA = () => {
         console.log('User dismissed the install prompt');
       }
 
-      // Clear the stored event
-      setInstallPromptEvent(null);
+      // Do not set installPromptEvent to null
+      // It remains available for the button to use again
+    } else {
+      console.warn("Install prompt event not available");
     }
   };
 
@@ -65,6 +70,11 @@ const DownloadPWA = () => {
           </Button>
         </div>
       )}
+      <div className="lg:hiddem">
+        <Button className='p-2 ' onClick={handleInstallPWA}>
+          <img src="Assets/Images/All Icons/Group 115.svg" alt="Download App" />
+        </Button>
+      </div>
     </div>
   );
 };

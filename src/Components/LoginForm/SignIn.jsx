@@ -38,10 +38,7 @@ const SignIn = () => {
 
   const isMobile = useIsMobile();
 
-  const mobileLink = "/Deshboard"; // Link for mobile
-  const desktopLink = "/explore"; // Link for desktop
-
-  const link = isMobile ? mobileLink : desktopLink;
+  
 
   return (
     <section className="SignIn">
@@ -88,7 +85,7 @@ const SignIn = () => {
               </div>
               <div className="flex gap-4 2xl:gap-6 justify-between">
                 <div className="w-full">
-                  <Link className='w-full' to={link}>
+                  <Link className='w-full' to='/explore'>
                     <Button className="sub-button flex gap-2 justify-center items-center   mb-4">
                       <img className='h-4 2xl:h-6' src="Assets/Images/All Icons/Group 2.svg" alt="" />
                       {isMobile ? "Google" : "Google"}
@@ -96,7 +93,7 @@ const SignIn = () => {
                   </Link>
                 </div>
                 <div className="w-full">
-                  <Link className='w-full' to={link}>
+                  <Link className='w-full' to='/explore'>
                     <Button className="sub-button flex gap-2 justify-center items-center px-2 ">
                       <img className='h-4 2xl:h-6' src="Assets/Images/All Icons/Vector (2).svg" alt="" />
                       <span>
@@ -106,7 +103,7 @@ const SignIn = () => {
                   </Link>
                 </div>
                 <div className="w-full">
-                  <Link className='w-full' to={link}>
+                  <Link className='w-full' to='/explore'>
                     <Button style={{ color: "white", background: "black" }} className="sub-button flex gap-2 justify-center items-center ">
                       <img className='h-4 2xl:h-6' src="Assets/Images/All Icons/Group 4.svg" alt="" />
 
