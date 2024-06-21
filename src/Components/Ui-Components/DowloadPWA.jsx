@@ -70,10 +70,14 @@ const DownloadPWA = () => {
           </Button>
         </div>
       )}
-      <div className="lg:hiddem">
-        <Button className='p-2 ' onClick={handleInstallPWA}>
-          <img src="Assets/Images/All Icons/Group 115.svg" alt="Download App" />
-        </Button>
+      <div className="lg:hidden">
+        <a
+          href="#"
+          onClick={handleInstallPWA}
+          className="text-blue-500 text-sm font-bold no-underline transition-colors duration-300 ease-in-out hover:text-blue-700"
+        >
+          Download
+        </a>
       </div>
     </div>
   );
