@@ -58,9 +58,9 @@ const UserProfile = () => {
         <div className="user-profile">
             <div
                 onClick={handleMenuClick}
-                className="bg-[#2C2E2E] 2xl:w-147 rounded-[40px] 2xl:h-12 h-9 w-32 p-1 2xl:p-2 flex items-center justify-between cursor-pointer"
+                className="bg-transparent 2xl:bg-[#2C2E2E] lg:bg-[#2C2E2E]  2xl:w-147 rounded-[40px] 2xl:h-12 h-9 lg:w-32 p-1 2xl:p-2 flex items-center justify-between cursor-pointer"
             >
-                <h5 className="2xl:ps-3 ps-2">@Flook</h5>
+                <h5 className="2xl:ps-3 ps-2 sm-hidden">@Flook</h5>
                 <img className="h-8 w-8 rounded-full" src={profileImage} alt="Profile" />
             </div>
 
@@ -76,13 +76,18 @@ const UserProfile = () => {
                         minWidth: '200px',
                         marginTop: "2px",
                         // right: "71px",
-                        left:"80%"
+                        left: "80%"
                     },
                 }}
             >
                 <MenuItem onClick={handleEditClickOpen}>
-                    <img className='h-4 lg:h-6 w-auto me-2' src="Assets/Images/All Icons/Group 124.svg" alt="" /> Edit Profile Image
+                    <img className='h-4 lg:h-6 w-auto me-2' src="Assets/Images/All Icons/Group 126.svg" alt="" /> Edit Profile Image
                 </MenuItem>
+                <div className="block lg:hidden 2xl:hidden">
+                    <MenuItem className='' component={Link} to="/myprofile" onClick={handleMenuClose}>
+                        <img className='h-4 lg:h-6 w-auto me-2' src="Assets/Images/Navbar/Ellipse 2.png" alt="" />My Profile
+                    </MenuItem>
+                </div>
                 <MenuItem component={Link} to="/" onClick={handleMenuClose}>
                     <img className='h-4 lg:h-6 w-auto me-2' src="Assets/Images/All Icons/Group 124.svg" alt="" /> Logout
                 </MenuItem>
