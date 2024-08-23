@@ -110,9 +110,12 @@ const MyProfile = () => {
             <div className="">
                 <div className="relative">
                     <Header title={'My Profile'} displayButton={true} />
-                    <Link to={'/'}>
-                        <img className='md:hidden absolute top-[25.7%] right-4 z-50' src="Assets/Images/All Icons/Group 177.svg" alt="" />
-                    </Link>
+                    {/* <div className="">
+                        <Link to={'/'}>
+                            <img className='md:hidden absolute top-[33.7%] right-40 z-50' src="Assets/Images/All Icons/Group 177.svg" alt="" />
+                        </Link>
+                    </div> */}
+                    <div className=""></div>
                 </div>
                 <div className='mb-5'>
                     <div className="pt-0 p-6 md:px-16 2xl:px-[100px]">
