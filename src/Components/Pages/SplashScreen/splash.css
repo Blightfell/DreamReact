@@ -64,7 +64,13 @@
 .splash-mid-content button:hover {
     background: rgba(128, 128, 128, 0.5);
 }
+/*  */
+/* splash.css */
 
+/* Keyframes for slide-in and slide-out */
+
+  
+/*  */
 @media only screen and (max-width: 767px) {
 
     .SplashScreenBG {

@@ -47,7 +47,7 @@ const Deshboard = () => {
         <>
             <div className="">
                 <div className='mb-28'>
-                    <Header title={'Dashboard'} displayButton={true} />
+                    <Header title={'Dashboard'} displayButton={false} />
                     <div className="p-6 pt-0 2xl:pt-0 md:px-16 2xl:px-[100px] overflow-x-hidden">
                         <div className="deshboard-content ">
                             <div className="grid grid-cols-2 2xl:grid-cols-3 gap-4 lg:gap-5 2xl:gap-6 desh-box">

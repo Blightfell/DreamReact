@@ -3,10 +3,11 @@ import './nav.css';
 
 const Footer = () => {
     const footerItems = [
+        { title: 'Explore', link: '/explore', imageSrcInactive: 'Assets/Images/All Icons/Group 190.svg', imageSrcActive: 'Assets/Images/All Icons/Group 191.svg' },
         { title: 'Deshboard', link: '/Deshboard', imageSrcInactive: 'Assets/Images/Navbar/Group 95.png', imageSrcActive: 'Assets/Images/Navbar/Group 116.png' },
         { title: 'Rate Images', link: '/RateImages', imageSrcInactive: 'Assets/Images/Navbar/Group 96.png', imageSrcActive: 'Assets/Images/Navbar/Group 114.png' },
         { title: 'Tag Images', link: '/TagImages', imageSrcInactive: 'Assets/Images/Navbar/Group 110.png', imageSrcActive: 'Assets/Images/Navbar/Group 115.png' },
-        { title: 'My Profile', link: '/MyProfile', imageSrcInactive: 'Assets/Images/Navbar/Ellipse 2.png', imageSrcActive: 'Assets/Images/Navbar/Ellipse 2.png' },
+        // { title: 'My Profile', link: '/MyProfile', imageSrcInactive: 'Assets/Images/Navbar/Ellipse 2.png', imageSrcActive: 'Assets/Images/Navbar/Ellipse 2.png' },
     ];
 
     return (
