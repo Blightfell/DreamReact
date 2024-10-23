@@ -1,4 +1,3 @@
-
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -6,8 +5,11 @@ export default {
     "./node_modules/react-tailwindcss-datepicker/dist/index.esm.js",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        skema: ["SkemaProText", "sans-serif"],
+      },
+    },
   },
   plugins: [],
-}
-
+};
