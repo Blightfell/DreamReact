@@ -3,8 +3,8 @@ import { getDefaultConfig } from "@rainbow-me/rainbowkit";
 import { arbitrum } from "wagmi/chains";
 
 const config = getDefaultConfig({
-  appName: "Dream Lair",
-  projectId: "YOUR_WALLETCONNECT_PROJECT_ID", // Make sure this is set
+  appName: "dreamlair",
+  projectId: "3ce3f1ebb2e8e4bc49354e9e1d7bffcf", // Make sure this is set
   chains: [arbitrum],
   ssr: true,
 });
