@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        skema: ["SkemaProText", "sans-serif"],
+        averia: ["AveriaSerifLibre", "serif"],
       },
     },
   },

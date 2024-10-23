@@ -3,8 +3,8 @@
 @import 'tailwindcss/utilities';
 
 @font-face {
-  font-family: 'SkemaProText';
-  src: url('/Assets/Fonts/OTF/SkemaProText-MediumItalic.otf') format('opentype');
-  font-weight: 500;
+  font-family: 'AveriaSerifLibre';
+  src: url('/Assets/Fonts/AveriaSerifLibre-Italic.ttf') format('truetype');
+  font-weight: normal;
   font-style: italic;
 }
