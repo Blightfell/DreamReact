@@ -20,7 +20,7 @@ const DreamLair = () => {
 
   return (
     <div
-      className="dream-lair-container min-h-screen flex flex-col items-center justify-center"
+      className="dream-lair-container min-h-screen flex flex-col items-center justify-center p-4"
       style={{
         backgroundImage: `url(${texture})`,
         backgroundBlendMode: "multiply",
@@ -28,7 +28,7 @@ const DreamLair = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <h1 className="text-[#858585] mb-8 font-averia text-2xl italic !font-[AveriaSerifLibre]">
+      <h1 className="text-[#858585] mb-8 font-averia text-xl sm:text-2xl italic !font-[AveriaSerifLibre] text-center">
         Welcome to Dream Lair
       </h1>
       <ConnectButton.Custom>
@@ -42,7 +42,7 @@ const DreamLair = () => {
         )}
       </ConnectButton.Custom>
       {isConnected && (
-        <p className="text-[#858585] mt-4 font-averia italic !font-[AveriaSerifLibre]">
+        <p className="text-[#858585] mt-4 font-averia italic !font-[AveriaSerifLibre] text-center break-all">
           Connected: {address}
         </p>
       )}
