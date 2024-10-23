@@ -75,7 +75,7 @@
     font-size: 16px;
     color: black;
     height: 48px;
-    width: 100%;
+    width: 100% !important;
     border-radius: 8px;
     border: none;
     background: #F3F3F3;
@@ -202,6 +202,7 @@
     .title-form {
         display: none;
     }
+
     .Form {
         padding: 30px 44px;
         border-radius: 24px;
@@ -211,7 +212,7 @@
 }
 
 
-@media only screen and (min-width: 1536px) {
+@media only screen and (min-width: 1696px) {
     .SignIn {
         padding: 40px 24px;
 
@@ -222,8 +223,8 @@
     }
 
     .Form {
-        width: 534px;
-        padding: 54px 36px;
+        width: 536px;
+        padding: 54px 40px;
         border-radius: 24px;
         height: auto;
     }
