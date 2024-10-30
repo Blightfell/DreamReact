@@ -41,10 +41,13 @@ const DreamLair = () => {
     const state = crypto.randomUUID();
     localStorage.setItem("discord-state", state);
 
-    const redirectUri = encodeURIComponent(
-      "http://localhost:5173/discord-auth"
-    );
-    const authUrl = `https://discord.com/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&response_type=code&redirect_uri=${redirectUri}&scope=email&state=${state}`;
+    const baseUrl =
+      window.location.hostname === "localhost"
+        ? "http://localhost:5173"
+        : "https://dreampro.ai";
+
+    const redirectUri = encodeURIComponent(`${baseUrl}/discord-auth`);
+    const authUrl = `https://discord.com/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&response_type=code&redirect_uri=${redirectUri}&scope=identify+email&state=${state}`;
     window.location.href = authUrl;
   };
 
