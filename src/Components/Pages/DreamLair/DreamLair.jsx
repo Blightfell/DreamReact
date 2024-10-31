@@ -17,7 +17,7 @@ const DreamLair = () => {
   const [entropy] = useState(Math.floor(Math.random() * 1000000));
   const [expires] = useState(Math.floor(Date.now() / 1000) + 60 * 60);
 
-  const DISCORD_CLIENT_ID = "1301017266296590447";
+  const DISCORD_CLIENT_ID = "1292174858666639465";
 
   const [discordUserState, setDiscordUserState] = useState(null);
   const [isDiscordLoggedIn, setIsDiscordLoggedIn] = useState(false);
