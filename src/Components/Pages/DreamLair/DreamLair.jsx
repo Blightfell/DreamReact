@@ -6,6 +6,7 @@ import connectDreamActive from "../../../assets/images/buttons/connectDreamACTIV
 import texture from "../../../assets/images/textures/Texture.png";
 
 import { useDiscordAuth } from "../../../context/DiscordAuthContext";
+import ReactGA from "react-ga4";
 
 console.log("Texture path:", texture);
 
@@ -36,6 +37,16 @@ const DreamLair = () => {
       setIsDiscordLoggedIn(true);
     }
   }, []);
+
+  useEffect(() => {
+    if (isConnected) {
+      ReactGA.event({
+        category: "Wallet",
+        action: "Connect",
+        label: "Wallet Connected",
+      });
+    }
+  }, [isConnected]);
 
   const handleDiscordAuth = () => {
     const state = crypto.randomUUID();
@@ -86,11 +97,14 @@ const DreamLair = () => {
         data: responseData,
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to verify credentials");
+      if (response.ok) {
+        setIsAuthenticated(true);
+        ReactGA.event({
+          category: "Authentication",
+          action: "Sign",
+          label: "Message Signed",
+        });
       }
-
-      setIsAuthenticated(true);
     } catch (error) {
       console.error("Error details:", error);
       alert("Authentication failed");
