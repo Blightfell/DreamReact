@@ -13,6 +13,7 @@ const DiscordAuthCallback = () => {
     if (code && state === savedState) {
       console.log("Discord auth code:", code);
       localStorage.setItem("discord-logged-in", "true");
+      localStorage.setItem("discord-auth-code", code);
       localStorage.removeItem("discord-state");
       navigate("/dreamlair");
     } else {

@@ -68,7 +68,7 @@ const PagesRoutes = () => {
               element={<SubmitYourArtwork />}
             />
             <Route path="/dreamlair" element={<DreamLair />} />
-            <Route path="/callback" element={<DiscordCallback />} />
+            <Route path="/discord-auth" element={<DiscordCallback />} />
           </Routes>
         </div>
       </div>
