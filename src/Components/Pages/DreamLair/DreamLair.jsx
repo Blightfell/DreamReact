@@ -57,22 +57,43 @@ const DreamLair = () => {
   };
 
   const handleSignMessage = async () => {
-    if (!isDiscordLoggedIn) {
-      alert("Please connect your Discord account first");
-      return;
-    }
-
-    const entropy = Math.floor(Math.random() * 1000000);
-    const expires = Math.floor(Date.now() / 1000) + 60 * 60;
-    const message = `Dream Lair\nAction: Login\nEntropy: ${entropy}\nExpires: ${expires}`;
+    const authCode = localStorage.getItem("discord-auth-code");
 
     try {
+      const message = `Dream Lair\nAction: Login\nEntropy: ${entropy}\nExpires: ${expires}`;
       const signature = await signMessageAsync({ message });
-      console.log("Message:", message);
-      console.log("Signature:", signature);
+
+      const payload = {
+        token: authCode,
+        sig: signature,
+      };
+      console.log("Sending payload to backend:", payload);
+
+      const response = await fetch(
+        "https://master-server.merlynlabs.io/discord_token",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
+        }
+      );
+
+      const responseData = await response.json();
+      console.log("Backend response:", {
+        status: response.status,
+        data: responseData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to verify credentials");
+      }
+
       setIsAuthenticated(true);
     } catch (error) {
-      console.error("Error signing:", error);
+      console.error("Error details:", error);
+      alert("Authentication failed");
     }
   };
 
@@ -92,61 +113,55 @@ const DreamLair = () => {
       <div className="flex flex-col gap-4">
         <ConnectButton.Custom>
           {({ openConnectModal, openAccountModal, account }) => (
-            <button onClick={account ? openAccountModal : openConnectModal}>
-              <img
-                src={account ? connectDreamActive : connectDream}
-                alt="Connect Wallet"
-              />
-            </button>
+            <div className="flex flex-col items-center gap-2">
+              <button onClick={account ? openAccountModal : openConnectModal}>
+                <img
+                  src={account ? connectDreamActive : connectDream}
+                  alt="Connect Wallet"
+                />
+              </button>
+              {isConnected && (
+                <button
+                  onClick={disconnect}
+                  className="text-[#858585] underline hover:text-[#a0a0a0] transition-colors duration-300 font-averia italic !font-[AveriaSerifLibre]"
+                >
+                  Disconnect
+                </button>
+              )}
+            </div>
           )}
         </ConnectButton.Custom>
 
         {isConnected && (
           <>
-            {!isDiscordLoggedIn ? (
-              <button
-                onClick={handleDiscordAuth}
-                className="bg-[#5865F2] text-white px-6 py-2 rounded-lg hover:bg-[#4752C4] transition-colors duration-300"
-              >
-                Connect Discord
-              </button>
-            ) : (
-              <>
-                <div className="flex flex-col items-center gap-2">
-                  <div className="text-[#858585]">Connected to Discord</div>
-                  <button
-                    onClick={handleDiscordLogout}
-                    className="text-[#858585] underline hover:text-[#a0a0a0]"
-                  >
-                    Disconnect Discord
-                  </button>
-                </div>
+            <button
+              onClick={
+                isDiscordLoggedIn ? handleDiscordLogout : handleDiscordAuth
+              }
+              className="bg-[#5865F2] text-white px-6 py-2 rounded-lg hover:bg-[#4752C4] transition-colors duration-300"
+            >
+              {isDiscordLoggedIn ? "Disconnect Discord" : "Connect Discord"}
+            </button>
 
-                {!isAuthenticated ? (
-                  <button
-                    onClick={handleSignMessage}
-                    className="bg-[#4CAF50] text-white px-6 py-2 rounded-lg hover:bg-[#45a049] transition-colors duration-300"
-                  >
-                    Sign Message
-                  </button>
-                ) : (
-                  <div className="text-[#4CAF50] font-averia italic !font-[AveriaSerifLibre]">
-                    Authenticated ✓
-                  </div>
-                )}
-              </>
+            {isDiscordLoggedIn && !isAuthenticated && (
+              <button
+                onClick={handleSignMessage}
+                className="bg-[#4CAF50] text-white px-6 py-2 rounded-lg hover:bg-[#45a049] transition-colors duration-300"
+              >
+                Sign Message
+              </button>
+            )}
+
+            {isAuthenticated && (
+              <div className="text-[#4CAF50] font-averia italic !font-[AveriaSerifLibre] text-center">
+                Authenticated ✓
+              </div>
             )}
           </>
         )}
       </div>
       {isConnected && (
         <>
-          <button
-            onClick={disconnect}
-            className="text-[#858585] mt-2 underline hover:text-[#a0a0a0] transition-colors duration-300 font-averia italic !font-[AveriaSerifLibre]"
-          >
-            Disconnect
-          </button>
           <p className="text-[#858585] mt-4 font-averia italic !font-[AveriaSerifLibre] text-center break-all">
             Connected: {address}
           </p>
