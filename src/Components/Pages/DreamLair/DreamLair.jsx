@@ -17,14 +17,18 @@ const DreamLair = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    if (isConnected) {
-      ReactGA.event({
+    if (isConnected && address) {
+      const eventData = {
         category: "Wallet",
         action: "Connect",
         label: "Wallet Connected",
-      });
+        value: 1,
+        wallet_address: address,
+      };
+      console.log("Sending GA4 wallet connect event:", eventData);
+      ReactGA.event(eventData);
     }
-  }, [isConnected]);
+  }, [isConnected, address]);
 
   const handleSignMessage = async () => {
     try {
@@ -55,11 +59,15 @@ const DreamLair = () => {
 
       if (response.ok) {
         setIsAuthenticated(true);
-        ReactGA.event({
+        const eventData = {
           category: "Authentication",
           action: "Sign",
           label: "Message Signed",
-        });
+          value: 1,
+          wallet_address: address,
+        };
+        console.log("Sending GA4 sign message event:", eventData);
+        ReactGA.event(eventData);
       }
     } catch (error) {
       console.error("Error details:", error);
