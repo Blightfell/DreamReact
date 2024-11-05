@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount, useDisconnect, useSignMessage } from "wagmi";
-import connectDream from "../../../assets/images/buttons/connectDream.png";
-import connectDreamActive from "../../../assets/images/buttons/connectDreamACTIVE.png";
+import connectDream from "../../../assets/images/buttons/button_blank.png";
+import connectDreamActive from "../../../assets/images/buttons/button_blank_active.png";
 import texture from "../../../assets/images/textures/Texture.png";
 import ReactGA from "react-ga4";
-
-console.log("Texture path:", texture);
 
 const DreamLair = () => {
   const { address, isConnected } = useAccount();
@@ -15,6 +13,16 @@ const DreamLair = () => {
   const [entropy] = useState(Math.floor(Math.random() * 1000000));
   const [expires] = useState(Math.floor(Date.now() / 1000) + 60 * 60);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [utmCampaign, setUtmCampaign] = useState(null);
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const campaign = urlParams.get("utm_campaign");
+    if (campaign) {
+      setUtmCampaign(campaign);
+      console.log("Campaign detected:", campaign);
+    }
+  }, []);
 
   useEffect(() => {
     if (isConnected && address) {
@@ -24,51 +32,27 @@ const DreamLair = () => {
         label: "Wallet Connected",
         value: 1,
         wallet_address: address,
+        utm_campaign: utmCampaign || "direct",
       };
-      console.log("Sending GA4 wallet connect event:", eventData);
       ReactGA.event(eventData);
     }
-  }, [isConnected, address]);
+  }, [isConnected, address, utmCampaign]);
 
   const handleSignMessage = async () => {
     try {
       const message = `Dream Lair\nAction: Login\nEntropy: ${entropy}\nExpires: ${expires}`;
       const signature = await signMessageAsync({ message });
 
-      const payload = {
-        sig: signature,
+      setIsAuthenticated(true);
+      const eventData = {
+        category: "Authentication",
+        action: "Sign",
+        label: "Message Signed",
+        value: 1,
+        wallet_address: address,
+        utm_campaign: utmCampaign || "direct",
       };
-      console.log("Sending payload to backend:", payload);
-
-      const response = await fetch(
-        "https://master-server.merlynlabs.io/discord_token",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(payload),
-        }
-      );
-
-      const responseData = await response.json();
-      console.log("Backend response:", {
-        status: response.status,
-        data: responseData,
-      });
-
-      if (response.ok) {
-        setIsAuthenticated(true);
-        const eventData = {
-          category: "Authentication",
-          action: "Sign",
-          label: "Message Signed",
-          value: 1,
-          wallet_address: address,
-        };
-        console.log("Sending GA4 sign message event:", eventData);
-        ReactGA.event(eventData);
-      }
+      ReactGA.event(eventData);
     } catch (error) {
       console.error("Error details:", error);
       alert("Authentication failed");
@@ -85,18 +69,25 @@ const DreamLair = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <h1 className="text-[#858585] mb-8 font-averia text-xl sm:text-2xl italic !font-[AveriaSerifLibre] text-center">
+      <h1 className="text-[#858585] mb-8 font-averia text-xl sm:text-xl italic !font-[AveriaSerifLibre] text-center">
         Welcome to Dream Lair
       </h1>
       <div className="flex flex-col gap-4">
         <ConnectButton.Custom>
           {({ openConnectModal, openAccountModal, account }) => (
             <div className="flex flex-col items-center gap-2">
-              <button onClick={account ? openAccountModal : openConnectModal}>
+              <button
+                onClick={account ? openAccountModal : openConnectModal}
+                className="relative"
+              >
                 <img
                   src={account ? connectDreamActive : connectDream}
-                  alt="Connect Wallet"
+                  alt={account ? "Connected" : "Connect Wallet"}
+                  className="relative"
                 />
+                <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#858585] font-averia italic !font-[AveriaSerifLibre] text-xl w-full text-center">
+                  {account ? "Connected" : "Connect Wallet"}
+                </span>
               </button>
               {isConnected && (
                 <button
@@ -111,11 +102,11 @@ const DreamLair = () => {
         </ConnectButton.Custom>
 
         {isConnected && !isAuthenticated && (
-          <button
-            onClick={handleSignMessage}
-            className="bg-[#4CAF50] text-white px-6 py-2 rounded-lg hover:bg-[#45a049] transition-colors duration-300"
-          >
-            Sign Message
+          <button onClick={handleSignMessage} className="relative">
+            <img src={connectDream} alt="Sign Message" className="relative" />
+            <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#858585] font-averia italic !font-[AveriaSerifLibre] text-2xl w-full text-center">
+              Sign Message
+            </span>
           </button>
         )}
 
