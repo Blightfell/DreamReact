@@ -4,8 +4,6 @@ import { useAccount, useDisconnect, useSignMessage } from "wagmi";
 import connectDream from "../../../assets/images/buttons/connectDream.png";
 import connectDreamActive from "../../../assets/images/buttons/connectDreamACTIVE.png";
 import texture from "../../../assets/images/textures/Texture.png";
-
-import { useDiscordAuth } from "../../../context/DiscordAuthContext";
 import ReactGA from "react-ga4";
 
 console.log("Texture path:", texture);
@@ -13,30 +11,10 @@ console.log("Texture path:", texture);
 const DreamLair = () => {
   const { address, isConnected } = useAccount();
   const { disconnect } = useDisconnect();
-  const { loginWithDiscord, discordUser } = useDiscordAuth();
   const { signMessageAsync } = useSignMessage();
   const [entropy] = useState(Math.floor(Math.random() * 1000000));
   const [expires] = useState(Math.floor(Date.now() / 1000) + 60 * 60);
-
-  const DISCORD_CLIENT_ID = "1292174858666639465";
-
-  const [discordUserState, setDiscordUserState] = useState(null);
-  const [isDiscordLoggedIn, setIsDiscordLoggedIn] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
-  useEffect(() => {
-    const user = localStorage.getItem("discord-user");
-    if (user) {
-      setDiscordUserState(JSON.parse(user));
-    }
-  }, []);
-
-  useEffect(() => {
-    const loggedIn = localStorage.getItem("discord-logged-in");
-    if (loggedIn) {
-      setIsDiscordLoggedIn(true);
-    }
-  }, []);
 
   useEffect(() => {
     if (isConnected) {
@@ -48,34 +26,12 @@ const DreamLair = () => {
     }
   }, [isConnected]);
 
-  const handleDiscordAuth = () => {
-    const state = crypto.randomUUID();
-    localStorage.setItem("discord-state", state);
-
-    const baseUrl =
-      window.location.hostname === "localhost"
-        ? "http://localhost:5173"
-        : "https://dreampro.ai";
-
-    const redirectUri = encodeURIComponent(`${baseUrl}/discord-auth`);
-    const authUrl = `https://discord.com/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&response_type=code&redirect_uri=${redirectUri}&scope=identify+email&state=${state}`;
-    window.location.href = authUrl;
-  };
-
-  const handleDiscordLogout = () => {
-    localStorage.removeItem("discord-logged-in");
-    setIsDiscordLoggedIn(false);
-  };
-
   const handleSignMessage = async () => {
-    const authCode = localStorage.getItem("discord-auth-code");
-
     try {
       const message = `Dream Lair\nAction: Login\nEntropy: ${entropy}\nExpires: ${expires}`;
       const signature = await signMessageAsync({ message });
 
       const payload = {
-        token: authCode,
         sig: signature,
       };
       console.log("Sending payload to backend:", payload);
@@ -146,40 +102,25 @@ const DreamLair = () => {
           )}
         </ConnectButton.Custom>
 
-        {isConnected && (
-          <>
-            <button
-              onClick={
-                isDiscordLoggedIn ? handleDiscordLogout : handleDiscordAuth
-              }
-              className="bg-[#5865F2] text-white px-6 py-2 rounded-lg hover:bg-[#4752C4] transition-colors duration-300"
-            >
-              {isDiscordLoggedIn ? "Disconnect Discord" : "Connect Discord"}
-            </button>
+        {isConnected && !isAuthenticated && (
+          <button
+            onClick={handleSignMessage}
+            className="bg-[#4CAF50] text-white px-6 py-2 rounded-lg hover:bg-[#45a049] transition-colors duration-300"
+          >
+            Sign Message
+          </button>
+        )}
 
-            {isDiscordLoggedIn && !isAuthenticated && (
-              <button
-                onClick={handleSignMessage}
-                className="bg-[#4CAF50] text-white px-6 py-2 rounded-lg hover:bg-[#45a049] transition-colors duration-300"
-              >
-                Sign Message
-              </button>
-            )}
-
-            {isAuthenticated && (
-              <div className="text-[#4CAF50] font-averia italic !font-[AveriaSerifLibre] text-center">
-                Authenticated ✓
-              </div>
-            )}
-          </>
+        {isAuthenticated && (
+          <div className="text-[#4CAF50] font-averia italic !font-[AveriaSerifLibre] text-center">
+            Thanks, you have been added to our list ✓
+          </div>
         )}
       </div>
       {isConnected && (
-        <>
-          <p className="text-[#858585] mt-4 font-averia italic !font-[AveriaSerifLibre] text-center break-all">
-            Connected: {address}
-          </p>
-        </>
+        <p className="text-[#858585] mt-4 font-averia italic !font-[AveriaSerifLibre] text-center break-all">
+          Connected: {address}
+        </p>
       )}
     </div>
   );
