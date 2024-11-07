@@ -55,7 +55,7 @@ const DreamLair = () => {
     const baseUrl =
       window.location.hostname === "localhost"
         ? "http://localhost:5173"
-        : "https://dreampro.ai";
+        : "https://www.dreampro.ai";
 
     const redirectUri = encodeURIComponent(`${baseUrl}/discord-auth`);
     const authUrl = `https://discord.com/oauth2/authorize?client_id=${DISCORD_CLIENT_ID}&response_type=code&redirect_uri=${redirectUri}&scope=identify+email&state=${state}`;
