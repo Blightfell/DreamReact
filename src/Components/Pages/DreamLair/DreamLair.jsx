@@ -71,7 +71,7 @@ const DreamLair = () => {
     const authCode = localStorage.getItem("discord-auth-code");
 
     try {
-      const message = `Dream Lair\nAction: Login\nEntropy: ${entropy}\nExpires: ${expires}`;
+      const message = `Dream Lair\nAction: Login\nWallet: ${address}\nEntropy: ${entropy}\nExpires: ${expires}`;
       const signature = await signMessageAsync({ message });
 
       const payload = {
