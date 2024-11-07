@@ -4,7 +4,6 @@ import { useAccount, useDisconnect, useSignMessage } from "wagmi";
 import connectDream from "../../../assets/images/buttons/connectDream.png";
 import connectDreamActive from "../../../assets/images/buttons/connectDreamACTIVE.png";
 import texture from "../../../assets/images/textures/Texture.png";
-
 import { useDiscordAuth } from "../../../context/DiscordAuthContext";
 import ReactGA from "react-ga4";
 
