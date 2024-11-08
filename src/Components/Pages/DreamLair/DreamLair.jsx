@@ -47,6 +47,12 @@ const DreamLair = () => {
     }
   }, [isConnected]);
 
+  useEffect(() => {
+    if (discordUser) {
+      console.log("Discord User Data:", discordUser);
+    }
+  }, [discordUser]);
+
   const handleDiscordAuth = () => {
     const state = crypto.randomUUID();
     localStorage.setItem("discord-state", state);
@@ -76,6 +82,7 @@ const DreamLair = () => {
       const payload = {
         token: authCode,
         sig: signature,
+        wallet: address,
       };
       console.log("Sending payload to backend:", payload);
 
