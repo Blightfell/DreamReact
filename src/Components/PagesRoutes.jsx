@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, Navigate } from "react-router-dom";
 import ResetPassword from "./LoginForm/ResetPassword";
 import ForgetPassword from "./LoginForm/forgetpswd";
 import Otp from "./LoginForm/Otp";
@@ -69,6 +69,7 @@ const PagesRoutes = () => {
             />
             <Route path="/dreamlair" element={<DreamLair />} />
             <Route path="/discord-auth" element={<DiscordCallback />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
       </div>
