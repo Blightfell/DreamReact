@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import config from "./rainbowKitConfig";
 import ReactGA from "react-ga4";
 import { DiscordAuthProvider } from "./context/DiscordAuthContext";
+import { ErrorBoundary } from "react-error-boundary";
 
 const queryClient = new QueryClient();
 
@@ -15,17 +16,19 @@ ReactGA.initialize("G-MR5RGZ4W02");
 
 const App = () => {
   return (
-    <WagmiProvider config={config}>
-      <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider>
-          <DiscordAuthProvider>
-            <Router>
-              <PagesRoutes />
-            </Router>
-          </DiscordAuthProvider>
-        </RainbowKitProvider>
-      </QueryClientProvider>
-    </WagmiProvider>
+    <ErrorBoundary fallback={<div>Something went wrong</div>}>
+      <WagmiProvider config={config}>
+        <QueryClientProvider client={queryClient}>
+          <RainbowKitProvider>
+            <DiscordAuthProvider>
+              <Router>
+                <PagesRoutes />
+              </Router>
+            </DiscordAuthProvider>
+          </RainbowKitProvider>
+        </QueryClientProvider>
+      </WagmiProvider>
+    </ErrorBoundary>
   );
 };
 
