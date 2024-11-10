@@ -108,3 +108,12 @@ body {
 }
 
 /* ---- */
+
+/* Add near the top of the file */
+.dream-lair-container {
+    background-image: url('/Assets/images/textures/Texture.png');
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #3B3F3F; /* Fallback color */
+}
