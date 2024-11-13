@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation, Navigate } from "react-router-dom";
 import ResetPassword from "./LoginForm/ResetPassword";
 import ForgetPassword from "./LoginForm/forgetpswd";
 import Otp from "./LoginForm/Otp";
@@ -16,6 +16,7 @@ import SideBAr from "./Commons/SideBar/SideBar";
 import MobileNav from "./Commons/MobileNav/nav";
 import SubmitYourArtwork from "./Pages/SubmitYourArtwork/SubmitYourArtwork";
 import DreamLair from "./Pages/DreamLair/DreamLair";
+import DiscordCallback from "./Pages/DreamLair/DiscordCallback";
 
 const sidebarRoutes = [
   "/Deshboard",
@@ -67,6 +68,8 @@ const PagesRoutes = () => {
               element={<SubmitYourArtwork />}
             />
             <Route path="/dreamlair" element={<DreamLair />} />
+            <Route path="/discord-auth" element={<DiscordCallback />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
       </div>
