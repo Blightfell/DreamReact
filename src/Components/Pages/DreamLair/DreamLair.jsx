@@ -6,6 +6,9 @@ import connectDreamActive from "../../../assets/images/buttons/connectDreamACTIV
 import { useDiscordAuth } from "../../../context/DiscordAuthContext";
 import ReactGA from "react-ga4";
 import QubeService from "../../../services/QubeService";
+import texture from "../../../assets/images/textures/Texture.png";
+
+console.log("Imported texture:", texture);
 
 const DreamLair = () => {
   const { address, isConnected } = useAccount();
@@ -138,7 +141,15 @@ const DreamLair = () => {
   };
 
   return (
-    <div className="dream-lair-container min-h-screen flex flex-col items-center justify-center p-4">
+    <div
+      className="min-h-screen flex flex-col items-center justify-center p-4"
+      style={{
+        backgroundImage: `url(${texture})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundColor: "#3B3F3F",
+      }}
+    >
       <h1 className="text-[#858585] mb-8 font-averia text-xl sm:text-2xl italic !font-[AveriaSerifLibre] text-center">
         Welcome to Dream Lair
       </h1>
