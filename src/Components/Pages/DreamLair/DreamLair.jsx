@@ -10,6 +10,7 @@ import texture from "../../../assets/images/textures/Texture.png";
 
 console.log("Imported texture:", texture);
 
+
 const DreamLair = () => {
   const { address, isConnected } = useAccount();
   const { disconnect } = useDisconnect();
@@ -24,6 +25,7 @@ const DreamLair = () => {
   const [isDiscordLoggedIn, setIsDiscordLoggedIn] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [referralId, setReferralId] = useState(null);
+
 
   useEffect(() => {
     const user = localStorage.getItem("discord-user");
@@ -64,6 +66,7 @@ const DreamLair = () => {
       qubeService.logClick(ref, navigator.userAgent);
     }
   }, []);
+
 
   const handleDiscordAuth = () => {
     const state = crypto.randomUUID();
@@ -118,6 +121,7 @@ const DreamLair = () => {
       if (response.ok) {
         setIsAuthenticated(true);
 
+
         if (referralId) {
           const qubeService = new QubeService(
             process.env.REACT_APP_QUBE_API_KEY
@@ -127,6 +131,7 @@ const DreamLair = () => {
             process.env.REACT_APP_QUBE_CONVERSION_ID
           );
         }
+
 
         ReactGA.event({
           category: "Authentication",
@@ -142,12 +147,13 @@ const DreamLair = () => {
 
   return (
     <div
-      className="min-h-screen flex flex-col items-center justify-center p-4"
+      className="dream-lair-container min-h-screen flex flex-col items-center justify-center p-4"
       style={{
         backgroundImage: `url(${texture})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundColor: "#3B3F3F",
+
       }}
     >
       <h1 className="text-[#858585] mb-8 font-averia text-xl sm:text-2xl italic !font-[AveriaSerifLibre] text-center">

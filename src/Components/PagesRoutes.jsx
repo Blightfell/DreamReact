@@ -70,6 +70,7 @@ const PagesRoutes = () => {
             />
             <Route path="/dreamlair" element={<DreamLair />} />
             <Route path="/dreamlair-mint" element={<DreamLairMint />} />
+
             <Route path="/discord-auth" element={<DiscordCallback />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
