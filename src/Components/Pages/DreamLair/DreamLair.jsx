@@ -3,11 +3,13 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount, useDisconnect, useSignMessage } from "wagmi";
 import connectDream from "../../../assets/images/buttons/connectDream.png";
 import connectDreamActive from "../../../assets/images/buttons/connectDreamACTIVE.png";
-import texture from "../../../assets/images/textures/Texture.png";
 import { useDiscordAuth } from "../../../context/DiscordAuthContext";
 import ReactGA from "react-ga4";
+import QubeService from "../../../services/QubeService";
+import texture from "../../../assets/images/textures/Texture.png";
 
-console.log("Texture path:", texture);
+console.log("Imported texture:", texture);
+
 
 const DreamLair = () => {
   const { address, isConnected } = useAccount();
@@ -22,6 +24,8 @@ const DreamLair = () => {
   const [discordUserState, setDiscordUserState] = useState(null);
   const [isDiscordLoggedIn, setIsDiscordLoggedIn] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [referralId, setReferralId] = useState(null);
+
 
   useEffect(() => {
     const user = localStorage.getItem("discord-user");
@@ -52,6 +56,17 @@ const DreamLair = () => {
       console.log("Discord User Data:", discordUser);
     }
   }, [discordUser]);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const ref = params.get("r");
+    if (ref) {
+      setReferralId(ref);
+      const qubeService = new QubeService(process.env.REACT_APP_QUBE_API_KEY);
+      qubeService.logClick(ref, navigator.userAgent);
+    }
+  }, []);
+
 
   const handleDiscordAuth = () => {
     const state = crypto.randomUUID();
@@ -105,6 +120,19 @@ const DreamLair = () => {
 
       if (response.ok) {
         setIsAuthenticated(true);
+
+
+        if (referralId) {
+          const qubeService = new QubeService(
+            process.env.REACT_APP_QUBE_API_KEY
+          );
+          await qubeService.logConversion(
+            referralId,
+            process.env.REACT_APP_QUBE_CONVERSION_ID
+          );
+        }
+
+
         ReactGA.event({
           category: "Authentication",
           action: "Sign",
@@ -122,9 +150,10 @@ const DreamLair = () => {
       className="dream-lair-container min-h-screen flex flex-col items-center justify-center p-4"
       style={{
         backgroundImage: `url(${texture})`,
-        backgroundBlendMode: "multiply",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
+        backgroundColor: "#3B3F3F",
+
       }}
     >
       <h1 className="text-[#858585] mb-8 font-averia text-xl sm:text-2xl italic !font-[AveriaSerifLibre] text-center">

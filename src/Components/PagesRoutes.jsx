@@ -17,6 +17,7 @@ import MobileNav from "./Commons/MobileNav/nav";
 import SubmitYourArtwork from "./Pages/SubmitYourArtwork/SubmitYourArtwork";
 import DreamLair from "./Pages/DreamLair/DreamLair";
 import DiscordCallback from "./Pages/DreamLair/DiscordCallback";
+import DreamLairMint from "./Pages/DreamLair/DreamLairMint";
 
 const sidebarRoutes = [
   "/Deshboard",
@@ -68,6 +69,8 @@ const PagesRoutes = () => {
               element={<SubmitYourArtwork />}
             />
             <Route path="/dreamlair" element={<DreamLair />} />
+            <Route path="/dreamlair-mint" element={<DreamLairMint />} />
+
             <Route path="/discord-auth" element={<DiscordCallback />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
