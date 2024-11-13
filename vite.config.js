@@ -10,7 +10,6 @@ export default defineConfig({
       registerType: "prompt",
       includeAssests: ["favicon.ico", "apple-touc-icon.png", "masked-icon.svg"],
       manifest: {
-
         name: "Dream Protocol",
         short_name: "dream-protocol",
         description:
@@ -56,4 +55,12 @@ export default defineConfig({
       },
     }),
   ],
+  build: {
+    rollupOptions: {
+      input: {
+        main: "./index.html",
+      },
+    },
+  },
+  publicDir: "public",
 });
