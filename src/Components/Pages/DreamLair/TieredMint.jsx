@@ -143,21 +143,32 @@ const TieredMint = () => {
           }}
         </ConnectButton.Custom>
 
-        <button className="relative">
+        <button
+          className="relative"
+          onClick={() => window.open("https://x.com/dreamrunnergg", "_blank")}
+        >
           <img
             src={twitterButton}
             alt="Twitter"
             className="h-8 w-auto drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
           />
         </button>
-        <button className="relative">
+        <button
+          className="relative"
+          onClick={() =>
+            window.open("https://whitepaper.dreampro.ai", "_blank")
+          }
+        >
           <img
             src={whitepaperButton}
             alt="Whitepaper"
             className="h-8 w-auto drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
           />
         </button>
-        <button className="relative">
+        <button
+          className="relative"
+          onClick={() => window.open("https://discord.gg/kote", "_blank")}
+        >
           <img
             src={discordButton}
             alt="Discord"
