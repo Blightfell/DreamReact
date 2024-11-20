@@ -151,7 +151,7 @@ const DreamLair = () => {
       }}
     >
       <h1 className="text-[#858585] mb-8 font-averia text-xl sm:text-2xl italic !font-[AveriaSerifLibre] text-center">
-        Welcome to Dream Lair
+        Connect to Dream Bot
       </h1>
       <div className="flex flex-col gap-4">
         <ConnectButton.Custom>

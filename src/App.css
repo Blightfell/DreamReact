@@ -25,6 +25,31 @@ body {
     src: url(/Assets/Fonts/OTF/Satoshi-Regular.otf);
 }
 
+@font-face {
+    font-family: 'AveriaSerifLibre-Bold';
+    src: url(/Assets/Fonts/AveriaSerifLibre-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'AveriaSerifLibre-BoldItalic';
+    src: url(/Assets/Fonts/AveriaSerifLibre-BoldItalic.ttf);
+}
+
+@font-face {
+    font-family: 'AveriaSerifLibre-Light';
+    src: url(/Assets/Fonts/AveriaSerifLibre-Light.ttf);
+}
+
+@font-face {
+    font-family: 'AveriaSerifLibre-LightItalic';
+    src: url(/Assets/Fonts/AveriaSerifLibre-LightItalic.ttf);
+}
+
+@font-face {
+    font-family: 'AveriaSerifLibre-Regular';
+    src: url(/Assets/Fonts/AveriaSerifLibre-Regular.ttf);
+}
+
 .logo {
     max-width: 293px;
     height: auto;
