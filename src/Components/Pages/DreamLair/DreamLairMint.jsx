@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
 import texture from "../../../assets/images/textures/Texture.png";
 import connectDream from "../../../assets/images/buttons/connectwallet.png";
 import connectDreamActive from "../../../assets/images/buttons/connectwallet.png";
@@ -7,8 +6,8 @@ import twitterButton from "../../../assets/images/buttons/twitterbutton.png";
 import whitepaperButton from "../../../assets/images/buttons/whitepaperbutton.png";
 import discordButton from "../../../assets/images/buttons/discordbutton.png";
 import TieredMint from "./TieredMint";
-import mintChoiceBG from "../../../assets/images/bg/mintchoiceBG.png";
-import mintInfoBg from "../../../assets/images/bg/mintinfobg.png";
+import mintChoiceBG from "../../../assets/images/bg/mintchoiceBGoptimized.png";
+import mintInfoBg from "../../../assets/images/bg/mintinfobgoptimized.png";
 import flameIcon from "../../../assets/images/fire.png";
 import skullIcon from "../../../assets/images/skull.png";
 import leftFlair from "../../../assets/images/leftflair.png";
@@ -52,7 +51,7 @@ const DreamLairMint = () => {
             // onClick={() => setSelectedMintType("tiered")}
             className="relative md:translate-x-0 translate-x-12"
           >
-            <div className="absolute max-md:right-[265px] right-[285px] top-[20%] text-right">
+            <div className="absolute max-md:right-[290px] right-[285px] top-[20%] text-right">
               <p className="text-base !font-[AveriaSerifLibre-Regular] text-gray-300">
                 Common
               </p>
@@ -197,43 +196,33 @@ const DreamLairMint = () => {
         </div>
       )}
 
-      <div className="md:absolute top-[3%] md:top-[6%] right-[8%] flex items-center gap-4">
-        <ConnectButton.Custom>
-          {({ openConnectModal, openAccountModal, account }) => {
-            const isWalletReady = account?.address;
-            return (
-              <button
-                onClick={isWalletReady ? openAccountModal : openConnectModal}
-                className="relative"
-              >
-                <img
-                  src={isWalletReady ? connectDreamActive : connectDream}
-                  alt={isWalletReady ? "Connected" : "Connect Wallet"}
-                  className="h-8 w-auto"
-                />
-                <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#858585] font-averia italic !font-[AveriaSerifLibre] text-sm w-full text-center">
-                  {isWalletReady ? "Connected" : "Connect Wallet"}
-                </span>
-              </button>
-            );
-          }}
-        </ConnectButton.Custom>
-
-        <button className="relative">
+      <div className="md:absolute top-[3%] md:top-[6%] right-[8%] flex items-center gap-4 z-50">
+        <button
+          className="relative z-50 cursor-pointer"
+          onClick={() => window.open("https://x.com/dreamrunnergg", "_blank")}
+        >
           <img
             src={twitterButton}
             alt="Twitter"
             className="h-8 w-auto drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
           />
         </button>
-        <button className="relative">
+        <button
+          className="relative z-50 cursor-pointer"
+          onClick={() =>
+            window.open("https://whitepaper.dreampro.ai", "_blank")
+          }
+        >
           <img
             src={whitepaperButton}
             alt="Whitepaper"
             className="h-8 w-auto drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
           />
         </button>
-        <button className="relative">
+        <button
+          className="relative z-50 cursor-pointer"
+          onClick={() => window.open("https://discord.gg/kote", "_blank")}
+        >
           <img
             src={discordButton}
             alt="Discord"
