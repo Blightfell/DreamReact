@@ -52,7 +52,7 @@ const DreamLairMint = () => {
             // onClick={() => setSelectedMintType("tiered")}
             className="relative md:translate-x-0 translate-x-12"
           >
-            <div className="absolute max-md:right-[265px] right-[285px] top-[20%] text-right">
+            <div className="absolute max-md:right-[290px] right-[285px] top-[20%] text-right">
               <p className="text-base !font-[AveriaSerifLibre-Regular] text-gray-300">
                 Common
               </p>
