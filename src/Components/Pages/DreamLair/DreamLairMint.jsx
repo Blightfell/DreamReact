@@ -81,7 +81,7 @@ const DreamLairMint = () => {
               alt=""
               className="absolute top-[40px] left-1/2 -translate-x-1/2 w-[180px] z-10 drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
             />
-            <div className="relative -mt-[180px] mb-[90px] text-center">
+            <div className="relative -mt-[200px] mb-[90px] text-center">
               <p
                 className="text-sm italic !font-[AveriaSerifLibre-Regular] text-white/80 max-w-[215px] mx-auto mb-9 max-md:mt-4 max-md:mb-5"
                 style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.9))" }}
@@ -90,7 +90,7 @@ const DreamLairMint = () => {
                 and choose from.
               </p>
               <p
-                className="text-sm italic !font-[AveriaSerifLibre-Regular] text-white/80 max-w-[215px] mx-auto max-md:mt-2"
+                className="text-sm italic !font-[AveriaSerifLibre-Regular] text-white/80 max-w-[215px] mx-auto max-md:mt-9"
                 style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.9))" }}
               >
                 No RNG - know the exact Lair and $Dream Emissions you'll recieve
@@ -150,7 +150,7 @@ const DreamLairMint = () => {
               alt=""
               className="absolute top-[15px] left-1/2 -translate-x-1/2 w-[180px] z-10 drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
             />
-            <div className="relative -mt-[180px] mb-[90px] text-center">
+            <div className="relative -mt-[200px] mb-[90px] text-center">
               <p
                 className="text-sm italic !font-[AveriaSerifLibre-Regular] text-white/80 max-w-[215px] mx-auto mb-8 max-md:mt-4"
                 style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.9))" }}
@@ -159,7 +159,7 @@ const DreamLairMint = () => {
                 $Dream allocation.
               </p>
               <p
-                className="text-sm italic !font-[AveriaSerifLibre-Regular] text-white/80 max-w-[215px] mx-auto max-md:mt-4"
+                className="text-sm italic !font-[AveriaSerifLibre-Regular] text-white/80 max-w-[215px] mx-auto max-md:mt-9"
                 style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.9))" }}
               >
                 Hold your $Dream reward or immediately redeem your slip for 25%
