@@ -14,9 +14,14 @@ import leftFlair from "../../../assets/images/leftflair.png";
 import rightFlair from "../../../assets/images/rightflair.png";
 import tieredImg from "../../../assets/images/tieredimg.png";
 import gachaImg from "../../../assets/images/gachaimg.png";
+import GachaMint from "./GachaMint";
+import PFPMint from "./PFPMint";
+import { useNavigate } from "react-router-dom";
 
 const DreamLairMint = () => {
   const [selectedMintType, setSelectedMintType] = useState(null);
+  const [showPFPMint, setShowPFPMint] = useState(false);
+  const navigate = useNavigate();
 
   const handleBack = () => {
     setSelectedMintType(null);
@@ -48,7 +53,7 @@ const DreamLairMint = () => {
             purchase.
           </p>
           <button
-            // onClick={() => setSelectedMintType("tiered")}
+            onClick={() => setSelectedMintType("tiered")}
             className="relative md:translate-x-0 translate-x-12"
           >
             <div className="absolute max-md:right-[290px] right-[285px] top-[20%] text-right">
@@ -83,14 +88,14 @@ const DreamLairMint = () => {
             />
             <div className="relative -mt-[200px] mb-[90px] text-center">
               <p
-                className="text-sm italic !font-[AveriaSerifLibre-Regular] text-white/80 max-w-[215px] mx-auto mb-9 max-md:mt-4 max-md:mb-5"
+                className="text-sm italic !font-[AveriaSerifLibre-Regular] text-white/80 max-w-[215px] mx-auto max-md:mt-4 md:mt-4"
                 style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.9))" }}
               >
                 Secure your Dream Lair with 6 Rarity Tiers for you to explore
                 and choose from.
               </p>
               <p
-                className="text-sm italic !font-[AveriaSerifLibre-Regular] text-white/80 max-w-[215px] mx-auto max-md:mt-9"
+                className="text-sm italic !font-[AveriaSerifLibre-Regular] text-white/80 max-w-[215px] mx-auto max-md:mt-8 md:mt-8"
                 style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.9))" }}
               >
                 No RNG - know the exact Lair and $Dream Emissions you'll recieve
@@ -123,7 +128,11 @@ const DreamLairMint = () => {
             token allocation.
           </p>
           <button
-            // onClick={() => setSelectedMintType("gacha")}
+            onClick={() => {
+              // Disabled temporarily
+              return;
+              setSelectedMintType("gacha");
+            }}
             className="relative md:translate-x-0 -translate-x-12"
           >
             <div className="absolute right-[-80px] top-[20%] text-left w-[70px]">
@@ -152,14 +161,14 @@ const DreamLairMint = () => {
             />
             <div className="relative -mt-[200px] mb-[90px] text-center">
               <p
-                className="text-sm italic !font-[AveriaSerifLibre-Regular] text-white/80 max-w-[215px] mx-auto mb-8 max-md:mt-4"
+                className="text-sm italic !font-[AveriaSerifLibre-Regular] text-white/80 max-w-[215px] mx-auto max-md:mt-4 md:mt-4"
                 style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.9))" }}
               >
                 Recieve a Dreamslip holding 1 to 10,000% of your mint price in
                 $Dream allocation.
               </p>
               <p
-                className="text-sm italic !font-[AveriaSerifLibre-Regular] text-white/80 max-w-[215px] mx-auto max-md:mt-9"
+                className="text-sm italic !font-[AveriaSerifLibre-Regular] text-white/80 max-w-[215px] mx-auto max-md:mt-8 md:mt-8"
                 style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.9))" }}
               >
                 Hold your $Dream reward or immediately redeem your slip for 25%
@@ -176,25 +185,31 @@ const DreamLairMint = () => {
     <div
       className="min-h-screen flex flex-col p-4 min-w-[320px] max-w-[100vw] overflow-x-hidden"
       style={{
-        backgroundImage: selectedMintType
-          ? `url(${texture})`
-          : `url(${mintChoiceBG})`,
+        backgroundImage:
+          selectedMintType || showPFPMint
+            ? `url(${texture})`
+            : `url(${mintChoiceBG})`,
         backgroundBlendMode: "multiply",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
     >
-      {selectedMintType && (
-        <div className="md:absolute top-[3%] md:top-[6%] left-[8%]">
-          <button onClick={handleBack} className="relative">
-            <img src={connectDream} alt="Back" className="h-8 w-auto" />
-            <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#858585] font-averia text-sm w-full text-center">
-              Back
-            </span>
-          </button>
-        </div>
-      )}
+      <div className="md:absolute top-[3%] md:top-[6%] left-[8%] z-50">
+        <button
+          onClick={() => {
+            // Disabled temporarily
+            return;
+            setShowPFPMint(true);
+          }}
+          className="relative"
+        >
+          <img src={connectDream} alt="PFP Mint" className="h-8 w-auto" />
+          <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#858585] font-averia text-xs w-full text-center">
+            Dreamrunner Mint
+          </span>
+        </button>
+      </div>
 
       <div className="md:absolute top-[3%] md:top-[6%] right-[8%] flex items-center gap-4 z-50">
         <button
@@ -231,7 +246,8 @@ const DreamLairMint = () => {
         </button>
       </div>
 
-      {selectedMintType === null && (
+      {showPFPMint && <PFPMint />}
+      {!showPFPMint && selectedMintType === null && (
         <>
           {renderMintSelection()}
           <div className="text-center mt-[0px]">
@@ -262,8 +278,8 @@ const DreamLairMint = () => {
           </div>
         </>
       )}
-      {selectedMintType === "tiered" && <TieredMint />}
-      {selectedMintType === "gacha" && <div>Gacha Mint Coming Soon</div>}
+      {!showPFPMint && selectedMintType === "tiered" && <TieredMint />}
+      {!showPFPMint && selectedMintType === "gacha" && <GachaMint />}
     </div>
   );
 };
