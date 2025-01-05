@@ -1,9 +1,11 @@
 import React from "react";
-import texture from "../../assets/images/textures/Texture.png";
-import twitterButton from "../../assets/images/buttons/twitterbutton.png";
-import whitepaperButton from "../../assets/images/buttons/whitepaperbutton.png";
-import discordButton from "../../assets/images/buttons/discordbutton.png";
-import titleDecor from "../../assets/images/buttons/titledecor.png";
+import { S3_BASE_URL } from "../../config/constants";
+
+const texture = `${S3_BASE_URL}/images/textures/Texture.png`;
+const twitterButton = `${S3_BASE_URL}/images/buttons/twitterbutton.png`;
+const whitepaperButton = `${S3_BASE_URL}/images/buttons/whitepaperbutton.png`;
+const discordButton = `${S3_BASE_URL}/images/buttons/discordbutton.png`;
+const titleDecor = `${S3_BASE_URL}/images/buttons/titledecor.png`;
 import videobox from "../../assets/images/bg/videobox.png";
 import { Link } from "react-router-dom";
 

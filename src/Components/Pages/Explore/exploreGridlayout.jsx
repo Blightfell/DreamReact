@@ -1,4 +1,5 @@
-import { BsThreeDotsVertical } from 'react-icons/bs';
+import { BsThreeDotsVertical } from "react-icons/bs";
+import { S3_BASE_URL } from "../../config/constants";
 
 // Define a reusable component for the content box
 const GenerateBox = ({ item }) => (
@@ -24,10 +25,7 @@ const GenerateBox = ({ item }) => (
         <div className="flex items-center gap-3 2xl:gap-4">
           <div className="flex items-center gap-2">
             <h6>{item.rating}</h6>
-            <img
-              src={item.ratingIcon}
-              alt="Rating Icon"
-            />
+            <img src={item.ratingIcon} alt="Rating Icon" />
           </div>
           <BsThreeDotsVertical className="text-white cursor-pointer" />
         </div>
@@ -37,13 +35,14 @@ const GenerateBox = ({ item }) => (
 );
 
 // Function to map an array of data to JSX
-const renderBoxes = (data) => data.map((item, index) => <GenerateBox key={index} item={item} />);
+const renderBoxes = (data) =>
+  data.map((item, index) => <GenerateBox key={index} item={item} />);
 
 // Data sets
 const data1 = [
   {
-    imageSrc: "Assets/Images/Explore/4 - Dream Totem.png",
-    authorImage: "Assets/Images/Explore/Ellipse 3.png",
+    imageSrc: `${S3_BASE_URL}/images/Explore/4 - Dream Totem.png`,
+    authorImage: `${S3_BASE_URL}/images/Explore/Ellipse 3.png`,
     authorName: "Tony Stark",
     time: "1 hour ago",
     rating: "8/10",
@@ -63,7 +62,7 @@ const data1 = [
     authorName: "Bruce Wayne",
     time: "2 hours ago",
     rating: "9/10",
-    ratingIcon: "Assets/Images/All Icons/Group 40.svg",     
+    ratingIcon: "Assets/Images/All Icons/Group 40.svg",
   },
 ];
 
@@ -113,30 +112,30 @@ const data3 = [
   },
 ];
 const data4 = [
-    {
-        imageSrc: "Assets/Images/Explore/42-Borum,The-Bloodsworn.png",
-        authorImage: "Assets/Images/Explore/Ellipse 4.png",
-        authorName: "Bruce Wayne",
-        time: "2 hours ago",
-        rating: "9/10",
-        ratingIcon: "Assets/Images/All Icons/Group 40.svg",
-    },
-    {
-        imageSrc: "Assets/Images/Explore/34---Little-Aupa.png",
-        authorImage: "Assets/Images/Explore/Ellipse 4.png",
-        authorName: "Bruce Wayne",
-        time: "2 hours ago",
-        rating: "9/10",
-        ratingIcon: "Assets/Images/All Icons/Group 40.svg",
-    },
-    {
-        imageSrc: "Assets/Images/Explore/46%20-%20Chapoya.png",
-        authorImage: "Assets/Images/Explore/Ellipse 4.png",
-        authorName: "Bruce Wayne",
-        time: "2 hours ago",
-        rating: "9/10",
-        ratingIcon: "Assets/Images/All Icons/Group 40.svg",
-    },
+  {
+    imageSrc: "Assets/Images/Explore/42-Borum,The-Bloodsworn.png",
+    authorImage: "Assets/Images/Explore/Ellipse 4.png",
+    authorName: "Bruce Wayne",
+    time: "2 hours ago",
+    rating: "9/10",
+    ratingIcon: "Assets/Images/All Icons/Group 40.svg",
+  },
+  {
+    imageSrc: "Assets/Images/Explore/34---Little-Aupa.png",
+    authorImage: "Assets/Images/Explore/Ellipse 4.png",
+    authorName: "Bruce Wayne",
+    time: "2 hours ago",
+    rating: "9/10",
+    ratingIcon: "Assets/Images/All Icons/Group 40.svg",
+  },
+  {
+    imageSrc: "Assets/Images/Explore/46%20-%20Chapoya.png",
+    authorImage: "Assets/Images/Explore/Ellipse 4.png",
+    authorName: "Bruce Wayne",
+    time: "2 hours ago",
+    rating: "9/10",
+    ratingIcon: "Assets/Images/All Icons/Group 40.svg",
+  },
 ];
 
 export default function ResponsiveGrid() {

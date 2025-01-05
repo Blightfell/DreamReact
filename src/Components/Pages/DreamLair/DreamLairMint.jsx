@@ -195,55 +195,55 @@ const DreamLairMint = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <div className="md:absolute top-[3%] md:top-[6%] left-[8%] z-50">
-        <button
-          onClick={() => {
-            // Disabled temporarily
-            return;
-            setShowPFPMint(true);
-          }}
-          className="relative"
-        >
-          <img src={connectDream} alt="PFP Mint" className="h-8 w-auto" />
-          <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#858585] font-averia text-xs w-full text-center">
-            Dreamrunner Mint
-          </span>
-        </button>
-      </div>
+      <div className="flex justify-between items-center px-8 pt-4 md:pt-2">
+        <div className="z-50">
+          <button
+            onClick={() => {
+              setShowPFPMint(true);
+            }}
+            className="relative"
+          >
+            <img src={connectDream} alt="PFP Mint" className="h-8 w-auto" />
+            <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#858585] font-averia text-xs w-full text-center">
+              Dreamrunner Mint
+            </span>
+          </button>
+        </div>
 
-      <div className="md:absolute top-[3%] md:top-[6%] right-[8%] flex items-center gap-4 z-50">
-        <button
-          className="relative z-50 cursor-pointer"
-          onClick={() => window.open("https://x.com/dreamrunnergg", "_blank")}
-        >
-          <img
-            src={twitterButton}
-            alt="Twitter"
-            className="h-8 w-auto drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
-          />
-        </button>
-        <button
-          className="relative z-50 cursor-pointer"
-          onClick={() =>
-            window.open("https://whitepaper.dreampro.ai", "_blank")
-          }
-        >
-          <img
-            src={whitepaperButton}
-            alt="Whitepaper"
-            className="h-8 w-auto drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
-          />
-        </button>
-        <button
-          className="relative z-50 cursor-pointer"
-          onClick={() => window.open("https://discord.gg/kote", "_blank")}
-        >
-          <img
-            src={discordButton}
-            alt="Discord"
-            className="h-8 w-auto drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
-          />
-        </button>
+        <div className="flex items-center gap-4 z-50">
+          <button
+            className="relative z-50 cursor-pointer"
+            onClick={() => window.open("https://x.com/dreamrunnergg", "_blank")}
+          >
+            <img
+              src={twitterButton}
+              alt="Twitter"
+              className="h-8 w-auto drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
+            />
+          </button>
+          <button
+            className="relative z-50 cursor-pointer"
+            onClick={() =>
+              window.open("https://whitepaper.dreampro.ai", "_blank")
+            }
+          >
+            <img
+              src={whitepaperButton}
+              alt="Whitepaper"
+              className="h-8 w-auto drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
+            />
+          </button>
+          <button
+            className="relative z-50 cursor-pointer"
+            onClick={() => window.open("https://discord.gg/kote", "_blank")}
+          >
+            <img
+              src={discordButton}
+              alt="Discord"
+              className="h-8 w-auto drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
+            />
+          </button>
+        </div>
       </div>
 
       {showPFPMint && <PFPMint />}

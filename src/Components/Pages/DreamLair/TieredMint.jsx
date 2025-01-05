@@ -1,38 +1,43 @@
 import React, { useEffect, useState } from "react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount, useDisconnect, useSignMessage } from "wagmi";
-import connectDream from "../../../assets/images/buttons/connectwallet.png";
-import connectDreamActive from "../../../assets/images/buttons/connectwallet.png";
-import texture from "../../../assets/images/textures/Texture.png";
+import { S3_BASE_URL } from "../../../config/constants";
 import ReactGA from "react-ga4";
-import twitterButton from "../../../assets/images/buttons/twitterbutton.png";
-import whitepaperButton from "../../../assets/images/buttons/whitepaperbutton.png";
-import discordButton from "../../../assets/images/buttons/discordbutton.png";
-import titleDecor from "../../../assets/images/buttons/titledecor.png";
-import commonTextbox from "../../../assets/images/textboxes/commonbox.png";
-import uncommonTextbox from "../../../assets/images/textboxes/uncommonbox.png";
-import rareTextbox from "../../../assets/images/textboxes/rarebox.png";
-import epicTextbox from "../../../assets/images/textboxes/epicbox.png";
-import legendaryTextbox from "../../../assets/images/textboxes/legendarybox.png";
-import onericTextbox from "../../../assets/images/textboxes/oneiricbox.png";
-import magicCircle from "../../../assets/images/textboxes/magiccircle.png";
-import buyNowDisabled from "../../../assets/images/buttons/buynowdisabled.png";
-import buyNow from "../../../assets/images/buttons/buynow.png";
-import commonGif from "../../../assets/images/tiers/optimized/Lair Common.gif";
-import uncommonGif from "../../../assets/images/tiers/optimized/Lair Uncommon.gif";
-import rareGif from "../../../assets/images/tiers/optimized/Lair Rare.gif";
-import epicGif from "../../../assets/images/tiers/optimized/Lair Epic.gif";
-import legendaryGif from "../../../assets/images/tiers/optimized/Lair Legendary.gif";
-import onericGif from "../../../assets/images/tiers/optimized/Lair Oneiric.gif";
-import commonStatic from "../../../assets/images/tiers/static/Lair Common_static.png";
-import uncommonStatic from "../../../assets/images/tiers/static/Lair Uncommon_static.png";
-import rareStatic from "../../../assets/images/tiers/static/Lair Rare_static.png";
-import epicStatic from "../../../assets/images/tiers/static/Lair Epic_static.png";
-import legendaryStatic from "../../../assets/images/tiers/static/Lair Legendary_static.png";
-import onericStatic from "../../../assets/images/tiers/static/Lair Oneiric_static.png";
-import cellBackground from "../../../assets/images/buttons/cellbackground.png";
-import cellOverlay from "../../../assets/images/buttons/celloverlay.png";
-import { TIER_DATA } from "./tierData";
+import { useMint } from "./useMint";
+import { TIER_DATA } from "./tierData"; // Add this import
+
+// Define all image URLs as constants
+const connectDream = `${S3_BASE_URL}/images/buttons/connectwallet.png`;
+const connectDreamActive = `${S3_BASE_URL}/images/buttons/connectwallet.png`;
+const texture = `${S3_BASE_URL}/images/textures/Texture.png`;
+const twitterButton = `${S3_BASE_URL}/images/buttons/twitterbutton.png`;
+const whitepaperButton = `${S3_BASE_URL}/images/buttons/whitepaperbutton.png`;
+const discordButton = `${S3_BASE_URL}/images/buttons/discordbutton.png`;
+const titleDecor = `${S3_BASE_URL}/images/buttons/titledecor.png`;
+const commonTextbox = `${S3_BASE_URL}/images/textboxes/commonbox.png`;
+const uncommonTextbox = `${S3_BASE_URL}/images/textboxes/uncommonbox.png`;
+const rareTextbox = `${S3_BASE_URL}/images/textboxes/rarebox.png`;
+const epicTextbox = `${S3_BASE_URL}/images/textboxes/epicbox.png`;
+const legendaryTextbox = `${S3_BASE_URL}/images/textboxes/legendarybox.png`;
+const onericTextbox = `${S3_BASE_URL}/images/textboxes/oneiricbox.png`;
+const magicCircle = `${S3_BASE_URL}/images/textboxes/magiccircle.png`;
+const buyNowDisabled = `${S3_BASE_URL}/images/buttons/buynowdisabled.png`;
+const buyNow = `${S3_BASE_URL}/images/buttons/buynow.png`;
+const commonGif = `${S3_BASE_URL}/images/tiers/optimized/Lair Common.gif`;
+const uncommonGif = `${S3_BASE_URL}/images/tiers/optimized/Lair Uncommon.gif`;
+const rareGif = `${S3_BASE_URL}/images/tiers/optimized/Lair Rare.gif`;
+const epicGif = `${S3_BASE_URL}/images/tiers/optimized/Lair Epic.gif`;
+const legendaryGif = `${S3_BASE_URL}/images/tiers/optimized/Lair Legendary.gif`;
+const onericGif = `${S3_BASE_URL}/images/tiers/optimized/Lair Oneiric.gif`;
+const commonStatic = `${S3_BASE_URL}/images/tiers/static/Lair Common_static.png`;
+const uncommonStatic = `${S3_BASE_URL}/images/tiers/static/Lair Uncommon_static.png`;
+const rareStatic = `${S3_BASE_URL}/images/tiers/static/Lair Rare_static.png`;
+const epicStatic = `${S3_BASE_URL}/images/tiers/static/Lair Epic_static.png`;
+const legendaryStatic = `${S3_BASE_URL}/images/tiers/static/Lair Legendary_static.png`;
+const onericStatic = `${S3_BASE_URL}/images/tiers/static/Lair Oneiric_static.png`;
+const cellBackground = `${S3_BASE_URL}/images/buttons/cellbackground.png`;
+const cellOverlay = `${S3_BASE_URL}/images/buttons/celloverlay.png`;
+const successBg = `${S3_BASE_URL}/images/success/bg.png`;
 
 const TieredMint = () => {
   const { address, isConnected } = useAccount();
@@ -44,6 +49,8 @@ const TieredMint = () => {
   const [utmCampaign, setUtmCampaign] = useState(null);
   const [selectedCell, setSelectedCell] = useState(0);
   const [isBuyEnabled, setIsBuyEnabled] = useState(false);
+  const { mint, isMinting } = useMint();
+  const [showSuccess, setShowSuccess] = useState(false);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -90,94 +97,155 @@ const TieredMint = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  const handleSignMessage = async () => {
+  const handleMint = async () => {
     try {
-      const message = `Dream Lair\nAction: Login\nEntropy: ${entropy}\nExpires: ${expires}`;
-      const signature = await signMessageAsync({ message });
+      if (!isConnected) {
+        alert("Please connect your wallet first");
+        return;
+      }
 
-      setIsAuthenticated(true);
-      const eventData = {
-        category: "Authentication",
-        action: "Sign",
-        label: "Message Signed",
-        value: 1,
-        wallet_address: address,
-        utm_campaign: utmCampaign || "direct",
-      };
-      ReactGA.event(eventData);
+      const tx = await mint(selectedCell);
+      console.log("Transaction initiated:", tx);
+      setShowSuccess(true);
     } catch (error) {
-      console.error("Error details:", error);
-      alert("Authentication failed");
+      console.error("Error in mint button:", error);
+      alert(`Failed to mint: ${error.message || "Unknown error"}`);
     }
   };
 
-  return (
-    <div
-      className="min-h-screen flex flex-col p-4 min-w-[320px] max-w-[100vw] overflow-x-hidden"
-      style={{
-        backgroundImage: `url(${texture})`,
-        backgroundBlendMode: "multiply",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
-      <div className="md:absolute top-[3%] md:top-[6%] right-[8%] flex items-center gap-4">
-        <ConnectButton.Custom>
-          {({ openConnectModal, openAccountModal, account }) => {
-            const isWalletReady = account?.address;
-            return (
+  if (showSuccess) {
+    const gifMap = [
+      commonGif,
+      uncommonGif,
+      rareGif,
+      epicGif,
+      legendaryGif,
+      onericGif,
+    ];
+
+    return (
+      <div
+        className="fixed inset-0 z-50 flex flex-col items-center justify-between py-8"
+        style={{
+          backgroundImage: `url(${successBg})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <div className="absolute top-8 left-8">
+          <button onClick={() => setShowSuccess(false)} className="relative">
+            <img src={connectDream} alt="Back" className="h-8 w-auto" />
+            <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#858585] !font-[AveriaSerifLibre] text-sm w-full text-center">
+              Back
+            </span>
+          </button>
+        </div>
+
+        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center px-4">
+          <div className="flex-grow flex flex-col items-center justify-center text-center">
+            <h1
+              className="text-3xl md:text-4xl mb-2 !font-[AveriaSerifLibre-Regular] uppercase max-w-[90%] md:max-w-full mx-auto tracking-wide"
+              style={{
+                background:
+                  "linear-gradient(180deg, #fcdfc5 0%, #a88d6b 50%, #fcdfc5 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                filter:
+                  "drop-shadow(0 4px 6px rgba(0,0,0,0.9)) drop-shadow(0 6px 8px rgba(0,0,0,0.4))",
+              }}
+            >
+              DREAM LAIR ACQUIRED
+            </h1>
+            <img
+              src={titleDecor}
+              alt="Title Decoration"
+              className="w-48 mb-6"
+            />
+
+            <div className="relative w-[200px] h-[200px] mb-2">
+              <div className="absolute inset-0 border-4 border-white/10"></div>
+              <img
+                src={gifMap[selectedCell]}
+                alt="Minted NFT"
+                className="w-full h-full object-contain"
+              />
+            </div>
+
+            <h2
+              className="text-lg mb-2 !font-[AveriaSerifLibre-Regular] uppercase"
+              style={{
+                background:
+                  "linear-gradient(180deg, #fcdfc5 0%, #a88d6b 50%, #fcdfc5 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                filter:
+                  "drop-shadow(0 2px 4px rgba(0,0,0,0.9)) drop-shadow(0 3px 6px rgba(0,0,0,0.4))",
+              }}
+            >
+              DREAM LAIR #9999
+            </h2>
+
+            <button
+              onClick={() => window.open("#", "_blank")}
+              className="mb-8 text-xs !font-[AveriaSerifLibre-Regular] uppercase underline decoration-gray-500/50 text-gray-500 hover:text-gray-400 transition-colors italic"
+              style={{
+                filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.8))",
+              }}
+            >
+              VIEW TX
+            </button>
+
+            <div className="flex flex-col items-center mb-4">
+              <p
+                className="text-xl mb-4 !font-[AveriaSerifLibre-Regular] uppercase max-w-[90%] md:max-w-full mx-auto"
+                style={{
+                  background:
+                    "linear-gradient(180deg, #fcdfc5 0%, #a88d6b 50%, #fcdfc5 100%)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.9))",
+                }}
+              >
+                Show off your Dream Lair on X for 7 years of good luck!
+              </p>
+
               <button
-                onClick={isWalletReady ? openAccountModal : openConnectModal}
+                onClick={() =>
+                  window.open(
+                    "https://x.com/intent/tweet?text=Just%20minted%20my%20Dream%20Lair%20@dreamrunnergg%20🏰✨",
+                    "_blank"
+                  )
+                }
                 className="relative"
               >
                 <img
-                  src={isWalletReady ? connectDreamActive : connectDream}
-                  alt={isWalletReady ? "Connected" : "Connect Wallet"}
-                  className="h-8 w-auto"
+                  src={connectDream}
+                  alt="Share"
+                  className="h-8 md:h-8 w-auto"
                 />
-                <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#858585] font-averia italic !font-[AveriaSerifLibre] text-sm w-full text-center">
-                  {isWalletReady ? "Connected" : "Connect Wallet"}
+                <span
+                  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 !font-[AveriaSerifLibre-Bold] text-xs md:text-sm uppercase w-full text-center whitespace-nowrap"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, #fcdfc5 0%, #a88d6b 50%, #fcdfc5 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.8))",
+                  }}
+                >
+                  SHARE
                 </span>
               </button>
-            );
-          }}
-        </ConnectButton.Custom>
-
-        <button
-          className="relative"
-          onClick={() => window.open("https://x.com/dreamrunnergg", "_blank")}
-        >
-          <img
-            src={twitterButton}
-            alt="Twitter"
-            className="h-8 w-auto drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
-          />
-        </button>
-        <button
-          className="relative"
-          onClick={() =>
-            window.open("https://whitepaper.dreampro.ai", "_blank")
-          }
-        >
-          <img
-            src={whitepaperButton}
-            alt="Whitepaper"
-            className="h-8 w-auto drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
-          />
-        </button>
-        <button
-          className="relative"
-          onClick={() => window.open("https://discord.gg/kote", "_blank")}
-        >
-          <img
-            src={discordButton}
-            alt="Discord"
-            className="h-8 w-auto drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
-          />
-        </button>
+            </div>
+          </div>
+        </div>
       </div>
+    );
+  }
 
-      <div className="mt-8 md:absolute md:top-[15%] left-1/2 md:-translate-x-1/2 flex flex-col items-center">
+  return (
+    <div className="min-h-screen flex flex-col p-4 min-w-[320px] max-w-[100vw] overflow-x-hidden">
+      <div className="md:absolute top-[15%] left-1/2 md:-translate-x-1/2 flex flex-col items-center">
         <h1 className="text-[#858585] mb-2 font-averia italic !font-[AveriaSerifLibre] text-lg md:text-xl text-center">
           Your Dream Lair Awaits
         </h1>
@@ -190,20 +258,20 @@ const TieredMint = () => {
             {["Common", "Uncommon", "Rare", "Epic", "Legendary", "Oneiric"].map(
               (label, index) => {
                 const gifMap = [
-                  commonGif,
-                  uncommonGif,
-                  rareGif,
-                  epicGif,
-                  legendaryGif,
-                  onericGif,
+                  `${S3_BASE_URL}/images/tiers/optimized/Lair Common.gif`,
+                  `${S3_BASE_URL}/images/tiers/optimized/Lair Uncommon.gif`,
+                  `${S3_BASE_URL}/images/tiers/optimized/Lair Rare.gif`,
+                  `${S3_BASE_URL}/images/tiers/optimized/Lair Epic.gif`,
+                  `${S3_BASE_URL}/images/tiers/optimized/Lair Legendary.gif`,
+                  `${S3_BASE_URL}/images/tiers/optimized/Lair Oneiric.gif`,
                 ];
                 const staticMap = [
-                  commonStatic,
-                  uncommonStatic,
-                  rareStatic,
-                  epicStatic,
-                  legendaryStatic,
-                  onericStatic,
+                  `${S3_BASE_URL}/images/tiers/static/Lair Common_static.png`,
+                  `${S3_BASE_URL}/images/tiers/static/Lair Uncommon_static.png`,
+                  `${S3_BASE_URL}/images/tiers/static/Lair Rare_static.png`,
+                  `${S3_BASE_URL}/images/tiers/static/Lair Epic_static.png`,
+                  `${S3_BASE_URL}/images/tiers/static/Lair Legendary_static.png`,
+                  `${S3_BASE_URL}/images/tiers/static/Lair Oneiric_static.png`,
                 ];
 
                 return (
@@ -424,12 +492,13 @@ const TieredMint = () => {
                       className="w-[180px] object-contain drop-shadow-[0_0_15px_rgba(0,0,0,0.7)]"
                     />
                     <button
-                      onClick={handleSignMessage}
+                      onClick={handleMint}
                       className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+                      disabled={isMinting || !isConnected}
                     >
                       <img
                         src={connectDream}
-                        alt="Sign Message"
+                        alt="Mint"
                         className="w-44 md:w-32 object-contain"
                       />
                       <span
@@ -442,7 +511,7 @@ const TieredMint = () => {
                           filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.8))",
                         }}
                       >
-                        Sign
+                        {isMinting ? "Minting..." : "Mint"}
                       </span>
                     </button>
                   </div>

@@ -11,6 +11,9 @@ import createFlairImg from "../../../assets/images/dreamrunnerpfp/createflair.pn
 import generateBtn from "../../../assets/images/dreamrunnerpfp/generate.png";
 import confirmBtn from "../../../assets/images/dreamrunnerpfp/confirm.png";
 import nameTextbox from "../../../assets/images/dreamrunnerpfp/nametextbox.png";
+import shareButton from "../../../assets/images/dreamrunnerpfp/sharebutton.png";
+import shareImg from "../../../assets/images/dreamrunnerpfp/share.png";
+import flameVideo from "../../../assets/videos/flame.mp4";
 
 // Enum for mint phases
 const MINT_PHASES = {
@@ -49,22 +52,25 @@ const PFPMint = () => {
       case MINT_PHASES.LOADING:
         return (
           <div className="flex flex-col items-center gap-8">
-            <div className="flex justify-center items-center gap-8 mt-[200px]">
-              <img
-                src={loadingImg}
-                alt="Loading"
-                className="w-[200px] md:w-[250px] h-auto"
-              />
-              <img
-                src={loadingImg}
-                alt="Loading"
-                className="w-[200px] md:w-[250px] h-auto"
-              />
-              <img
-                src={loadingImg}
-                alt="Loading"
-                className="w-[200px] md:w-[250px] h-auto"
-              />
+            <div className="flex justify-center items-center gap-8 mt-[150px]">
+              {[1, 2, 3].map((id) => (
+                <div key={id} className="relative">
+                  <img
+                    src={loadingImg}
+                    alt="Loading"
+                    className="w-[200px] md:w-[250px] h-auto"
+                  />
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-[25%] h-[25%] object-cover absolute top-[40%] left-1/2 -translate-x-1/2 -translate-y-1/2"
+                  >
+                    <source src={flameVideo} type="video/mp4" />
+                  </video>
+                </div>
+              ))}
             </div>
 
             <h2
@@ -109,7 +115,7 @@ const PFPMint = () => {
       case MINT_PHASES.CHOOSE_RUNNER:
         return (
           <div className="flex flex-col items-center gap-8">
-            <div className="flex justify-center items-center gap-8 mt-[200px]">
+            <div className="flex justify-center items-center gap-8 mt-[150px]">
               {[1, 2, 3].map((id) => (
                 <div key={id} className="relative">
                   {selectedRunner === id && (
@@ -200,7 +206,7 @@ const PFPMint = () => {
       case MINT_PHASES.NAME_RUNNER:
         return (
           <div className="flex flex-col items-center gap-8">
-            <div className="flex justify-center items-center mt-[200px]">
+            <div className="flex justify-center items-center mt-[150px]">
               <img
                 src={loadingImg}
                 alt="Selected Dreamrunner"
@@ -251,8 +257,56 @@ const PFPMint = () => {
         );
       case MINT_PHASES.SHARE_RUNNER:
         return (
-          <div className="text-white text-center">
-            Share Your Dreamrunner Phase
+          <div className="flex flex-col items-center gap-4 md:gap-8 w-full px-4">
+            <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-4 md:gap-16 mt-[50px] md:mt-[100px] w-full">
+              <img
+                src={loadingImg}
+                alt="Selected Dreamrunner"
+                className="w-[180px] sm:w-[200px] md:w-[250px] h-auto"
+              />
+
+              <div className="flex flex-col gap-2 md:gap-4 w-full md:w-auto mt-0 md:-mt-8">
+                <h2
+                  className="text-center text-sm md:text-xl !font-[AveriaSerifLibre-Bold] mb-2"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, #fcdfc5 0%, #a88d6b 50%, #fcdfc5 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    filter:
+                      "drop-shadow(0 4px 6px rgba(0,0,0,0.9)) drop-shadow(0 1px 3px rgba(0,0,0,0.9))",
+                    textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
+                  }}
+                >
+                  UNLOCK YOUR WL
+                </h2>
+
+                <div className="flex flex-col gap-2 md:gap-4 w-full">
+                  {[1, 2, 3].map((id) => (
+                    <div
+                      key={id}
+                      className="relative w-full max-w-[500px] h-[45px] sm:h-[50px] md:h-[60px]"
+                    >
+                      <img
+                        src={id === 2 ? nameTextbox : shareImg}
+                        alt="Share Input"
+                        className="w-full h-full object-cover"
+                      />
+                      <button
+                        onClick={nextPhase}
+                        className="absolute right-[3%] top-1/2 -translate-y-1/2"
+                      >
+                        <img
+                          src={shareButton}
+                          alt="Share"
+                          className="h-[35px] sm:h-[40px] md:h-[48px] w-auto"
+                        />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         );
       case MINT_PHASES.WHITELIST_SECURED:
@@ -265,28 +319,28 @@ const PFPMint = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col p-4 min-w-[320px] max-w-[100vw] overflow-x-hidden relative">
+    <div className="h-screen flex flex-col p-4 min-w-[500px] overflow-visible relative">
       {/* Background elements */}
-      <div className="absolute left-1/2 top-[10%] -translate-x-1/2 z-10 flex flex-col items-center gap-2">
+      <div className="absolute left-1/2 top-[5%] -translate-x-1/2 z-10 flex flex-col items-center min-w-[500px]">
         <img
           src={createFlairImg}
           alt="Create Flair"
-          className="w-[400px] md:w-[500px] h-auto"
+          className="w-[500px] h-auto"
         />
         <img
           src={dreamrunnerlogo}
           alt="Dreamrunner Logo"
-          className="w-[400px] md:w-[500px] h-auto"
+          className="w-[500px] h-auto"
         />
       </div>
 
       <div
-        className="absolute inset-0 top-[7%] z-0"
+        className="absolute inset-0 top-[0%] z-0 min-w-[500px] min-h-screen overflow-visible"
         style={{
           backgroundImage: `url(${dreamrunnerimg})`,
-          backgroundSize: "contain",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
+          backgroundSize: "contain",
           opacity: 1,
           mixBlendMode: "normal",
           transform: "scale(0.75)",
