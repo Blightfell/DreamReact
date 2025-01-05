@@ -14,9 +14,14 @@ import leftFlair from "../../../assets/images/leftflair.png";
 import rightFlair from "../../../assets/images/rightflair.png";
 import tieredImg from "../../../assets/images/tieredimg.png";
 import gachaImg from "../../../assets/images/gachaimg.png";
+import GachaMint from "./GachaMint";
+import PFPMint from "./PFPMint";
+import { useNavigate } from "react-router-dom";
 
 const DreamLairMint = () => {
   const [selectedMintType, setSelectedMintType] = useState(null);
+  const [showPFPMint, setShowPFPMint] = useState(false);
+  const navigate = useNavigate();
 
   const handleBack = () => {
     setSelectedMintType(null);
@@ -48,7 +53,7 @@ const DreamLairMint = () => {
             purchase.
           </p>
           <button
-            // onClick={() => setSelectedMintType("tiered")}
+            onClick={() => setSelectedMintType("tiered")}
             className="relative md:translate-x-0 translate-x-12"
           >
             <div className="absolute max-md:right-[290px] right-[285px] top-[20%] text-right">
@@ -81,16 +86,16 @@ const DreamLairMint = () => {
               alt=""
               className="absolute top-[40px] left-1/2 -translate-x-1/2 w-[180px] z-10 drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
             />
-            <div className="relative -mt-[180px] mb-[90px] text-center">
+            <div className="relative -mt-[200px] mb-[90px] text-center">
               <p
-                className="text-sm italic !font-[AveriaSerifLibre-Regular] text-white/80 max-w-[215px] mx-auto mb-9 max-md:mt-4 max-md:mb-5"
+                className="text-sm italic !font-[AveriaSerifLibre-Regular] text-white/80 max-w-[215px] mx-auto max-md:mt-4 md:mt-4"
                 style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.9))" }}
               >
                 Secure your Dream Lair with 6 Rarity Tiers for you to explore
                 and choose from.
               </p>
               <p
-                className="text-sm italic !font-[AveriaSerifLibre-Regular] text-white/80 max-w-[215px] mx-auto max-md:mt-2"
+                className="text-sm italic !font-[AveriaSerifLibre-Regular] text-white/80 max-w-[215px] mx-auto max-md:mt-8 md:mt-8"
                 style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.9))" }}
               >
                 No RNG - know the exact Lair and $Dream Emissions you'll recieve
@@ -123,7 +128,11 @@ const DreamLairMint = () => {
             token allocation.
           </p>
           <button
-            // onClick={() => setSelectedMintType("gacha")}
+            onClick={() => {
+              // Disabled temporarily
+              return;
+              setSelectedMintType("gacha");
+            }}
             className="relative md:translate-x-0 -translate-x-12"
           >
             <div className="absolute right-[-80px] top-[20%] text-left w-[70px]">
@@ -150,16 +159,16 @@ const DreamLairMint = () => {
               alt=""
               className="absolute top-[15px] left-1/2 -translate-x-1/2 w-[180px] z-10 drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
             />
-            <div className="relative -mt-[180px] mb-[90px] text-center">
+            <div className="relative -mt-[200px] mb-[90px] text-center">
               <p
-                className="text-sm italic !font-[AveriaSerifLibre-Regular] text-white/80 max-w-[215px] mx-auto mb-8 max-md:mt-4"
+                className="text-sm italic !font-[AveriaSerifLibre-Regular] text-white/80 max-w-[215px] mx-auto max-md:mt-4 md:mt-4"
                 style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.9))" }}
               >
                 Recieve a Dreamslip holding 1 to 10,000% of your mint price in
                 $Dream allocation.
               </p>
               <p
-                className="text-sm italic !font-[AveriaSerifLibre-Regular] text-white/80 max-w-[215px] mx-auto max-md:mt-4"
+                className="text-sm italic !font-[AveriaSerifLibre-Regular] text-white/80 max-w-[215px] mx-auto max-md:mt-8 md:mt-8"
                 style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.9))" }}
               >
                 Hold your $Dream reward or immediately redeem your slip for 25%
@@ -176,62 +185,69 @@ const DreamLairMint = () => {
     <div
       className="min-h-screen flex flex-col p-4 min-w-[320px] max-w-[100vw] overflow-x-hidden"
       style={{
-        backgroundImage: selectedMintType
-          ? `url(${texture})`
-          : `url(${mintChoiceBG})`,
+        backgroundImage:
+          selectedMintType || showPFPMint
+            ? `url(${texture})`
+            : `url(${mintChoiceBG})`,
         backgroundBlendMode: "multiply",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
     >
-      {selectedMintType && (
-        <div className="md:absolute top-[3%] md:top-[6%] left-[8%]">
-          <button onClick={handleBack} className="relative">
-            <img src={connectDream} alt="Back" className="h-8 w-auto" />
-            <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#858585] font-averia text-sm w-full text-center">
-              Back
+      <div className="flex justify-between items-center px-8 pt-4 md:pt-2">
+        <div className="z-50">
+          <button
+            onClick={() => {
+              setShowPFPMint(true);
+            }}
+            className="relative"
+          >
+            <img src={connectDream} alt="PFP Mint" className="h-8 w-auto" />
+            <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#858585] font-averia text-xs w-full text-center">
+              Dreamrunner Mint
             </span>
           </button>
         </div>
-      )}
 
-      <div className="md:absolute top-[3%] md:top-[6%] right-[8%] flex items-center gap-4 z-50">
-        <button
-          className="relative z-50 cursor-pointer"
-          onClick={() => window.open("https://x.com/dreamrunnergg", "_blank")}
-        >
-          <img
-            src={twitterButton}
-            alt="Twitter"
-            className="h-8 w-auto drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
-          />
-        </button>
-        <button
-          className="relative z-50 cursor-pointer"
-          onClick={() =>
-            window.open("https://whitepaper.dreampro.ai", "_blank")
-          }
-        >
-          <img
-            src={whitepaperButton}
-            alt="Whitepaper"
-            className="h-8 w-auto drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
-          />
-        </button>
-        <button
-          className="relative z-50 cursor-pointer"
-          onClick={() => window.open("https://discord.gg/kote", "_blank")}
-        >
-          <img
-            src={discordButton}
-            alt="Discord"
-            className="h-8 w-auto drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
-          />
-        </button>
+        <div className="flex items-center gap-4 z-50">
+          <button
+            className="relative z-50 cursor-pointer"
+            onClick={() => window.open("https://x.com/dreamrunnergg", "_blank")}
+          >
+            <img
+              src={twitterButton}
+              alt="Twitter"
+              className="h-8 w-auto drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
+            />
+          </button>
+          <button
+            className="relative z-50 cursor-pointer"
+            onClick={() =>
+              window.open("https://whitepaper.dreampro.ai", "_blank")
+            }
+          >
+            <img
+              src={whitepaperButton}
+              alt="Whitepaper"
+              className="h-8 w-auto drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
+            />
+          </button>
+          <button
+            className="relative z-50 cursor-pointer"
+            onClick={() => window.open("https://discord.gg/kote", "_blank")}
+          >
+            <img
+              src={discordButton}
+              alt="Discord"
+              className="h-8 w-auto drop-shadow-[0_0_12px_rgba(0,0,0,0.7)]"
+            />
+          </button>
+        </div>
       </div>
 
-      {selectedMintType === null && (
+      {showPFPMint && <PFPMint />}
+      {!showPFPMint && selectedMintType === null && (
         <>
           {renderMintSelection()}
           <div className="text-center mt-[0px]">
@@ -262,8 +278,8 @@ const DreamLairMint = () => {
           </div>
         </>
       )}
-      {selectedMintType === "tiered" && <TieredMint />}
-      {selectedMintType === "gacha" && <div>Gacha Mint Coming Soon</div>}
+      {!showPFPMint && selectedMintType === "tiered" && <TieredMint />}
+      {!showPFPMint && selectedMintType === "gacha" && <GachaMint />}
     </div>
   );
 };

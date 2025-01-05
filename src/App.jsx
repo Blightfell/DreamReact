@@ -5,9 +5,11 @@ import { RainbowKitProvider, ConnectButton } from "@rainbow-me/rainbowkit";
 import { WagmiProvider } from "wagmi";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import config from "./rainbowKitConfig";
+import { S3_BASE_URL } from "./config/constants";
 import ReactGA from "react-ga4";
 import { DiscordAuthProvider } from "./context/DiscordAuthContext";
 import { ErrorBoundary } from "react-error-boundary";
+import { Toaster } from "react-hot-toast";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +22,7 @@ const App = () => {
       <WagmiProvider config={config}>
         <QueryClientProvider client={queryClient}>
           <RainbowKitProvider>
+            <Toaster position="top-right" />
             <DiscordAuthProvider>
               <Router>
                 <PagesRoutes />

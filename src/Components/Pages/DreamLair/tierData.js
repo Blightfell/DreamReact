@@ -54,7 +54,7 @@ export const TIER_DATA = {
       fdv100m: 1.125,
     },
   },
-  Oneric: {
+  Oneiric: {
     price: 10000,
     multiplier: "300%",
     monthlyEmissions: 80000,
