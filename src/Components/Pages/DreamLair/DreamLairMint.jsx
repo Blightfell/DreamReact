@@ -27,6 +27,20 @@ const DreamLairMint = () => {
     setSelectedMintType(null);
   };
 
+  const handleMintSelection = (type) => {
+    switch (type) {
+      case "tiered":
+        navigate("/mint/tiered");
+        break;
+      case "gacha":
+        navigate("/mint/gacha");
+        break;
+      case "pfp":
+        navigate("/mint/pfp");
+        break;
+    }
+  };
+
   const renderMintSelection = () => (
     <div className="flex flex-col justify-center md:h-[60vh] min-h-fit w-full md:translate-y-[30px]">
       <div className="flex w-full justify-center max-md:gap-8 md:gap-32 md:flex-row flex-col mt-16 md:mt-0">
@@ -53,7 +67,7 @@ const DreamLairMint = () => {
             purchase.
           </p>
           <button
-            onClick={() => setSelectedMintType("tiered")}
+            onClick={() => handleMintSelection("tiered")}
             className="relative md:translate-x-0 translate-x-12"
           >
             <div className="absolute max-md:right-[290px] right-[285px] top-[20%] text-right">
@@ -128,11 +142,7 @@ const DreamLairMint = () => {
             token allocation.
           </p>
           <button
-            onClick={() => {
-              // Disabled temporarily
-              return;
-              setSelectedMintType("gacha");
-            }}
+            onClick={() => handleMintSelection("gacha")}
             className="relative md:translate-x-0 -translate-x-12"
           >
             <div className="absolute right-[-80px] top-[20%] text-left w-[70px]">
@@ -197,12 +207,7 @@ const DreamLairMint = () => {
     >
       <div className="flex justify-between items-center px-8 pt-4 md:pt-2">
         <div className="z-50">
-          <button
-            onClick={() => {
-              setShowPFPMint(true);
-            }}
-            className="relative"
-          >
+          <button onClick={() => navigate("/mint/pfp")} className="relative">
             <img src={connectDream} alt="PFP Mint" className="h-8 w-auto" />
             <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[#858585] font-averia text-xs w-full text-center">
               Dreamrunner Mint

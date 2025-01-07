@@ -2,6 +2,9 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Home from "./Pages/Home";
 import DreamLair from "./Pages/DreamLair/DreamLair";
 import DreamLairMint from "./Pages/DreamLair/DreamLairMint";
+import TieredMint from "./Pages/DreamLair/TieredMint";
+import GachaMint from "./Pages/DreamLair/GachaMint";
+import PFPMint from "./Pages/DreamLair/PFPMint";
 import DiscordCallback from "./Pages/DreamLair/DiscordCallback";
 
 const PagesRoutes = () => {
@@ -10,7 +13,10 @@ const PagesRoutes = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/dreamlair" element={<DreamLair />} />
-        <Route path="/dreamlair-mint" element={<DreamLairMint />} />
+        <Route path="/mint" element={<DreamLairMint />} />
+        <Route path="/mint/tiered" element={<TieredMint />} />
+        <Route path="/mint/gacha" element={<GachaMint />} />
+        <Route path="/mint/pfp" element={<PFPMint />} />
         <Route path="/discord-auth" element={<DiscordCallback />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

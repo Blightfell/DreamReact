@@ -7,6 +7,7 @@ import { useDiscordAuth } from "../../../context/DiscordAuthContext";
 import ReactGA from "react-ga4";
 import QubeService from "../../../services/QubeService";
 import texture from "../../../assets/images/textures/Texture.png";
+import { useNavigate } from "react-router-dom";
 
 console.log("Imported texture:", texture);
 
@@ -17,6 +18,7 @@ const DreamLair = () => {
   const { signMessageAsync } = useSignMessage();
   const [entropy] = useState(Math.floor(Math.random() * 1000000));
   const [expires] = useState(Math.floor(Date.now() / 1000) + 60 * 60);
+  const navigate = useNavigate();
 
   const DISCORD_CLIENT_ID = "1292174858666639465";
 
@@ -117,6 +119,7 @@ const DreamLair = () => {
 
       if (response.ok) {
         setIsAuthenticated(true);
+        navigate("/mint");
 
         if (referralId) {
           const qubeService = new QubeService(
