@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import texture from "../../../assets/images/textures/Texture.png";
 import dreamrunnerimg from "../../../assets/images/bg/dreamrunnerbg.png";
 import dreamrunnerlogo from "../../../assets/images/bg/dreamrunnerlogo.png";
@@ -14,6 +15,7 @@ import nameTextbox from "../../../assets/images/dreamrunnerpfp/nametextbox.png";
 import shareButton from "../../../assets/images/dreamrunnerpfp/sharebutton.png";
 import shareImg from "../../../assets/images/dreamrunnerpfp/share.png";
 import flameVideo from "../../../assets/videos/flame.mp4";
+import digVideo from "../../../assets/videos/dig.mp4";
 
 // Enum for mint phases
 const MINT_PHASES = {
@@ -25,6 +27,7 @@ const MINT_PHASES = {
 };
 
 const PFPMint = () => {
+  const navigate = useNavigate();
   const [currentPhase, setCurrentPhase] = useState(MINT_PHASES.LOADING);
   const [promptText, setPromptText] = useState("");
   const [selectedRunner, setSelectedRunner] = useState(null);
@@ -319,73 +322,105 @@ const PFPMint = () => {
   };
 
   return (
-    <div className="h-screen flex flex-col p-4 min-w-[500px] overflow-visible relative">
-      {/* Background elements */}
-      <div className="absolute left-1/2 top-[5%] -translate-x-1/2 z-10 flex flex-col items-center min-w-[500px]">
-        <img
-          src={createFlairImg}
-          alt="Create Flair"
-          className="w-[500px] h-auto"
-        />
-        <img
-          src={dreamrunnerlogo}
-          alt="Dreamrunner Logo"
-          className="w-[500px] h-auto"
-        />
-      </div>
-
-      <div
-        className="absolute inset-0 top-[0%] z-0 min-w-[500px] min-h-screen overflow-visible"
-        style={{
-          backgroundImage: `url(${dreamrunnerimg})`,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "contain",
-          opacity: 1,
-          mixBlendMode: "normal",
-          transform: "scale(0.75)",
-          transformOrigin: "center center",
-        }}
-      />
-
-      {/* Debug Navigation Arrows */}
-      <div className="fixed inset-y-0 left-4 flex items-center z-50">
-        <button
-          onClick={prevPhase}
-          className="text-white text-4xl opacity-50 hover:opacity-100"
-        >
-          ←
-        </button>
-      </div>
-      <div className="fixed inset-y-0 right-4 flex items-center z-50">
-        <button
-          onClick={nextPhase}
-          className="text-white text-4xl opacity-50 hover:opacity-100"
-        >
-          →
-        </button>
-      </div>
-
-      {/* Phase Content */}
-      <div className="flex-1 flex items-center justify-center z-10">
-        {renderPhaseContent()}
-      </div>
-
-      {/* Footer */}
-      <div className="mt-auto w-full text-center z-10">
-        <a
-          href="https://dreampro.ai"
-          className="text-[#fcdfc5] !font-[AveriaSerifLibre] text-xs md:text-sm hover:text-[#858585] transition-colors"
+    <div className="h-screen flex flex-col p-4 min-w-[500px] overflow-visible relative bg-[#3B3F3F]">
+      {/* Background texture */}
+      <div className="absolute inset-0 z-0">
+        <div
+          className="absolute inset-0 z-0"
           style={{
-            background:
-              "linear-gradient(180deg, #fcdfc5 0%, #a88d6b 50%, #fcdfc5 100%)",
-            WebkitBackgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.8))",
+            backgroundImage: `url(${texture})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-[1]">
+        {/* Background elements */}
+        <div className="absolute left-1/2 top-[5%] -translate-x-1/2 z-10 flex flex-col items-center min-w-[500px]">
+          <img
+            src={createFlairImg}
+            alt="Create Flair"
+            className="w-[500px] h-auto"
+          />
+          <img
+            src={dreamrunnerlogo}
+            alt="Dreamrunner Logo"
+            className="w-[500px] h-auto"
+          />
+        </div>
+
+        <div
+          className="absolute inset-0 top-[0%] z-0 min-w-[500px] min-h-screen overflow-visible"
+          style={{
+            backgroundImage: `url(${dreamrunnerimg})`,
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "contain",
+            opacity: 1,
+            mixBlendMode: "normal",
+            transform: "scale(0.75)",
+            transformOrigin: "center center",
+          }}
+        />
+
+        {/* Debug Navigation Arrows */}
+        <div className="fixed inset-y-0 left-4 flex items-center z-50">
+          <button
+            onClick={prevPhase}
+            className="text-white text-4xl opacity-50 hover:opacity-100"
+          >
+            ←
+          </button>
+        </div>
+        <div className="fixed inset-y-0 right-4 flex items-center z-50">
+          <button
+            onClick={nextPhase}
+            className="text-white text-4xl opacity-50 hover:opacity-100"
+          >
+            →
+          </button>
+        </div>
+
+        {/* Phase Content */}
+        <div className="flex-1 flex items-center justify-center z-10">
+          {renderPhaseContent()}
+        </div>
+
+        {/* Footer */}
+        <div className="mt-auto w-full text-center z-10">
+          <Link
+            to="/mint"
+            className="text-[#fcdfc5] !font-[AveriaSerifLibre] text-xs md:text-sm hover:text-[#858585] transition-colors"
+            style={{
+              background:
+                "linear-gradient(180deg, #fcdfc5 0%, #a88d6b 50%, #fcdfc5 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.8))",
+            }}
+          >
+            &lt; RETURN TO MINT SELECTION
+          </Link>
+        </div>
+      </div>
+
+      {/* Dig video overlay */}
+      <div className="absolute inset-0 z-[2]">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+          style={{
+            mixBlendMode: "screen",
           }}
         >
-          &lt; RETURN TO HOME
-        </a>
+          <source src={digVideo} type="video/mp4" />
+        </video>
       </div>
     </div>
   );

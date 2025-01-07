@@ -530,7 +530,7 @@ const TieredMint = () => {
 
       <div className="mt-auto w-full text-center">
         <a
-          href="https://dreampro.ai"
+          href="/mint"
           className="text-[#fcdfc5] !font-[AveriaSerifLibre] text-xs md:text-sm hover:text-[#858585] transition-colors"
           style={{
             background:
@@ -540,7 +540,7 @@ const TieredMint = () => {
             filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.8))",
           }}
         >
-          &lt; RETURN TO HOME
+          &lt; RETURN TO MINT SELECTION
         </a>
         <span
           className="text-[#fcdfc5] !font-[AveriaSerifLibre] text-xs md:text-sm"
